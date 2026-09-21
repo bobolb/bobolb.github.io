@@ -1,0 +1,21 @@
+<html>
+<head>
+<!--
+<script src ="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+-->
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.css" />
+</head>    
+<body>
+<div id="map" style="width: 75%; height: 75%"></div>
+<script type="module">
+	import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
+	
+	const map = new maplibregl.Map({
+		container: 'map',
+		style: 'https://tiles.openfreemap.org/styles/bright',
+		center: [3, 44],
+		zoom: 6
+	});
+</script>
+</body>
+</html>
