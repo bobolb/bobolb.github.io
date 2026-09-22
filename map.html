@@ -97,6 +97,36 @@
 			let riskHTML = "";
 			
 			if (risks.toLowerCase().includes("w")) {
+				riskHTML += '<p style="color:red">West Nile Virus</p>';
+			}
+				
+			const mbvRisks = [];
+			
+			if (risks.toLowerCase().includes("c")) {
+				mbvRisks.push("Chikungunya Virus");
+			}
+				
+			if (risks.toLowerCase().includes("d")) {
+				mbvRisks.push("Dengue Virus");
+			}
+
+			if (risks.toLowerCase().includes("y")) {
+				mbvRisks.push("Yellow Fever Virus");
+			}
+
+			if (risks.toLowerCase().includes("z")) {
+				mbvRisks.push("Zika Virus");
+			}				
+			
+			if mbvRisks.length > 0 {
+				riskHTML += `
+				<p style="color:#1919e6">
+					${mbvRisks.join("<br />")}
+					</p>
+				`;
+			}
+/*			
+			if (risks.toLowerCase().includes("w")) {
 				riskHTML += '<p style="color:red"><b>West Nile Virus</b></p>';
 				}
 		
@@ -116,7 +146,6 @@
 				riskHTML += '<p style="color:#1919e6">Zika Virus</p>';
 				}
 
-/*
 			if (risks.toLowerCase() === "cdw") {
 				riskHTML = `
 					<p style="color:red">West Nile Virus</p>
