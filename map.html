@@ -25,12 +25,6 @@
 		hash: true,
 	});
 
-	map.on('load', async () => {
-		const image = await map.loadImage('https://maplibre.org/maplibre-gl-js/docs/assets/custom_marker.png');
-	
-	// Add an image to use as a custom marker
-    map.addImage('custom-marker', image.data);
-
 	map.addSource('places', {
         'type': 'geojson',
         'data': {
@@ -79,7 +73,8 @@
     // Create a popup, but don't add it to the map yet.
     const popup = new maplibregl.Popup({
         closeButton: false,
-        closeOnClick: false
+        closeOnClick: false,
+		offset: [0, -5]
     });
 
   // Make sure to detect marker change for overlapping markers
