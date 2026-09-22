@@ -22,8 +22,10 @@
 		center: [3.206, 44.582],
 		zoom: 5,
 		attributionControl: {compact: true, customAttribution: "Geographical Disease Risk Index | JPAC"},
-		hash: true,
+		hash: true
 	});
+
+map.on('load', async () => {
 
 	map.addSource('places', {
         'type': 'geojson',
@@ -109,6 +111,7 @@
         popup.remove();
     
 	});
+});
 </script>
 </body>
 </html>
