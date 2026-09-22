@@ -26,7 +26,8 @@
 		},
 		{
 			"id": "risks",
-			"url": "https://bobolb.github.io/sprites/risks"
+			"url": "/sprites/risks"
+			//"url": "https://bobolb.github.io/sprites/risks"
 		}
 	],
 	"glyphs": "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf",
