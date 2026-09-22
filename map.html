@@ -53,7 +53,7 @@
 
 	// Add a layer showing the places.
     map.addLayer({
-        'id': 'popup2',
+        'id': 'popup',
         'type': 'symbol',
         'source': 'popup',
         'layout': {
@@ -71,7 +71,7 @@
   // Make sure to detect marker change for overlapping markers
     // and use mousemove instead of mouseenter event
     let currentFeatureCoordinates = undefined;
-    map.on('mousemove', 'popop', (e) => {
+    map.on('mousemove', 'popup', (e) => {
         const featureCoordinates = e.features[0].geometry.coordinates.toString();
         if (currentFeatureCoordinates !== featureCoordinates) {
             currentFeatureCoordinates = featureCoordinates;
