@@ -94,8 +94,19 @@
             const name = e.features[0].properties.name;
 			const risks = e.features[0].properties.risks || "";
 
-			let riskHTML;
+			//let riskHTML;
+			
+			const riskC = (risk.toLowerCase().includes("c")
+				? riskC = '<p style="color:blue">Chikungunya Virus</p>'
+				: ""
 
+			const riskW = (risk.toLowerCase().includes("w")
+				? riskW = '<p style="color:red">West Nile Virus</p>'
+				: ""
+
+			const riskHTML = `${riskW}${riskC}`;
+
+/*
 			if (risks.toLowerCase() === "cdw") {
 				riskHTML = `
 					<p style="color:red">West Nile Virus</p>
@@ -115,7 +126,7 @@
 			} else {
 				riskHTML = """;
 			}
-
+*/
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
             // over the copy being pointed to.
