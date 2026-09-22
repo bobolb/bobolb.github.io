@@ -73,8 +73,7 @@
     // Create a popup, but don't add it to the map yet.
     const popup = new maplibregl.Popup({
         closeButton: false,
-        closeOnClick: false,
-		offset: [0, -5]
+        closeOnClick: false
     });
 
   // Make sure to detect marker change for overlapping markers
@@ -110,6 +109,8 @@
         popup.remove();
     
 	});
+
+});
 </script>
 </body>
 </html>
