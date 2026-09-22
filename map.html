@@ -103,11 +103,11 @@
 
             // Populate the popup and set its coordinates
             // based on the feature found.
-            popup.setLngLat(coordinates).setHTML('<b><big>${department}'</big></b><p>${description}</p>').addTo(map);
+            popup.setLngLat(coordinates).setHTML('<b><big>${department}</big></b><p>${description}</p>').addTo(map);
         }
     });
 
-	map.on('mouseleave', 'RiskLabels', () => {
+	map.on('mouseleave', 'LabelRisks', () => {
         currentFeatureCoordinates = undefined;
         map.getCanvas().style.cursor = '';
         popup.remove();
