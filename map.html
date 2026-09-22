@@ -25,7 +25,7 @@
 		hash: true
 	});
 
-map.on('load', async () => {
+	map.on('load', async () => {
 
 	map.addSource('places', {
         'type': 'geojson',
@@ -75,7 +75,8 @@ map.on('load', async () => {
     // Create a popup, but don't add it to the map yet.
     const popup = new maplibregl.Popup({
         closeButton: false,
-        closeOnClick: false
+        closeOnClick: false,
+		offset: [0, -5]
     });
 
   // Make sure to detect marker change for overlapping markers
