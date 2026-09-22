@@ -98,9 +98,14 @@
 
 			if (risks.toLowerCase() === "cdw") {
 				riskHTML = `
-					<p>West Nile Virus</p>
-					<p>Chikungunya</p>
-					<p>Dengue</p>
+					<p style="color:red">West Nile Virus</p>
+					<p style="color:blue">Chikungunya</p>
+					<p style="color:red">Dengue</p>
+					`;
+			} else if (risks.toLowerCase() === "dw") {
+				riskHTML = `
+					<p style="color:red">West Nile Virus</p>					
+					<p style="color:red">Dengue</p>
 					`;
 			} else {
 				riskHTML = "<p>Other risks</p>";
