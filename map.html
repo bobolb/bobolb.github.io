@@ -99,16 +99,21 @@
 			if (risks.toLowerCase() === "cdw") {
 				riskHTML = `
 					<p style="color:red">West Nile Virus</p>
-					<p style="color:blue">Chikungunya</p>
-					<p style="color:red">Dengue</p>
+					<p style="color:blue">Chikungunya Virus<br />
+					<p style="color:blue">Dengue Virus</p>
 					`;
 			} else if (risks.toLowerCase() === "dw") {
 				riskHTML = `
 					<p style="color:red">West Nile Virus</p>					
-					<p style="color:red">Dengue</p>
+					<p style="color:blue">Dengue Virus</p>
+					`;
+			} else if (risks.toLowerCase() === "cw") {
+				riskHTML = `
+					<p style="color:red">West Nile Virus</p>					
+					<p style="color:blue">Chikungunya Virus</p>
 					`;
 			} else {
-				riskHTML = "<p>Other risks</p>";
+				riskHTML = """;
 			}
 
             // Ensure that if the map is zoomed out such that multiple
