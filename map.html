@@ -95,8 +95,14 @@
         }
     });
 
-
+	map.on('mouseleave', 'places', () => {
+        currentFeatureCoordinates = undefined;
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+    
 	});
+
+});
 </script>
 </body>
 </html>
