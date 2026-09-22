@@ -92,15 +92,19 @@
 
             const coordinates = e.features[0].geometry.coordinates.slice();
             const name = e.features[0].properties.name;
-			const risks = e.features[0].properties.risks;
+			const risks = e.features[0].properties.risks || "";
 
-			let riskHTML = undefined;
+			let riskHTML;
 
-			if (risks == "cdw") {
-				riskHTML = "<p>West Nile Virus</p><p>Chikungunya</p><p>Dengue</p>";
-				} else {
+			if (risks.toLowerCase() === "cdw") {
+				riskHTML = `
+					<p>West Nile Virus</p>
+					<p>Chikungunya</p>
+					<p>Dengue</p>
+					`;
+			} else {
 				riskHTML = "<p>Other risks</p>";
-				}
+			}
 
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
