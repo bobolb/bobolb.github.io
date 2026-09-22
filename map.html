@@ -9,16 +9,16 @@
 </head>    
 <body>
 <div id="map" style="width: 100%; height: 100%"></div>
-  <script>
+<!--  <script>
       var useRetina = window.devicePixelRatio > 1;
     </script>
+-->
 	<script type="module">
 	import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
 	
 	const map = new maplibregl.Map({
 		container: 'map',
-        style: 'https://raw.githubusercontent.com/bobolb/risks/main/jpac_style.json',
-		//style: 'https://tiles.openfreemap.org/styles/bright',
+        style: 'style.json',
 		center: [3.206, 44.582],
 		zoom: 5,
 		attributionControl: {compact: true, customAttribution: "Geographical Disease Risk Index | JPAC"},
@@ -82,9 +82,8 @@
   // Make sure to detect marker change for overlapping markers
     // and use mousemove instead of mouseenter event
     let currentFeatureCoordinates = undefined;
-    //map.on('mousemove', 'LabelRisks', (e) => {
-	map.on('mousemove', 'riskWNV', (e) => {
-        const featureCoordinates = e.features[0].geometry.coordinates.toString();
+    map.on('mousemove', 'LabelRisks', (e) => {
+	    const featureCoordinates = e.features[0].geometry.coordinates.toString();
         if (currentFeatureCoordinates !== featureCoordinates) {
             currentFeatureCoordinates = featureCoordinates;
 
@@ -180,7 +179,7 @@
         }
     });
 
-	map.on('mouseleave', 'riskWNV', () => {
+	map.on('mouseleave', 'LabelRisks', () => {
         currentFeatureCoordinates = undefined;
         map.getCanvas().style.cursor = '';
         popup.remove();
