@@ -91,7 +91,7 @@
             map.getCanvas().style.cursor = 'pointer';
 
             const coordinates = e.features[0].geometry.coordinates.slice();
-            const description = e.features[0].properties.description;
+            const description = e.features[0].properties.risks;
 
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
@@ -102,11 +102,11 @@
 
             // Populate the popup and set its coordinates
             // based on the feature found.
-            popup.setLngLat(coordinates).setHTML(description).addTo(map);
+            popup.setLngLat(coordinates).setHTML("<p>" + description + </p>).addTo(map);
         }
     });
 
-	map.on('mouseleave', 'places', () => {
+	map.on('mouseleave', 'RiskLabels', () => {
         currentFeatureCoordinates = undefined;
         map.getCanvas().style.cursor = '';
         popup.remove();
