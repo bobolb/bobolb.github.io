@@ -91,8 +91,8 @@
             map.getCanvas().style.cursor = 'pointer';
 
             const coordinates = e.features[0].geometry.coordinates.slice();
-            const department = e.features[0].properties.name_1;
-			const description = e.features[0].properties.risks;
+            const name = e.features[0].properties.name;
+			const risks = e.features[0].properties.risks;
 
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
@@ -103,7 +103,7 @@
 
             // Populate the popup and set its coordinates
             // based on the feature found.
-            popup.setLngLat(coordinates).setHTML(`<b><big>${department}</big></b><p>${description}</p>`).addTo(map);
+            popup.setLngLat(coordinates).setHTML(`<b><big>${department}</big></b><p>${risks}</p>`).addTo(map);
         }
     });
 
