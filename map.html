@@ -31,7 +31,7 @@
 	// Add an image to use as a custom marker
     map.addImage('custom-marker', image.data);
 
-	map.addSource('popup', {
+	map.addSource('places', {
         'type': 'geojson',
         'data': {
             'type': 'FeatureCollection',
@@ -53,9 +53,9 @@
 
 	// Add a layer showing the places.
     map.addLayer({
-        'id': 'popup',
+        'id': 'places',
         'type': 'symbol',
-        'source': 'popup',
+        'source': 'places',
         'layout': {
             'icon-image': 'custom-marker',
             'icon-overlap': 'always'
@@ -71,7 +71,7 @@
   // Make sure to detect marker change for overlapping markers
     // and use mousemove instead of mouseenter event
     let currentFeatureCoordinates = undefined;
-    map.on('mousemove', 'popup', (e) => {
+    map.on('mousemove', 'places', (e) => {
         const featureCoordinates = e.features[0].geometry.coordinates.toString();
         if (currentFeatureCoordinates !== featureCoordinates) {
             currentFeatureCoordinates = featureCoordinates;
