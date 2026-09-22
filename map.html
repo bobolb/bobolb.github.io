@@ -31,7 +31,7 @@
 	// Add an image to use as a custom marker
     map.addImage('custom-marker', image.data);
 
-	map.addSource('places', {
+	map.addSource('popup', {
         'type': 'geojson',
         'data': {
             'type': 'FeatureCollection',
@@ -53,9 +53,9 @@
 
 	// Add a layer showing the places.
     map.addLayer({
-        'id': 'places',
+        'id': 'popup2',
         'type': 'symbol',
-        'source': 'places',
+        'source': 'popup',
         'layout': {
             'icon-image': 'custom-marker',
             'icon-overlap': 'always'
