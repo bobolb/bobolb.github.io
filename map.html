@@ -94,17 +94,22 @@
             const name = e.features[0].properties.name;
 			const risks = e.features[0].properties.risks || "";
 
-			//let riskHTML;
+			let riskHTML = "";
 			
-			const riskC = (risk.toLowerCase().includes("c")
-				? riskC = '<p style="color:blue">Chikungunya Virus</p>'
-				: ""
+			if risk.toLowerCase().includes("w") {
+				riskHTML += '<p style="color:red">West Nile Virus</p>';}
+		
+			if risk.toLowerCase().includes("c") {
+				riskHTML += '<p style="color:#1919e6">Chikungunya Virus</p>';}
 
-			const riskW = (risk.toLowerCase().includes("w")
-				? riskW = '<p style="color:red">West Nile Virus</p>'
-				: ""
+			if risk.toLowerCase().includes("d") {
+				riskHTML += '<p style="color:#1919e6">Dengue Virus</p>';}
 
-			const riskHTML = `${riskW}${riskC}`;
+			if risk.toLowerCase().includes("y") {
+				riskHTML += '<p style="color:#1919e6">Yellow Fever Virus </p>';}
+
+			if risk.toLowerCase().includes("z") {
+				riskHTML += '<p style="color:#1919e6">Zika Virus</p>';}
 
 /*
 			if (risks.toLowerCase() === "cdw") {
