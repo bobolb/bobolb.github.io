@@ -40,7 +40,7 @@
                     'type': 'Feature',
                     'properties': {
                         'description':
-                            '<p><h1>Vaucluse</h1><p>Chikungunya</p><p>Dengue</p>'
+                            '<p><b>Vaucluse</b><ul><li>Chikungunya</li><li>Dengue</li></ul>'
                     },
                     'geometry': {
                         'type': 'Point',
@@ -58,7 +58,20 @@
         'source': 'places',
         'layout': {
             'icon-image': 'risks:cdw',
-            'icon-overlap': 'always'
+            'icon-overlap': 'always',
+			"icon-size": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					6,
+					0.1,
+					6.2,
+					1
+				],
         }
     });
 
