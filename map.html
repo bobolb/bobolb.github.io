@@ -94,6 +94,14 @@
             const name = e.features[0].properties.name;
 			const risks = e.features[0].properties.risks;
 
+			let riskHTML = undefined;
+
+			if (risks = "cdw") {
+				riskHTML = "<p>West Nile Virus</p><p>Chikungunya</p><p>Dengue</p>";
+				} else {
+				riskHTML = "<p>Other risks</p>";
+				}
+
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
             // over the copy being pointed to.
@@ -103,7 +111,7 @@
 
             // Populate the popup and set its coordinates
             // based on the feature found.
-            popup.setLngLat(coordinates).setHTML(`<b><big>${name}</big></b><p>${risks}</p>`).addTo(map);
+            popup.setLngLat(coordinates).setHTML(`<b><big>${name}</big></b>${riskHTML}`).addTo(map);
         }
     });
 
