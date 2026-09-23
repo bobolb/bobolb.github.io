@@ -91,7 +91,7 @@
             map.getCanvas().style.cursor = 'pointer';
 
             const coordinates = e.features[0].geometry.coordinates.slice();
-            const name = e.features[0].properties.name;
+            const name = e.features[0].properties.name.toUpperCase();
 			const risks = e.features[0].properties.risks || "";
 
 			let riskHTML = "";
