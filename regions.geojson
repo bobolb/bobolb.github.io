@@ -310295,6 +310295,7 @@
 				"name": "Andalucía",
 				"riskMBV": false,
 				"riskWNV": true,
+				"risks": "w",
 				"dist_pole": 0.7619739434690903
 			},
 			"id": "5acae7cf-d1bb-4140-949d-b56bbe5be74e"
@@ -310575,6 +310576,7 @@
 				"name": "Extremadura",
 				"riskMBV": false,
 				"riskWNV": true,
+				"risks": "w",
 				"dist_pole": 0.8773752404188304
 			},
 			"id": "e988f3ff-ba73-4369-b10d-3a6ac11e47c2"
@@ -379612,7 +379614,7 @@
 				"CC_2": "49",
 				"HASC_2": "IT.LI",
 				"name": "Livorno",
-				"riskMBV": null,
+				"riskMBV": true,
 				"riskWNV": null
 			},
 			"geometry": {
