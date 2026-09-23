@@ -7200,7 +7200,7 @@
 			}
 		},
 		{
-			"id": "LabelRisks",
+			"id": "LabelRisks-original",
 			"type": "symbol",
 			"source": "riskRegions",
 			"minzoom": 6,
@@ -7230,7 +7230,8 @@
 					1
 				],
 				"icon-allow-overlap": true,
-				"icon-ignore-placement": false
+				"icon-ignore-placement": false,
+				"visibility": "none"
 			},
 			"filter": [
 				"all",
@@ -7245,6 +7246,56 @@
 					"has",
 					"risks"
 					
+				]
+			]
+		},
+		{
+			"id": "LabelRisks",
+			"type": "symbol",
+			"source": "riskRegions",
+			"minzoom": 6,
+			"layout": {
+				"icon-image": [
+					"case",
+					[
+					"all",
+					["get", "riskWNV"],
+					["get", "riskMBV"],
+					],
+					"risks:wnv-mbv",
+					["get", "riskWNV"],
+					"risks:wnv-only",					
+					"risks:mbv-only"
+				],
+				"icon-size": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					6,
+					0.1,
+					6.3,
+					1
+				],
+				"icon-allow-overlap": true,
+				"icon-ignore-placement": false
+			},
+			"filter": [
+				"all",
+				[
+					"==",
+					[
+						"geometry-type"
+					],
+					"Point"
+				],
+				[
+					"any",
+					["get", "riskWNV"],
+					["get", "riskMBV"]
 				]
 			]
 		}
