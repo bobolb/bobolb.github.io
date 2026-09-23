@@ -7,11 +7,11 @@
     "y": 0
   },
   "w": {
-    "height": 64,
-    "width": 64,
+    "height": 32,
+    "width": 32,
     "pixelRatio": 1,
-    "x": 128,
-    "y": 128
+    "x": 0,
+    "y": 64
   },
   "c": {
     "height": 32,
@@ -42,18 +42,18 @@
     "y": 64
   },
   "cdw": {
-    "height": 64,
-    "width": 64,
+    "height": 32,
+    "width": 96,
     "pixelRatio": 1,
-    "x": 64,
-    "y": 128
+    "x": 0,
+    "y": 64
   },
   "dw": {
-    "height": 64,
+    "height": 32,
     "width": 64,
     "pixelRatio": 1,
     "x": 0,
-    "y": 128
+    "y": 96
   },
   "cd": {
     "height": 32,
