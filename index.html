@@ -97,30 +97,30 @@
 			let riskHTML = "";
 			
 			if (risks.toLowerCase().includes("w")) {
-				riskHTML += '<p><span style="color:red; font-weight:bold; font-family:ui-monospace, monospace">W </span>West Nile Virus</p>';
+				riskHTML += '<p style="color:red; font-weight:bold">West Nile Virus</p>';
 			}
 				
 			const mbvRisks = [];
 			
 			if (risks.toLowerCase().includes("c")) {
-				mbvRisks.push('<span style="color:#1919e6; font-weight:bold; font-family:ui-monospace, monospace">C </span>Chikungunya Virus');
+				mbvRisks.push('Chikungunya Virus');
 			}
 				
 			if (risks.toLowerCase().includes("d")) {
-				mbvRisks.push('<span style="color:#1919e6; font-weight:bold; font-family:ui-monospace, monospace">D </span>Dengue Virus');
+				mbvRisks.push('Dengue Virus');
 			}
 
 			if (risks.toLowerCase().includes("y")) {
-				mbvRisks.push('<span style="color:#1919e6; font-weight:bold; font-family:ui-monospace, monospace">Y </span>Yellow Fever Virus');
+				mbvRisks.push('Yellow Fever Virus');
 			}
 
 			if (risks.toLowerCase().includes("z")) {
-				mbvRisks.push('<span style="color:#1919e6; font-weight:bold; font-family:ui-monospace, monospace">Z </span>Zika Virus');
+				mbvRisks.push('Zika Virus');
 			}				
 			
 			if (mbvRisks.length > 0) {
 				riskHTML += `
-				<p>
+				<p style="color:#1919e6; font-weight:bold">
 					${mbvRisks.join("<br />")}
 					</p>
 				`;
