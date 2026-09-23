@@ -103,7 +103,7 @@
 			const mbvRisks = [];
 			
 			if (risks.toLowerCase().includes("c")) {
-				mbvRisks.push("Chikungunya Virus");
+				mbvRisks.push("<span style="color:1919e6; font-weight:bold">C</span> | Chikungunya Virus");
 			}
 				
 			if (risks.toLowerCase().includes("d")) {
@@ -120,7 +120,7 @@
 			
 			if (mbvRisks.length > 0) {
 				riskHTML += `
-				<p style="color:#1919e6; font-weight:bold">
+				<p>
 					${mbvRisks.join("<br />")}
 					</p>
 				`;
