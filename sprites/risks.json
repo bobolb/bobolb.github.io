@@ -49,11 +49,11 @@
     "y": 64
   },
   "dw": {
-    "height": 32,
+    "height": 64,
     "width": 64,
     "pixelRatio": 1,
     "x": 0,
-    "y": 96
+    "y": 128
   },
   "cd": {
     "height": 32,
