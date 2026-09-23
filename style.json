@@ -6456,7 +6456,7 @@
 					6.3,
 					0.85
 				],
-				"icon-allow-overlap": false,
+				"icon-allow-overlap": true,
 				"icon-ignore-placement": false
 			},
 			"filter": [
