@@ -98,7 +98,12 @@
     const popup = new maplibregl.Popup({
         closeButton: false,
         closeOnClick: false,
-		offset: [0, -18]
+								offset: {
+								top: [0, 18],
+								bottom: [0, -18],
+								left: [18, 0],
+								right: [-18, 0]
+								}
     });
 
   // Make sure to detect marker change for overlapping markers
