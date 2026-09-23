@@ -6427,55 +6427,6 @@
 			]
 		},
 		{
-			"id": "LabelRisks",
-			"type": "symbol",
-			"source": "riskRegions",
-			"minzoom": 6,
-			"layout": {
-				"icon-image": [
-					"concat",
-					"risks:",
-					[
-						"to-string",
-						[
-							"get",
-							"risks"
-						]
-					]
-				],
-				"icon-size": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					6,
-					0.1,
-					6.3,
-					0.8
-				],
-				"icon-allow-overlap": true,
-				"icon-ignore-placement": false
-			},
-			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"geometry-type"
-					],
-					"Point"
-				],
-				[
-					"has",
-					"risks"
-					
-				]
-			]
-		},
-		{
 			"id": "label_other",
 			"type": "symbol",
 			"source": "openmaptiles",
@@ -7247,6 +7198,55 @@
 				"text-halo-color": "#fff",
 				"text-halo-width": 1
 			}
+		},
+		{
+			"id": "LabelRisks",
+			"type": "symbol",
+			"source": "riskRegions",
+			"minzoom": 6,
+			"layout": {
+				"icon-image": [
+					"concat",
+					"risks:",
+					[
+						"to-string",
+						[
+							"get",
+							"risks"
+						]
+					]
+				],
+				"icon-size": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					6,
+					0.1,
+					6.3,
+					0.8
+				],
+				"icon-allow-overlap": true,
+				"icon-ignore-placement": false
+			},
+			"filter": [
+				"all",
+				[
+					"==",
+					[
+						"geometry-type"
+					],
+					"Point"
+				],
+				[
+					"has",
+					"risks"
+					
+				]
+			]
 		}
 	],
 	"id": "JPAC",
