@@ -97,17 +97,17 @@
 			let riskHTML = "";
 			
 			if (risks.toLowerCase().includes("w")) {
-				riskHTML += '<p><span style="color:red; font-weight:bold">W</span> | West Nile Virus</p>';
+				riskHTML += '<p><span style="color:red; font-weight:bold; font-family:monospace">W</span> | West Nile Virus</p>';
 			}
 				
 			const mbvRisks = [];
 			
 			if (risks.toLowerCase().includes("c")) {
-				mbvRisks.push('<span style="color:1919e6; font-weight:bold">C</span> | Chikungunya Virus');
+				mbvRisks.push('<span style="color:#1919e6; font-weight:bold; font-family:monospace">C</span> | Chikungunya Virus');
 			}
 				
 			if (risks.toLowerCase().includes("d")) {
-				mbvRisks.push("D&Tab;Dengue Virus");
+				mbvRisks.push("Dengue Virus");
 			}
 
 			if (risks.toLowerCase().includes("y")) {
