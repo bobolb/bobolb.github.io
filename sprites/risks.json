@@ -42,11 +42,11 @@
     "y": 64
   },
   "cdw": {
-    "height": 32,
-    "width": 96,
+    "height": 64,
+    "width": 64,
     "pixelRatio": 1,
-    "x": 0,
-    "y": 64
+    "x": 64,
+    "y": 128
   },
   "dw": {
     "height": 64,
