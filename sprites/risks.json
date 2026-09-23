@@ -69,25 +69,25 @@
     "x": 0,
     "y": 64
   },
-  "wnv-only": {
+  "wnv-mbv": {
     "height": 32,
     "width": 32,
     "pixelRatio": 1,
     "x": 0,
     "y": 32
   },
-  "mbv-only": {
+  "wnv-only": {
     "height": 32,
     "width": 32,
     "pixelRatio": 1,
     "x": 32,
     "y": 32
   },
-  "wnv-mbv": {
+  "mbv-only": {
     "height": 32,
     "width": 32,
     "pixelRatio": 1,
     "x": 64,
     "y": 32
-  }
+  }  
 }
