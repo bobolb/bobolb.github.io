@@ -6454,10 +6454,10 @@
 					6,
 					0.1,
 					6.3,
-					0.75
+					1
 				],
 				"icon-allow-overlap": true,
-				"icon-ignore-placement": true
+				"icon-ignore-placement": false
 			},
 			"filter": [
 				"all",
