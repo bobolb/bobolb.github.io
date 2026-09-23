@@ -7260,7 +7260,7 @@
 					[
 					"all",
 					["get", "riskWNV"],
-					["get", "riskMBV"],
+					["get", "riskMBV"]
 					],
 					"risks:wnv-mbv",
 					["get", "riskWNV"],
