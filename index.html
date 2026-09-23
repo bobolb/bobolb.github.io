@@ -61,52 +61,6 @@ map.addControl(new maplibregl.NavigationControl({
 }));
 
 	map.on('load', async () => {
-/*
-	map.addSource('places', {
-        'type': 'geojson',
-        'data': {
-            'type': 'FeatureCollection',
-            'features': [
-                {
-                    'type': 'Feature',
-                    'properties': {
-                        'description':
-                            '<p><strong><big>Vaucluse</big></strong><p style="color:red">West Nile Virus</p><p style="color:blue">Chikungunya Virus<br />Dengue Virus</p>'
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [3.203, 44.582]
-                    }
-                }                
-            ]
-        }
-    });
-
-	// Add a layer showing the places.
-    map.addLayer({
-        'id': 'places',
-        'type': 'symbol',
-        'source': 'places',
-        'minzoom': 6,
-		'layout': {
-            'icon-image': 'risks:cdw',
-            'icon-overlap': 'always',
-			"icon-size": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					6,
-					0.1,
-					6.3,
-					0.75
-				],
-        }
-    });
-*/
     // Create a popup, but don't add it to the map yet.
     const popup = new maplibregl.Popup({
         closeButton: false,
@@ -169,47 +123,7 @@ map.addControl(new maplibregl.NavigationControl({
 					</p>
 				`;
 			}
-/*			
-			if (risks.toLowerCase().includes("w")) {
-				riskHTML += '<p style="color:red"><b>West Nile Virus</b></p>';
-				}
-		
-			if (risks.toLowerCase().includes("c")) {
-				riskHTML += '<p style="color:#1919e6">Chikungunya Virus</p>';
-				}
 
-			if (risks.toLowerCase().includes("d")) {
-				riskHTML += '<ul><li style="color:#1919e6">Dengue Virus</li></ul>';
-				}
-
-			if (risks.toLowerCase().includes("y")) {
-				riskHTML += '<p style="color:#1919e6">Yellow Fever Virus </p>';
-				}
-
-			if (risks.toLowerCase().includes("z")) {
-				riskHTML += '<p style="color:#1919e6">Zika Virus</p>';
-				}
-
-			if (risks.toLowerCase() === "cdw") {
-				riskHTML = `
-					<p style="color:red">West Nile Virus</p>
-					<p style="color:blue">Chikungunya Virus<br />
-					<p style="color:blue">Dengue Virus</p>
-					`;
-			} else if (risks.toLowerCase() === "dw") {
-				riskHTML = `
-					<p style="color:red">West Nile Virus</p>					
-					<p style="color:blue">Dengue Virus</p>
-					`;
-			} else if (risks.toLowerCase() === "cw") {
-				riskHTML = `
-					<p style="color:red">West Nile Virus</p>					
-					<p style="color:blue">Chikungunya Virus</p>
-					`;
-			} else {
-				riskHTML = """;
-			}
-*/
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
             // over the copy being pointed to.
