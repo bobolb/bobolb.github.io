@@ -145,7 +145,8 @@ const geocoderApi = {
                         coordinates: center
                     },
                     bbox: feature.bbox,
-                    text: feature.properties.display_name,                    
+                    text: feature.properties.name,                    
+					place_name_long: feature.properties.display_name,
 					place_name_short: feature.properties.name,
                     place_type: feature.properties.addresstype,
 					properties: feature.properties,							                   
