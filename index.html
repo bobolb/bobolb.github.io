@@ -34,6 +34,11 @@
 </style>
 </head>    
 <body>
+<script src="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.css"
+/>
 <div id="zoom-display" style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; font-family: sans-serif; z-index: 1;">
   Zoom: <span id="zoom-level"></span>
 </div>
@@ -42,8 +47,6 @@
 	<script>
 	var useRetina = window.devicePixelRatio > 1;
     </script>
-
-	<script src="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.min.js"></script>
 
 	<script type="module">
 	
