@@ -63,39 +63,41 @@
 	});
 
 const geocoderApi = {
-        forwardGeocode: async (config) => {
-            const features = [];
-            try {
-                const request =
-            `https://nominatim.openstreetmap.org/search?q=${
-                config.query
-            }&format=geojson&polygon_geojson=1&addressdetails=1`;
-                const response = await fetch(request);
-                const geojson = await response.json();
-                for (const feature of geojson.features) {
-					console.log("RAW FEATURE:", feature);
-                    let center;
-					if (feature.geometry.type === "Point") {
-						center = feature.geometry.coordinates;
-					} else {
-						center = [
-						(feature.bbox[0] + feature.bbox[2]) / 2,
-						(feature.bbox[1] + feature.bbox[3]) / 2
-						];
-					}
-					const point = {
-						type: 'Feature',
-						geometry: {
-							type: 'Point',
-							coordinates: center
-						},
-						bbox: feature.bbox,
-						place_name: feature.properties.display_name,
-						properties: feature.properties,
-						text: feature.properties.display_name,
-						place_type: ['place'],
-						center
-					};
+    forwardGeocode: async (config) => {
+        const features = [];
+
+        try {
+            const request =
+                `https://nominatim.openstreetmap.org/search?q=${config.query}&format=geojson&polygon_geojson=1&addressdetails=1`;
+
+            const response = await fetch(request);
+            const geojson = await response.json();
+
+            for (const feature of geojson.features) {
+                console.log(                let center;
+
+                if (feature.geometry.type === "Point") {
+                    center = feature.geometry.coordinates;
+                } else {
+                    center = [
+                        (feature.bbox[0] + feature.bbox[2]) / 2,
+                        (feature.bbox[1] + feature.bbox[3]) / 2
+                    ];
+                }
+
+                const point = {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: center
+                    },
+                    bbox: feature.bbox,
+                    place_name: feature.properties.display_name,
+                    properties: feature.properties,
+                    text: feature.properties.display_name,
+                    place_type: ['place'],
+                    center
+                };
 					/*
 					const center = [
                         feature.bbox[0] +
@@ -116,18 +118,17 @@ const geocoderApi = {
                         place_type: ['place'],
                         center
                     */
-					};
-                    features.push(point);
-                }
-            } catch (e) {
-                console.error(`Failed to forwardGeocode with error: ${e}`);
+                features.push(point);
             }
-
-            return {
-                features
-            };
+        } catch (e) {
+            console.error(`Failed to forwardGeocode with error: ${e}`);
         }
-    };
+
+        return {
+            features
+        };
+    }
+};
  
 const zoomDisplay = document.getElementById('zoom-level');
 
