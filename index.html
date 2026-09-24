@@ -101,6 +101,8 @@ const geocoderApi = {
 			
             for (const feature of geojson.features) {               
 				
+				console.log("Raw feature:", feature);
+				
 				if (
 				!['country',
 				'region',
