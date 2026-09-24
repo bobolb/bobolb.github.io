@@ -129,7 +129,7 @@ const geocoderApi = {
     }
 };
 
-const geocoder = new MaplibreGeocoder(geocoderApi, {maplibregl});
+const geocoder = new MaplibreGeocoder(geocoderApi, {maplibregl, flyTo: false});
 
 map.addControl(geocoder);
 
