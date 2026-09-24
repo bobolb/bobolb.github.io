@@ -6589,7 +6589,7 @@
 				"text-color": "#000",
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
-				"text-halo-width": 1
+				"text-halo-width": 2
 			}
 		},
 		{
@@ -6674,7 +6674,7 @@
 				"text-color": "#000",
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
-				"text-halo-width": 1
+				"text-halo-width": 2
 			}
 		},
 		{
@@ -6952,7 +6952,7 @@
 				"text-color": "#000",
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
-				"text-halo-width": 1
+				"text-halo-width": 2
 			}
 		},
 		{
