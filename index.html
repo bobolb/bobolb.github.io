@@ -168,7 +168,11 @@ geocoder.on('result', (e) => {
 	console.log("Result selected:", e.result);
 
     if (
-        result.properties?.category === 'boundary' &&
+        ['country',
+		'region',
+		'state',
+		'municipality',
+		'county'].includes(result.properties?.addresstype) &&
         result.bbox
     ) {
         map.fitBounds(
