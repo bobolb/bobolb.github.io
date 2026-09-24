@@ -133,6 +133,7 @@ map.addControl(geocoder);
 
 geocoder.on('result', (e) => {    
 	const result = e.result;
+	console.log("Result selected:", e.result);
 
     if (
         result.properties?.addresstype === 'country' &&
@@ -152,8 +153,6 @@ geocoder.on('result', (e) => {
         });
     }
 });
-
-console.log("Result selected:", e.result.place_name);
 
 /*
 geocoder.on('result', (e) => {
