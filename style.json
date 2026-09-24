@@ -7196,7 +7196,21 @@
 				]
 			},
 			"paint": {
-				"text-color": "#323232",
+				"text-color": [
+      "interpolate",
+      [
+        "linear"
+      ],
+      [
+        "zoom"
+      ],
+      0,
+      "hsl(0, 0%, 0%)",
+      4,
+      "hsl(0, 0%, 0%)",
+      5,
+      "hsl(205, 11%, 47%)"
+    ],
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 2
