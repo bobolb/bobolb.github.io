@@ -99,12 +99,7 @@ const geocoderApi = {
             };
         }
     };
-    map.addControl(
-        new MaplibreGeocoder(geocoderApi, {
-            maplibregl
-        })
-    );
-
+  
 const zoomDisplay = document.getElementById('zoom-level');
 
   // Set initial zoom level
@@ -116,6 +111,8 @@ const zoomDisplay = document.getElementById('zoom-level');
   });
 
 map.touchPitch.disable();
+
+map.addControl(new MaplibreGeocoder(geocoderApi, {maplibregl}));
 
 map.addControl(new maplibregl.NavigationControl({
     visualizePitch: true,
