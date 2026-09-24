@@ -35,13 +35,9 @@
 		width: min(500px, 80vw);
 	}
 	
-	.maplibre-ctrl-geocoder--button {
-    display: block !important;
-}
-
-.maplibre-ctrl-geocoder--input:placeholder-shown ~ .maplibre-gl-geocoder--button {
-    cursor: default;
-    opacity: 0.5; /* Optional: dim it when there is nothing to clear */
+.maplibregl-ctrl-geocoder:has(input:not(:placeholder-shown))
+  .maplibregl-ctrl-geocoder--button {
+  display: block !important;
 }
 
 </style>
