@@ -154,6 +154,8 @@ map.addControl(new maplibregl.NavigationControl({
 
             const coordinates = e.features[0].geometry.coordinates.slice();
             const name = e.features[0].properties.name;
+			const country = e.features[0].properties.COUNTRY || "";
+			const type = e.features[0].properties.ENGTYPE_2 || "";
 			const risks = e.features[0].properties.risks || "";
 
 			let riskHTML = "";
@@ -197,7 +199,7 @@ map.addControl(new maplibregl.NavigationControl({
 
             // Populate the popup and set its coordinates
             // based on the feature found.
-            popup.setLngLat(coordinates).setHTML(`<p><b><big>${name}</big></b><br /><span style="color:#636363">France &vert; Department</span></p>${riskHTML}`).addTo(map);
+            popup.setLngLat(coordinates).setHTML(`<p><b><big>${name}</big></b><br /><span style="color:#636363">${country} &vert; ${type}</span></p>${riskHTML}`).addTo(map);
         };
     });
 
