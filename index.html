@@ -91,11 +91,13 @@ const geocoderApi = {
 			`&addressdetails=1` +
 			`&limit=5`;
 
-			console.log(request);		
+			console.log("Request:", request);
 			
             const response = await fetch(request);
             const geojson = await response.json();
 
+			console.log("Response:", response);
+			
             for (const feature of geojson.features) {               
 				
 				if (
