@@ -62,15 +62,6 @@
 		pitchWithRotate: false
 	});
 
-const geocoder = new MaplibreGeocoder(geocoderApi, {maplibregl});
-
-map.addControl(geocoder);
-
-geocoder.on('results', (e) => {
-console.log(e.features);
-});
-
-/*
 const geocoderApi = {
         forwardGeocode: async (config) => {
             const features = [];
@@ -111,7 +102,7 @@ const geocoderApi = {
             };
         }
     };
-*/  
+ 
 const zoomDisplay = document.getElementById('zoom-level');
 
   // Set initial zoom level
@@ -123,6 +114,12 @@ const zoomDisplay = document.getElementById('zoom-level');
   });
 
 map.touchPitch.disable();
+
+const geocoder = new MaplibreGeocoder(geocoderApi, {maplibregl});
+
+map.addControl(geocoder);
+
+geocoder.on('results', (e) => {console.log(e.features);});
 
 //map.addControl(new MaplibreGeocoder(geocoderApi, {maplibregl}));
 
