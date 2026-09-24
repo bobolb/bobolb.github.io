@@ -156,6 +156,14 @@ const geocoderApi = {
 
 const geocoder = new MaplibreGeocoder(geocoderApi, {
 	maplibregl,
+	render: function(item) {
+		return `
+			<div>
+				<strong>${item.text}</strong><br />
+				<small>${item.properties.addresstype}</small>
+			</div>
+			`;
+	},
 	marker: false,
 	flyTo: false,
 	showResultsWhileTyping: true,
