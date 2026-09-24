@@ -172,7 +172,7 @@ const geocoder = new MaplibreGeocoder(geocoderApi, {
 		const typeFormatted = type.charAt(0).toUpperCase() + type.slice(1);
 		return `
 			<div>
-				<strong>${item.text}</strong><br />
+				<strong>${item.place_name_long}</strong><br />
 				<small>${typeFormatted}</small>
 			</div>
 			`;
