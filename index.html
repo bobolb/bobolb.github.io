@@ -50,7 +50,17 @@
 		hash: true,
 		pitchWithRotate: false
 	});
-	
+
+const zoomDisplay = document.getElementById('zoom-level');
+
+  // Set initial zoom level
+  zoomDisplay.textContent = map.getZoom().toFixed(5);
+
+  // Update zoom level on move/zoom
+  map.on('zoom', () => {
+    zoomDisplay.textContent = map.getZoom().toFixed(5);
+  });
+
 map.touchPitch.disable();
 
 map.addControl(new maplibregl.NavigationControl({
