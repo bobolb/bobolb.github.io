@@ -68,7 +68,7 @@ const geocoderApi = {
 
         try {
             const request =
-                `https://nominatim.openstreetmap.org/search?q=${config.query}&format=geojson&polygon_geojson=1&addressdetails=1`;
+            `https://nominatim.openstreetmap.org/search?q=${config.query}&format=geojson&polygon_geojson=1&addressdetails=1`;
 
             const response = await fetch(request);
             const geojson = await response.json();
@@ -82,9 +82,9 @@ const geocoderApi = {
                     center = feature.geometry.coordinates;
                 } else {
                     center = [
-                        (feature.bbox[0] + feature.bbox[2]) / 2,
-                        (feature.bbox[1] + feature.bbox[3]) / 2
-                    ];
+						(feature.bbox[0] + feature.bbox[2]) / 2,
+						(feature.bbox[1] + feature.bbox[3]) / 2
+					];
                 }
 
                 const point = {
@@ -148,7 +148,27 @@ const geocoder = new MaplibreGeocoder(geocoderApi, {maplibregl});
 
 map.addControl(geocoder);
 
-geocoder.on('results', (e) => {console.log(e.features);});
+//geocoder.on('results', (e) => {console.log(e.features);});
+
+geocoder.on('result', (e) => {
+
+    const result = e.result;
+
+    if (
+        result.properties?.addresstype === 'country' &&
+        result.bbox
+    ) {
+        map.fitBounds(
+            [
+                [result.bbox[0], result.bbox[1]],
+                [result.bbox[2], result.bbox[3]]
+            ],
+            {
+                padding: 50
+            }
+        );
+    }
+});
 
 //map.addControl(new MaplibreGeocoder(geocoderApi, {maplibregl}));
 
