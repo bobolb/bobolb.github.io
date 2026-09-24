@@ -73,7 +73,15 @@ const geocoderApi = {
                 const response = await fetch(request);
                 const geojson = await response.json();
                 for (const feature of geojson.features) {
-                    const center = feature.geometry.coordinates;
+                    let center;
+					if (feature.geometry.type === "Point") {
+						center = feature.geometry.coordinates;
+					} else {
+						center = [
+						(feature.bbox[0] + feature.bbox[2]) / 2,
+						(feature.bbox[1] + feature.bbox[3]) / 2
+						];
+}
 					/*
 					const center = [
                         feature.bbox[0] +
@@ -109,11 +117,11 @@ const geocoderApi = {
 const zoomDisplay = document.getElementById('zoom-level');
 
   // Set initial zoom level
-  zoomDisplay.textContent = map.getZoom().toFixed(5);
+  zoomDisplay.textContent = map.getZoom().toFixed(1);
 
   // Update zoom level on move/zoom
   map.on('zoom', () => {
-    zoomDisplay.textContent = map.getZoom().toFixed(5);
+    zoomDisplay.textContent = map.getZoom().toFixed(1);
   });
 
 map.touchPitch.disable();
