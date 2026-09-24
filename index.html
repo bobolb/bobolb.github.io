@@ -6,7 +6,7 @@
 <style>
 	.maplibregl-popup-content {
 		background-color: #ffffff;
-		padding-top: 15px;
+		padding-top: 10px;
 		padding-bottom: 10px;
 		padding-right: 20px;
 		padding-left: 20px;
@@ -133,7 +133,7 @@ map.addControl(new maplibregl.NavigationControl({
 
             // Populate the popup and set its coordinates
             // based on the feature found.
-            popup.setLngLat(coordinates).setHTML(`<p>France &vert; Department<br /><b><big>${name}</big></b></p>${riskHTML}`).addTo(map);
+            popup.setLngLat(coordinates).setHTML(`<p><b><big>${name}</big></b><br /><small>France &vert; Department</small></p>${riskHTML}`).addTo(map);
         };
     });
 
