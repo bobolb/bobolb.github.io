@@ -75,7 +75,9 @@ map.addControl(new maplibregl.NavigationControl({
     visualizeRoll: true,
     showZoom: true,
     showCompass: true
-}));
+	}),
+	'bottom-left'
+);
 
 const geocoderApi = {
     forwardGeocode: async (config) => {
