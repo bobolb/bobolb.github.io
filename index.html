@@ -79,6 +79,15 @@ map.addControl(new maplibregl.NavigationControl({
 	'top-right'
 );
 
+const bounds = map.getBounds();
+
+const viewbox = [
+	bounds.getSouthWest().lng,
+	bounds.getSouthWest().lat,
+	bounds.getNorthEast().lng,
+	bounds.getNorthEast().lat
+].join(',');
+
 const geocoderApi = {
     forwardGeocode: async (config) => {
         const features = [];
@@ -89,7 +98,8 @@ const geocoderApi = {
 			`&format=geojson` +
 			//`&polygon_geojson=1` +
 			`&addressdetails=1` +
-			`&limit=5`;
+			`&limit=5` +
+			`&viewbox=${viewbox}`;
 
 			console.log("Request:", request);
 			
@@ -162,7 +172,7 @@ const geocoder = new MaplibreGeocoder(geocoderApi, {
 		return `
 			<div>
 				<strong>${item.place_name_long}</strong><br />
-				<small><em>${typeFormatted}</em></small>
+				<small>${typeFormatted}</small>
 			</div>
 			`;
 	},
