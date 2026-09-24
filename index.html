@@ -141,7 +141,10 @@ const geocoderApi = {
 const geocoder = new MaplibreGeocoder(geocoderApi, {
 	maplibregl,
 	flyTo: false,
-	debounceSearch: 200
+	showResultsWhileTyping: true,
+	minLength: 2,
+	limit: 10,
+	debounceSearch: 300
 });
 
 map.addControl(geocoder, 'top-left');
