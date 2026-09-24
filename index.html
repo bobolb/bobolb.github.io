@@ -100,7 +100,7 @@ const geocoderApi = {
 						(feature.bbox[1] + feature.bbox[3]) / 2
 					];
                 }
-
+				
                 const point = {
                     type: 'Feature',
                     geometry: {
@@ -133,6 +133,29 @@ const geocoder = new MaplibreGeocoder(geocoderApi, {maplibregl, flyTo: false});
 
 map.addControl(geocoder);
 
+geocoder.on('result', (e) => {    
+	const result = e.result;
+
+    if (
+        result.properties?.addresstype === 'country' &&
+        result.bbox
+    ) {
+        map.fitBounds(
+            [
+                [result.bbox[0], result.bbox[1]],
+                [result.bbox[2], result.bbox[3]]
+            ],
+            { padding: 50 }
+        );
+    } else {
+        map.flyTo({
+            center: result.center,
+            zoom: 10
+        });
+    }
+});
+
+/*
 geocoder.on('result', (e) => {
     console.log('Selected result:', e.result);
 	const result = e.result;
@@ -151,7 +174,7 @@ geocoder.on('result', (e) => {
         );
     }
 });
-
+*/
 	map.on('load', async () => {
     // Create a popup, but don't add it to the map yet.
     const popup = new maplibregl.Popup({
