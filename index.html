@@ -74,7 +74,9 @@ const geocoderApi = {
             const geojson = await response.json();
 
             for (const feature of geojson.features) {
-                console.log(                let center;
+                console.log(features);
+				
+				let center;
 
                 if (feature.geometry.type === "Point") {
                     center = feature.geometry.coordinates;
