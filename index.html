@@ -169,9 +169,9 @@ const geocoder = new MaplibreGeocoder(geocoderApi, {
 	marker: false,
 	flyTo: false,
 	showResultsWhileTyping: true,
-	minLength: 2,
+	minLength: 3,
 	limit: 5,
-	debounceSearch: 1000
+	debounceSearch: 500
 });
 
 map.addControl(geocoder, 'top-left');
