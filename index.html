@@ -175,7 +175,10 @@ geocoder.on('result', (e) => {
 		'region',
 		'state',
 		'municipality',
-		'county','village','city'].includes(result.properties?.addresstype) &&
+		'county',
+		'city',
+		'town',
+		'village'].includes(result.properties?.addresstype) &&
         result.bbox
     ) {
         map.fitBounds(
