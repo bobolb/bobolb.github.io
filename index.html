@@ -85,7 +85,11 @@ const geocoderApi = {
 
         try {
             const request =
-            `https://nominatim.openstreetmap.org/search?q=${config.query}&format=geojson&polygon_geojson=1&addressdetails=1`;
+            `https://nominatim.openstreetmap.org/search?q=${config.query}` +
+			`&format=geojson` +
+			`&polygon_geojson=1` +
+			`&addressdetails=1` +
+			`&limit=5`;
 
             const response = await fetch(request);
             const geojson = await response.json();
@@ -126,11 +130,11 @@ const geocoderApi = {
         return {
             features
         };
-    },
-	getSuggestions: async (config) => {
-		const suggestions = [];
-			// Fetch or process type-ahead suggestions here
-		return { features: suggestions };
+//    },
+//	getSuggestions: async (config) => {
+//		const suggestions = [];
+//			// Fetch or process type-ahead suggestions here
+//		return { features: suggestions };
 	}
 };
 
