@@ -135,10 +135,11 @@ const geocoderApi = {
                         coordinates: center
                     },
                     bbox: feature.bbox,
-                    place_name: feature.properties.display_name,
+                    place_name: feature.properties.name,
                     properties: feature.properties,
-                    text: feature.properties.display_name,
-                    place_type: ['place'],
+					country: feature.properties.address?.country || "",
+					place_type: feature.properties.addresstype,
+                    text: feature.properties.display_name,                    
                     center
                 };
 					
@@ -157,10 +158,12 @@ const geocoderApi = {
 const geocoder = new MaplibreGeocoder(geocoderApi, {
 	maplibregl,
 	render: function(item) {
+		const type = item.place_type;
+		const typeFormatted = type.charAt(0).toUpperCase() + type.slice(1);
 		return `
 			<div>
-				<strong>${item.text}</strong><br />
-				<small>${item.properties.addresstype}</small>
+				<strong>${item.place_name}</strong><br />
+				<small>${typeFormatted} &vert; ${item.country}</small>
 			</div>
 			`;
 	},
