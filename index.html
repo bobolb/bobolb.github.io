@@ -94,9 +94,10 @@ const geocoderApi = {
 			console.log("Request:", request);
 			
             const response = await fetch(request);
-            const geojson = await response.json();
-
+            
 			console.log("Response:", response);
+
+			const geojson = await response.json();
 			
             for (const feature of geojson.features) {               
 				
@@ -148,11 +149,6 @@ const geocoderApi = {
         return {
             features
         };
-//    },
-//	getSuggestions: async (config) => {
-//		const suggestions = [];
-//			// Fetch or process type-ahead suggestions here
-//		return { features: suggestions };
 	}
 };
 
