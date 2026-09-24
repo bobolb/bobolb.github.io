@@ -1884,7 +1884,8 @@
 				false
 			],
 			"layout": {
-				"line-join": "round"
+				"line-join": "round",
+				"visibility": "none"
 			},
 			"paint": {
 				"line-color": "rgba(108, 159, 182, 1)",
@@ -6821,7 +6822,7 @@
 					]
 				],
 				"text-font": [
-					"Noto Sans Regular"
+					"Noto Sans Bold"
 				],
 				"text-max-width": 8,
 				"text-offset": [
@@ -7033,20 +7034,20 @@
 			},
 			"paint": {
 				"text-color": [
-      				"interpolate",
-      				[
-        				"linear"
-      				],
-      				[
-        				"zoom"
-      				],
-      				0,
-      				"#000",
-      				5,
-      				"#6b7a85",
-      				6,
-      				"#6b7a85"
-    			],
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					0,
+					"#000",
+					5,
+					"#6b7a85",
+					6,
+					"#6b7a85"
+				],
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 2
@@ -7129,20 +7130,20 @@
 			},
 			"paint": {
 				"text-color": [
-      				"interpolate",
-      				[
-        				"linear"
-      				],
-      				[
-        				"zoom"
-      				],
-      				0,
-      				"#000",
-      				5,
-      				"#6b7a85",
-      				6,
-      				"#6b7a85"
-    			],
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					0,
+					"#000",
+					5,
+					"#6b7a85",
+					6,
+					"#6b7a85"
+				],
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 1
@@ -7223,22 +7224,22 @@
 					17
 				]
 			},
-			"paint": {				
+			"paint": {
 				"text-color": [
-      				"interpolate",
-      				[
-        				"linear"
-      				],
-      				[
-        				"zoom"
-      				],
-      				0,
-      				"#000",
-      				5,
-      				"#6b7a85",
-      				6,
-      				"#6b7a85"
-    			],
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					0,
+					"#000",
+					5,
+					"#6b7a85",
+					6,
+					"#6b7a85"
+				],
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 2
@@ -7290,7 +7291,6 @@
 				[
 					"has",
 					"risks"
-					
 				]
 			]
 		},
@@ -7303,13 +7303,22 @@
 				"icon-image": [
 					"case",
 					[
-					"all",
-					["get", "riskWNV"],
-					["get", "riskMBV"]
+						"all",
+						[
+							"get",
+							"riskWNV"
+						],
+						[
+							"get",
+							"riskMBV"
+						]
 					],
 					"risks:wnv-mbv",
-					["get", "riskWNV"],
-					"risks:wnv-only",					
+					[
+						"get",
+						"riskWNV"
+					],
+					"risks:wnv-only",
 					"risks:mbv-only"
 				],
 				"icon-size": [
@@ -7339,8 +7348,14 @@
 				],
 				[
 					"any",
-					["get", "riskWNV"],
-					["get", "riskMBV"]
+					[
+						"get",
+						"riskWNV"
+					],
+					[
+						"get",
+						"riskMBV"
+					]
 				]
 			]
 		}
