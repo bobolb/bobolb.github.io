@@ -192,7 +192,6 @@ map.addControl(geocoder, 'top-left');
 
 geocoder.on('result', (e) => {    
 	document.activeElement?.blur();
-	geocoder.setInput('');
 	const result = e.result;
 	console.log("Result selected:", e.result);
 
