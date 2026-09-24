@@ -96,6 +96,18 @@ const geocoderApi = {
 
             for (const feature of geojson.features) {               
 				
+				if (
+				!['country',
+				'state',
+				'county',
+				'city',
+				'town',
+				'village']
+					.includes(features.properties.addresstype)
+				) {
+					continue;
+				}
+				
 				let center;
 
                 if (feature.geometry.type === "Point") {
@@ -140,6 +152,7 @@ const geocoderApi = {
 
 const geocoder = new MaplibreGeocoder(geocoderApi, {
 	maplibregl,
+	types:
 	flyTo: false,
 	showResultsWhileTyping: true,
 	minLength: 2,
