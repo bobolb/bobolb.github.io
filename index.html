@@ -140,7 +140,7 @@ const geocoder = new MaplibreGeocoder(geocoderApi, {
 	debounceSearch: 200
 });
 
-map.addControl(geocoder);
+map.addControl(geocoder, 'top-left');
 
 geocoder.on('result', (e) => {    
 	const result = e.result;
