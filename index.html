@@ -90,10 +90,10 @@ const geocoderApi = {
 			`&polygon_geojson=1` +
 			`&addressdetails=1` +
 			`&limit=5`;
+
+			console.log(request);		
 			
-			console.log(request);
-            
-			const response = await fetch(request);
+            const response = await fetch(request);
             const geojson = await response.json();
 
             for (const feature of geojson.features) {               
@@ -174,7 +174,7 @@ geocoder.on('result', (e) => {
 		'region',
 		'state',
 		'municipality',
-		'county'].includes(result.properties?.addresstype) &&
+		'county','village'].includes(result.properties?.addresstype) &&
         result.bbox
     ) {
         map.fitBounds(
