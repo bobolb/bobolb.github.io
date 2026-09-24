@@ -6232,7 +6232,19 @@
 			"paint": {
 				"fill-pattern": "risks:red",
 				"fill-color": "#ff0000",
-				"fill-opacity": 1
+				"fill-opacity": [
+					"interpolate",
+					[
+						"linear"
+						],
+					[
+						"zoom"
+						],
+						6,
+						1,
+						8,
+						0.5
+						]
 			},
 			"layout": {
 				"visibility": "visible"
