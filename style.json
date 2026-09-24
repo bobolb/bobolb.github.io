@@ -7032,7 +7032,7 @@
 				]
 			},
 			"paint": {
-				"text-color": "#000",
+				"text-color": "#323232",
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 2
@@ -7114,7 +7114,7 @@
 				]
 			},
 			"paint": {
-				"text-color": "#000",
+				"text-color": "#323232",
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 1
@@ -7196,7 +7196,7 @@
 				]
 			},
 			"paint": {
-				"text-color": "#000",
+				"text-color": "#323232",
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 2
