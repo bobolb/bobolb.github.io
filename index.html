@@ -115,9 +115,7 @@ const geocoderApi = {
                     center
                 };
 					
-                features.push(point);
-				console.log("Features:", features);
-				console.log("Point:", point);
+                features.push(point);				
             }
         } catch (e) {
             console.error(`Failed to forwardGeocode with error: ${e}`);
@@ -154,6 +152,8 @@ geocoder.on('result', (e) => {
         });
     }
 });
+
+console.log("Result selected:", e.result.place_name);
 
 /*
 geocoder.on('result', (e) => {
