@@ -126,10 +126,19 @@ const geocoderApi = {
         return {
             features
         };
-    }
+    }.
+	getSuggestions: async (config) => {
+		const suggestions = [];
+			// Fetch or process type-ahead suggestions here
+		return { features: suggestions };
+	}
 };
 
-const geocoder = new MaplibreGeocoder(geocoderApi, {maplibregl, flyTo: false});
+const geocoder = new MaplibreGeocoder(geocoderApi, {
+	maplibregl,
+	flyTo: false,
+	debounceSearch: 200
+});
 
 map.addControl(geocoder);
 
