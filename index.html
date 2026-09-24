@@ -44,23 +44,38 @@
 </div>
 <div id="map" style="width: 100%; height: 100%"></div>
 
-	<script>
-	var useRetina = window.devicePixelRatio > 1;
-    </script>
+<script>
+var useRetina = window.devicePixelRatio > 1;
+</script>
 
-	<script type="module">
+<script type="module">
 	
-	import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
+import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
 	
-	const map = new maplibregl.Map({
-		container: 'map',
-        style: 'style.json',
-		center: [3.206, 44.582],
-		zoom: 5,
-		attributionControl: {compact: true, customAttribution: "JPAC GDRI"},
-		hash: true,
+const map = new maplibregl.Map({
+	container: 'map',
+       style: 'style.json',
+	center: [3.206, 44.582],
+	zoom: 5,
+	attributionControl: {compact: true, customAttribution: "JPAC GDRI"},
+	hash: true,
 		pitchWithRotate: false
-	});
+});
+
+map.touchPitch.disable();
+
+// display Zoom, get initial level and update on move/zoom 
+const zoomDisplay = document.getElementById('zoom-level');
+zoomDisplay.textContent = map.getZoom().toFixed(1);
+map.on('zoom', () => {zoomDisplay.textContent = map.getZoom().toFixed(1);});
+
+// navigation controls
+map.addControl(new maplibregl.NavigationControl({
+    visualizePitch: true,
+    visualizeRoll: true,
+    showZoom: true,
+    showCompass: true
+}));
 
 const geocoderApi = {
     forwardGeocode: async (config) => {
@@ -73,8 +88,7 @@ const geocoderApi = {
             const response = await fetch(request);
             const geojson = await response.json();
 
-            for (const feature of geojson.features) {
-                console.log(features);
+            for (const feature of geojson.features) {               
 				
 				let center;
 
@@ -100,27 +114,10 @@ const geocoderApi = {
                     place_type: ['place'],
                     center
                 };
-					/*
-					const center = [
-                        feature.bbox[0] +
-                    (feature.bbox[2] - feature.bbox[0]) / 2,
-                        feature.bbox[1] +
-                    (feature.bbox[3] - feature.bbox[1]) / 2
-                    ];
-                    
-					const point = {
-                        type: 'Feature',
-                        geometry: {
-                            type: 'Point',
-                            coordinates: center
-                        },
-                        place_name: feature.properties.display_name,
-                        properties: feature.properties,
-                        text: feature.properties.display_name,
-                        place_type: ['place'],
-                        center
-                    */
+					
                 features.push(point);
+				console.log("Features:", features);
+				console.log("Point:", point);
             }
         } catch (e) {
             console.error(`Failed to forwardGeocode with error: ${e}`);
@@ -131,29 +128,14 @@ const geocoderApi = {
         };
     }
 };
- 
-const zoomDisplay = document.getElementById('zoom-level');
-
-  // Set initial zoom level
-  zoomDisplay.textContent = map.getZoom().toFixed(1);
-
-  // Update zoom level on move/zoom
-  map.on('zoom', () => {
-    zoomDisplay.textContent = map.getZoom().toFixed(1);
-  });
-
-map.touchPitch.disable();
 
 const geocoder = new MaplibreGeocoder(geocoderApi, {maplibregl});
 
 map.addControl(geocoder);
 
-//geocoder.on('results', (e) => {console.log(e.features);});
-
 geocoder.on('result', (e) => {
-
-    const result = e.result;
-
+    console.log('Selected result:', e.result);
+	const result = e.result;
     if (
         result.properties?.addresstype === 'country' &&
         result.bbox
@@ -169,17 +151,6 @@ geocoder.on('result', (e) => {
         );
     }
 });
-
-//map.addControl(new MaplibreGeocoder(geocoderApi, {maplibregl}));
-
-//geocoderApi.on('results', (e) => {console.log(e.features);});
-
-map.addControl(new maplibregl.NavigationControl({
-    visualizePitch: true,
-    visualizeRoll: true,
-    showZoom: true,
-    showCompass: true
-}));
 
 	map.on('load', async () => {
     // Create a popup, but don't add it to the map yet.
