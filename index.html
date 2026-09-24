@@ -117,6 +117,8 @@ map.touchPitch.disable();
 
 map.addControl(new MaplibreGeocoder(geocoderApi, {maplibregl}));
 
+geocoder.on('results', (e) => {console.log(e.features);});
+
 map.addControl(new maplibregl.NavigationControl({
     visualizePitch: true,
     visualizeRoll: true,
