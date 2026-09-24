@@ -156,11 +156,12 @@ const geocoderApi = {
 
 const geocoder = new MaplibreGeocoder(geocoderApi, {
 	maplibregl,
+	marker: false,
 	flyTo: false,
 	showResultsWhileTyping: true,
 	minLength: 2,
 	limit: 5,
-	debounceSearch: 300
+	debounceSearch: 1000
 });
 
 map.addControl(geocoder, 'top-left');
