@@ -6600,14 +6600,21 @@
 			"source-layer": "place",
 			"minzoom": 6,
 			"filter": [
-				"==",
-				[
-					"get",
-					"class"
-				],
-				"town"
+ 				 "==",
+    			["get", "class"],
+    			"town"				
 			],
 			"layout": {
+				"symbol-sort-key": [
+      				"+",
+      				[
+        				"to-number",
+        				[
+          					"get",
+          					"rank"
+        				]
+      				]
+    			],
 				"icon-allow-overlap": true,
 				"icon-image": [
 					"step",
@@ -6672,12 +6679,12 @@
 				"visibility": "visible"
 			},
 			"paint": {
-				"text-color": "#000",
+				"text-color": "#00f",
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 2
 			}
-		},
+		},		
 		{
 			"id": "label_state",
 			"type": "symbol",
@@ -6757,7 +6764,7 @@
 			"type": "symbol",
 			"source": "openmaptiles",
 			"source-layer": "place",
-			"minzoom": 3,
+			"minzoom": 5.5,
 			"filter": [
 				"all",
 				[
@@ -6859,7 +6866,7 @@
 			"type": "symbol",
 			"source": "openmaptiles",
 			"source-layer": "place",
-			"minzoom": 3,
+			"minzoom": 5,
 			"filter": [
 				"all",
 				[
