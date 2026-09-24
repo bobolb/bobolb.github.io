@@ -5194,7 +5194,7 @@
 				"text-font": [
 					"Noto Sans Italic"
 				],
-				"text-letter-spacing": 0.2,
+				"text-letter-spacing": 0.1,
 				"text-max-width": 5,
 				"text-size": [
 					"interpolate",
@@ -5213,7 +5213,7 @@
 			"paint": {
 				"text-color": "#495e91",
 				"text-halo-color": "rgba(255,255,255,0.7)",
-				"text-halo-width": 1.5
+				"text-halo-width": 0
 			}
 		},
 		{
