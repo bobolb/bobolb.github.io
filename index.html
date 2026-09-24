@@ -73,6 +73,7 @@ const geocoderApi = {
                 const response = await fetch(request);
                 const geojson = await response.json();
                 for (const feature of geojson.features) {
+					console.log("RAW FEATURE:", feature);
                     let center;
 					if (feature.geometry.type === "Point") {
 						center = feature.geometry.coordinates;
@@ -81,7 +82,7 @@ const geocoderApi = {
 						(feature.bbox[0] + feature.bbox[2]) / 2,
 						(feature.bbox[1] + feature.bbox[3]) / 2
 						];
-}
+					}
 					/*
 					const center = [
                         feature.bbox[0] +
