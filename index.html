@@ -136,7 +136,7 @@ geocoder.on('result', (e) => {
 	console.log("Result selected:", e.result);
 
     if (
-        result.properties?.addresstype === 'country' &&
+        result.properties?.category === 'boundary' &&
         result.bbox
     ) {
         map.fitBounds(
