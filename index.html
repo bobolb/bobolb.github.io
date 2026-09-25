@@ -315,29 +315,40 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
             const name = e.features[0].properties.name;
 			const country = e.features[0].properties.COUNTRY || "";
 			const type = e.features[0].properties.ENGTYPE_2 || "";
-			const risks = e.features[0].properties.risks || "";
+		//	const risks = e.features[0].properties.risks || "";
+
+			const riskC = e.features[0].properties.riskC;
+			const riskD = e.features[0].properties.riskD;
+			const riskW = e.features[0].properties.riskW;
+			const riskY = e.features[0].properties.riskY;
+			const riskZ = e.features[0].properties.riskZ;
 
 			let riskHTML = "";
-			
-			if (risks.toLowerCase().includes("w")) {
+					
+	//		if (risks.toLowerCase().includes("w")) {
+			if (e.features[0].properties.riskW) {
 				riskHTML += '<p style="color:red">West Nile Virus</p>';
 			}
 				
 			const mbvRisks = [];
 			
-			if (risks.toLowerCase().includes("c")) {
+	//		if (risks.toLowerCase().includes("c")) {
+			if (e.features[0].properties.riskC) {
 				mbvRisks.push('Chikungunya Virus');
 			}
 				
-			if (risks.toLowerCase().includes("d")) {
+	//		if (risks.toLowerCase().includes("d")) {
+			if (e.features[0].properties.riskD) {
 				mbvRisks.push('Dengue Virus');
 			}
 
-			if (risks.toLowerCase().includes("y")) {
+	//		if (risks.toLowerCase().includes("y")) {
+			if (e.features[0].properties.riskY) {
 				mbvRisks.push('Yellow Fever Virus');
 			}
 
-			if (risks.toLowerCase().includes("z")) {
+	//		if (risks.toLowerCase().includes("z")) {
+			if (e.features[0].properties.riskZ) {
 				mbvRisks.push('Zika Virus');
 			}				
 			
