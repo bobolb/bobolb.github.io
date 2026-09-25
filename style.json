@@ -6900,6 +6900,14 @@
 					"national_park"
 				],
 				[
+					"!=",
+					[
+						"get",
+						"rank"
+					], 
+					null
+				],
+				[
 					"<=",
 					[
 						"get",
