@@ -268,6 +268,8 @@ geocoder.on('result', (e) => {
 								}
     });
 
+const hoverLayers = ['riskWNV', 'risk MBV'];
+
   // Make sure to detect marker change for overlapping markers
     // and use mousemove instead of mouseenter event
     let currentFeatureCoordinates = undefined;
@@ -297,7 +299,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
     return null;
 }
 
-	map.on('mousemove', ['riskWNV', 'risk MBV'] (e) => {
+	map.on('mousemove', hoverLayers (e) => {
 	
 		const feature = e.features[0];
 		const coordinates = getPoleOfInaccessibility(e.features[0].geometry);
