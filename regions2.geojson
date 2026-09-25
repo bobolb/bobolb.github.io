@@ -21,7 +21,12 @@
         "name": "Hérault",
         "riskMBV": true,
         "riskWNV": true,
-        "risks": "cdw"
+        "risks": "cdw",
+        "riskC": true,
+        "riskD": true,
+        "riskW": true,
+        "riskY": false,
+        "riskZ": false
     },
     "geometry": {
                 "type": "GeometryCollection",
@@ -2945,6 +2950,26 @@
                                 "cd",
                                 "cdw"
                             ]
+                        },
+                        {
+                            "attribute": "riskC",
+                            "type": "Boolean"
+                        },
+                        {
+                            "attribute": "riskD",
+                            "type": "Boolean"
+                        },
+                        {
+                            "attribute": "riskW",
+                            "type": "Boolean"
+                        },
+                        {
+                            "attribute": "riskY",
+                            "type": "Boolean"
+                        },
+                        {
+                            "attribute": "riskZ",
+                            "type": "Boolean"
                         },
                         {
                             "attribute": "VARNAME_1",
