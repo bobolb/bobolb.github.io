@@ -7690,6 +7690,92 @@
 					1
 				],
 				"icon-allow-overlap": true,
+				"icon-ignore-placement": false,
+				"visibility": "none"
+			},
+			"paint": {
+				"icon-opacity": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					5.8,
+					0,
+					5.9,
+					1
+				]
+			},
+			"filter": [
+				"all",
+				[
+					"==",
+					[
+						"geometry-type"
+					],
+					"Point"
+				],
+				[
+					"any",
+					[
+						"get",
+						"riskWNV"
+					],
+					[
+						"get",
+						"riskMBV"
+					]
+				]
+			]
+		},
+		{
+			"id": "label_risks",
+			"type": "symbol",
+			"source": "riskRegions",
+			"minzoom": 5.8,
+			"layout": {
+				"icon-image": [
+					"case",
+					[
+						"all",
+						["get", "riskW"],
+						[
+							"any",
+							["get", "riskC"],
+							["get", "riskD"],
+							["get", "riskY"],
+							["get", "riskZ"]
+						]
+					],
+					"risks:wnv-mbv",
+					["get", "w"],
+					"risks:wnv-only",
+					[
+						"any",
+						["get", "riskC"],
+						["get", "riskD"],
+						["get", "riskY"],
+						["get", "riskZ"]
+					],
+					"risks:mbv-only",
+					""
+				],
+				"icon-size": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					5.8,
+					0.1,
+					6.1,
+					1
+				],
+				"icon-allow-overlap": true,
 				"icon-ignore-placement": false
 			},
 			"paint": {
