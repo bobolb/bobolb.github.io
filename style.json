@@ -7919,7 +7919,7 @@
 					"risks:wnv-mbv",
 					[
 						"get",
-						"w"
+						"riskW"
 					],
 					"risks:wnv-only",
 					[
