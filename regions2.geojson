@@ -1706,7 +1706,7 @@
         "dist_pole": 0.24401632676645715,
         "name": "Gard",
         "riskMBV": true,
-        "riskWNV": true,
+        "riskWNV": false,
         "risks": "cd",
         "riskC": true,
         "riskD": true,

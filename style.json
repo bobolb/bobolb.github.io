@@ -7794,27 +7794,13 @@
 				]
 			},
 			"filter": [
-				"all",
-				[
-					"==",
+				"==",
 					[
 						"geometry-type"
 					],
 					"Point"
-				],
-				[
-					"any",
-					[
-						"get",
-						"riskWNV"
-					],
-					[
-						"get",
-						"riskMBV"
-					]
-				]
-			]
-		}
+				]				
+			}
 	],
 	"id": "JPAC",
 	"name": "JPAC"
