@@ -56,9 +56,10 @@
 <script>
 var useRetina = window.devicePixelRatio > 1;
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/polylabel/2.1.0/polylabel.min.js"></script>
 <script type="module">
-	
+
+import polylabel from 'https://esm.sh/polylabel@2.1.0';
+
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
 	
 const map = new maplibregl.Map({
@@ -270,9 +271,7 @@ geocoder.on('result', (e) => {
   // Make sure to detect marker change for overlapping markers
     // and use mousemove instead of mouseenter event
     let currentFeatureCoordinates = undefined;
-    
-import polylabel from 'polylabel';
-
+ 
 function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 
     if (geometry.type === 'Polygon') {
@@ -294,9 +293,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 
         return bestPoint;
     }
-
-    throw new Error(`Unsupported geometry: ${geometry.type}`);
-}
+ 
     return null;
 }
 
@@ -362,7 +359,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
             // Populate the popup and set its coordinates
             // based on the feature found.
             popup
-				.setLngLat(featureCoordinates)
+				.setLngLat(coordinates)
 				.setHTML(`<p><b><big>${name}</big></b><br /><span style="color:#636363">${type} &vert; ${country}</span></p>${riskHTML}`)
 				.addTo(map);
         };
