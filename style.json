@@ -16,7 +16,7 @@
 		},
 		"riskRegions": {
 			"type": "geojson",
-			"data": "regions.geojson"
+			"data": "https://bobolb.github.io/regions.geojson"
 		}
 	},
 	"sprite": [
@@ -6305,7 +6305,21 @@
 			"paint": {
 				"fill-pattern": "risks:red",
 				"fill-color": "#ff0000",
-				"fill-opacity": 1
+				"fill-opacity": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					7.5,
+					1,
+					8,
+					0.8,
+					9,
+					0.5					
+				]
 			},
 			"layout": {
 				"visibility": "visible"
