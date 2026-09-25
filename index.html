@@ -299,7 +299,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
     return null;
 }
 
-	map.on('mousemove', 'risk_labels' (e) => {
+	map.on('mousemove', 'risk_labels', (e) => {
 	
 		const feature = e.features[0];
 		const coordinates = getPoleOfInaccessibility(e.features[0].geometry);
