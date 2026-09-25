@@ -270,15 +270,22 @@ geocoder.on('result', (e) => {
   // Make sure to detect marker change for overlapping markers
     // and use mousemove instead of mouseenter event
     let currentFeatureCoordinates = undefined;
-    map.on('mousemove', 'riskWNV', (e) => {
-	    const featureCoordinates = e.features[0].geometry.coordinates.toString();
-        if (currentFeatureCoordinates !== featureCoordinates) {
+    
+	map.on('mousemove', 'riskWNV', (e) => {
+	
+		const feature = e.features[0];
+		const coordinates = getLabelPoint(feature.geometry);
+		const featureCoordinates = coordinates.toString();
+		
+		//const featureCoordinates = e.features[0].geometry.coordinates.toString();
+        
+		if (currentFeatureCoordinates !== featureCoordinates) {
             currentFeatureCoordinates = featureCoordinates;
 
             // Change the cursor style as a UI indicator.
             map.getCanvas().style.cursor = 'pointer';
 
-            const coordinates = e.features[0].geometry.coordinates.slice();
+            //const coordinates = e.features[0].geometry.coordinates.slice();
             const name = e.features[0].properties.name;
 			const country = e.features[0].properties.COUNTRY || "";
 			const type = e.features[0].properties.ENGTYPE_2 || "";
@@ -325,7 +332,10 @@ geocoder.on('result', (e) => {
 
             // Populate the popup and set its coordinates
             // based on the feature found.
-            popup.setLngLat(coordinates).setHTML(`<p><b><big>${name}</big></b><br /><span style="color:#636363">${type} &vert; ${country}</span></p>${riskHTML}`).addTo(map);
+            popup
+				.setLngLat(coordinates)
+				.setHTML(`<p><b><big>${name}</big></b><br /><span style="color:#636363">${type} &vert; ${country}</span></p>${riskHTML}`)
+				.addTo(map);
         };
     });
 
