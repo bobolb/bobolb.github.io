@@ -7485,8 +7485,8 @@
 						"interpolate",
 						["linear"],
 						["zoom"],
-						5.9, 0,
-						6, 1]
+						5.8, 0,
+						5.9, 1]
 					},
 			"filter": [
 				"all",
