@@ -1708,9 +1708,9 @@
         "riskMBV": true,
         "riskWNV": false,
         "risks": "cd",
-        "riskC": true,
-        "riskD": true,
-        "riskW": false,
+        "riskC": false,
+        "riskD": false,
+        "riskW": true,
         "riskY": false,
         "riskZ": false
     },
