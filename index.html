@@ -270,7 +270,7 @@ geocoder.on('result', (e) => {
   // Make sure to detect marker change for overlapping markers
     // and use mousemove instead of mouseenter event
     let currentFeatureCoordinates = undefined;
-    map.on('mousemove', 'LabelRisks', (e) => {
+    map.on('mousemove', 'riskWNV', (e) => {
 	    const featureCoordinates = e.features[0].geometry.coordinates.toString();
         if (currentFeatureCoordinates !== featureCoordinates) {
             currentFeatureCoordinates = featureCoordinates;
@@ -329,7 +329,7 @@ geocoder.on('result', (e) => {
         };
     });
 
-	map.on('mouseleave', 'LabelRisks', () => {
+	map.on('mouseleave', 'riskWNV', () => {
         currentFeatureCoordinates = undefined;
         map.getCanvas().style.cursor = '';
         popup.remove();
