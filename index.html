@@ -271,6 +271,28 @@ geocoder.on('result', (e) => {
     // and use mousemove instead of mouseenter event
     let currentFeatureCoordinates = undefined;
     
+function getLabelPoint(geometry) {
+    if (geometry.type === 'Polygon') {
+        return polylabel(geometry.coordinates, 0.000001);
+    }
+
+    if (geometry.type === 'MultiPolygon') {
+        let bestPoint = null;
+
+        for (const polygon of geometry.coordinates) {
+            const point = polylabel(polygon, 0.000001);
+
+            if (!bestPoint || point.distance > bestPoint.distance) {
+                bestPoint = point;
+            }
+        }
+
+        return bestPoint;
+    }
+
+    return null;
+}
+
 	map.on('mousemove', 'riskWNV', (e) => {
 	
 		const feature = e.features[0];
