@@ -56,7 +56,7 @@
 <script>
 var useRetina = window.devicePixelRatio > 1;
 </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/polylabel/2.1.0/polylabel.min.js"></script>
 <script type="module">
 	
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
@@ -271,18 +271,23 @@ geocoder.on('result', (e) => {
     // and use mousemove instead of mouseenter event
     let currentFeatureCoordinates = undefined;
     
-function getLabelPoint(geometry) {
+import polylabel from 'polylabel';
+
+function getPoleOfInaccessibility(geometry, precision = 0.00001) {
+
     if (geometry.type === 'Polygon') {
-        return polylabel(geometry.coordinates, 0.000001);
+        return polylabel(geometry.coordinates, precision);
     }
 
     if (geometry.type === 'MultiPolygon') {
         let bestPoint = null;
+        let bestDistance = -Infinity;
 
         for (const polygon of geometry.coordinates) {
-            const point = polylabel(polygon, 0.000001);
+            const point = polylabel(polygon, precision);
 
-            if (!bestPoint || point.distance > bestPoint.distance) {
+            if (point.distance > bestDistance) {
+                bestDistance = point.distance;
                 bestPoint = point;
             }
         }
@@ -290,13 +295,15 @@ function getLabelPoint(geometry) {
         return bestPoint;
     }
 
+    throw new Error(`Unsupported geometry: ${geometry.type}`);
+}
     return null;
 }
 
 	map.on('mousemove', 'riskWNV', (e) => {
 	
 		const feature = e.features[0];
-		const coordinates = getLabelPoint(feature.geometry);
+		const coordinates = getPoleOfInaccessibility(e.features[0].geometry);
 		const featureCoordinates = coordinates.toString();
 		
 		//const featureCoordinates = e.features[0].geometry.coordinates.toString();
@@ -355,7 +362,7 @@ function getLabelPoint(geometry) {
             // Populate the popup and set its coordinates
             // based on the feature found.
             popup
-				.setLngLat(coordinates)
+				.setLngLat(featureCoordinates)
 				.setHTML(`<p><b><big>${name}</big></b><br /><span style="color:#636363">${type} &vert; ${country}</span></p>${riskHTML}`)
 				.addTo(map);
         };
