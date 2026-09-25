@@ -1004,12 +1004,8 @@
 					"Polygon"
 				],
 				[
-					"==",
-					[
-						"get",
-						"riskW"
-					],
-					true
+					"get",
+					"riskW"
 				]
 			],
 			"paint": {
@@ -6423,11 +6419,12 @@
 			}
 		},
 		{
-			"id": "Risk WNV outline",
+			"id": "Risk WNV outline-original",
 			"type": "line",
 			"source": "riskRegions",
 			"layout": {
-				"line-join": "round"
+				"line-join": "round",
+				"visibility": "none"
 			},
 			"paint": {
 				"line-color": [
@@ -6475,7 +6472,108 @@
 					"==",
 					[
 						"get",
-						"riskWNV"
+						"riskW"
+					],
+					true
+				]
+			]
+		},
+		{
+			"id": "Risk WNV outline",
+			"type": "line",
+			"source": "riskRegions",
+			"layout": {
+				"line-join": "round",
+				"visibility": "visible"
+			},
+			"paint": {
+				"line-color": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					0,
+					"hsl(0, 100%, 25%)",
+					4,
+					"hsl(0, 100%, 25%)",
+					6,
+					"hsl(0, 100%, 50%)"
+				],
+				"line-width": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					0,
+					0.5,
+					4,
+					0.5,
+					5,
+					1.5
+				],
+				"line-opacity": 1
+			},
+			"filter": [
+				"all",
+				[
+					"==",
+					[
+						"geometry-type"
+					],
+					"Polygon"
+				],
+				[
+					"get",
+					"riskW"
+				]
+			]
+		},
+		{
+			"id": "Risk MBV-original",
+			"type": "line",
+			"source": "riskRegions",
+			"layout": {
+				"line-join": "round",
+				"visibility": "none"
+			},
+			"paint": {
+				"line-color": "hsl(240, 80%, 50%)",
+				"line-width": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					0,
+					1,
+					5,
+					2,
+					10,
+					8
+				]
+			},
+			"filter": [
+				"all",
+				[
+					"==",
+					[
+						"geometry-type"
+					],
+					"Polygon"
+				],
+				[
+					"==",
+					[
+						"get",
+						"riskMBV"
 					],
 					true
 				]
@@ -6515,13 +6613,24 @@
 					],
 					"Polygon"
 				],
-				[
-					"==",
+				[					
+					"any",
 					[
 						"get",
-						"riskMBV"
+						"riskC"
 					],
-					true
+					[
+						"get",
+						"riskD"
+					],
+					[
+						"get",
+						"riskY"
+					],
+					[
+						"get",
+						"riskZ"
+					]						
 				]
 			]
 		},
