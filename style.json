@@ -100,6 +100,9 @@
 					16,
 					"hsla(30,19%,90%,0.2)"
 				]
+			},
+			"layout": {
+				"visibility": "none"
 			}
 		},
 		{
@@ -130,6 +133,9 @@
 					10,
 					"hsla(30,19%,90%,0.0)"
 				]
+			},
+			"layout": {
+				"visibility": "none"
 			}
 		},
 		{
@@ -162,6 +168,9 @@
 			],
 			"paint": {
 				"fill-color": "hsla(0,60%,87%,0.23)"
+			},
+			"layout": {
+				"visibility": "none"
 			}
 		},
 		{
@@ -200,6 +209,9 @@
 			],
 			"paint": {
 				"fill-color": "hsla(49,100%,88%,0.34)"
+			},
+			"layout": {
+				"visibility": "none"
 			}
 		},
 		{
@@ -217,6 +229,9 @@
 			],
 			"paint": {
 				"fill-color": "#e0e4dd"
+			},
+			"layout": {
+				"visibility": "none"
 			}
 		},
 		{
@@ -234,6 +249,9 @@
 			],
 			"paint": {
 				"fill-color": "#fde"
+			},
+			"layout": {
+				"visibility": "none"
 			}
 		},
 		{
@@ -251,6 +269,9 @@
 			],
 			"paint": {
 				"fill-color": "#f0e8f8"
+			},
+			"layout": {
+				"visibility": "none"
 			}
 		},
 		{
@@ -268,6 +289,9 @@
 			],
 			"paint": {
 				"fill-color": "hsla(30,19%,90%,0.4)"
+			},
+			"layout": {
+				"visibility": "visible"
 			}
 		},
 		{
@@ -919,6 +943,49 @@
 			}
 		},
 		{
+			"id": "riskWNV",
+			"type": "fill",
+			"source": "riskRegions",
+			"filter": [
+				"all",
+				[
+					"==",
+					[
+						"geometry-type"
+					],
+					"Polygon"
+				],
+				[
+					"==",
+					[
+						"get",
+						"riskWNV"
+					],
+					true
+				]
+			],
+			"paint": {
+				"fill-pattern": "risks:red",
+				"fill-color": "#ff0000",
+				"fill-opacity": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					8,
+					1,
+					8.5,
+					0.8
+				]
+			},
+			"layout": {
+				"visibility": "visible"
+			}
+		},
+		{
 			"id": "building",
 			"type": "fill",
 			"source": "openmaptiles",
@@ -1019,7 +1086,7 @@
 			],
 			"layout": {
 				"line-join": "round",
-				"visibility": "none"
+				"visibility": "visible"
 			},
 			"paint": {
 				"line-color": "#cfcdca",
@@ -1859,7 +1926,8 @@
 				]
 			],
 			"layout": {
-				"line-join": "round"
+				"line-join": "round",
+				"visibility": "visible"
 			},
 			"paint": {
 				"line-color": "#ffdaa6",
@@ -2939,6 +3007,9 @@
 					20,
 					4
 				]
+			},
+			"layout": {
+				"visibility": "visible"
 			}
 		},
 		{
@@ -2981,7 +3052,8 @@
 			],
 			"layout": {
 				"line-cap": "round",
-				"line-join": "round"
+				"line-join": "round",
+				"visibility": "visible"
 			},
 			"paint": {
 				"line-color": "#fc8",
@@ -3264,7 +3336,8 @@
 			],
 			"layout": {
 				"line-cap": "round",
-				"line-join": "round"
+				"line-join": "round",
+				"visibility": "visible"
 			},
 			"paint": {
 				"line-color": "#fea",
@@ -3415,7 +3488,8 @@
 			],
 			"layout": {
 				"line-cap": "round",
-				"line-join": "round"
+				"line-join": "round",
+				"visibility": "visible"
 			},
 			"paint": {
 				"line-color": "#fc8",
@@ -5083,7 +5157,8 @@
 					1
 				],
 				"symbol-placement": "line",
-				"symbol-spacing": 75
+				"symbol-spacing": 75,
+				"visibility": "none"
 			},
 			"paint": {
 				"icon-opacity": 0.5
@@ -5143,7 +5218,8 @@
 					1
 				],
 				"symbol-placement": "line",
-				"symbol-spacing": 75
+				"symbol-spacing": 75,
+				"visibility": "none"
 			},
 			"paint": {
 				"icon-opacity": 0.5
@@ -5726,7 +5802,8 @@
 					0.9,
 					0
 				],
-				"text-size": 12
+				"text-size": 12,
+				"visibility": "visible"
 			},
 			"paint": {
 				"text-color": "#2e5a80",
@@ -5797,7 +5874,8 @@
 					12,
 					14,
 					13
-				]
+				],
+				"visibility": "visible"
 			},
 			"paint": {
 				"text-color": "hsl(30,23%,62%)",
@@ -5888,7 +5966,8 @@
 					12,
 					14,
 					13
-				]
+				],
+				"visibility": "visible"
 			},
 			"paint": {
 				"text-color": "#666",
@@ -5965,7 +6044,8 @@
 					12,
 					14,
 					13
-				]
+				],
+				"visibility": "visible"
 			},
 			"paint": {
 				"text-color": "#666",
@@ -6048,7 +6128,8 @@
 					"Noto Sans Regular"
 				],
 				"text-rotation-alignment": "viewport",
-				"text-size": 10
+				"text-size": 10,
+				"visibility": "visible"
 			}
 		},
 		{
@@ -6130,7 +6211,8 @@
 					"Noto Sans Regular"
 				],
 				"text-rotation-alignment": "viewport",
-				"text-size": 10
+				"text-size": 10,
+				"visibility": "visible"
 			}
 		},
 		{
@@ -6211,7 +6293,8 @@
 					"Noto Sans Regular"
 				],
 				"text-rotation-alignment": "viewport",
-				"text-size": 10
+				"text-size": 10,
+				"visibility": "visible"
 			}
 		},
 		{
@@ -6278,51 +6361,6 @@
 				"text-halo-blur": 0.5,
 				"text-halo-color": "#ffffff",
 				"text-halo-width": 1
-			}
-		},
-		{
-			"id": "riskWNV",
-			"type": "fill",
-			"source": "riskRegions",
-			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"geometry-type"
-					],
-					"Polygon"
-				],
-				[
-					"==",
-					[
-						"get",
-						"riskWNV"
-					],
-					true
-				]
-			],
-			"paint": {
-				"fill-pattern": "risks:red",
-				"fill-color": "#ff0000",
-				"fill-opacity": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					7.5,
-					1,
-					8,
-					0.8,
-					9,
-					0.5					
-				]
-			},
-			"layout": {
-				"visibility": "visible"
 			}
 		},
 		{
@@ -7480,14 +7518,21 @@
 				"icon-allow-overlap": true,
 				"icon-ignore-placement": false
 			},
-				"paint": {
-					"icon-opacity": [
-						"interpolate",
-						["linear"],
-						["zoom"],
-						5.8, 0,
-						5.9, 1]
-					},
+			"paint": {
+				"icon-opacity": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					5.8,
+					0,
+					5.9,
+					1
+				]
+			},
 			"filter": [
 				"all",
 				[
