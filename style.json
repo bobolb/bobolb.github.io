@@ -948,7 +948,7 @@
 			}
 		},
 		{
-			"id": "riskWNV",
+			"id": "riskWNV-original",
 			"type": "fill",
 			"source": "riskRegions",
 			"filter": [
@@ -965,6 +965,49 @@
 					[
 						"get",
 						"riskWNV"
+					],
+					true
+				]
+			],
+			"paint": {
+				"fill-pattern": "risks:red",
+				"fill-color": "#ff0000",
+				"fill-opacity": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					8,
+					1,
+					8.5,
+					0.8
+				]
+			},
+			"layout": {
+				"visibility": "none"
+			}
+		},
+		{
+			"id": "riskWNV",
+			"type": "fill",
+			"source": "riskRegions",
+			"filter": [
+				"all",
+				[
+					"==",
+					[
+						"geometry-type"
+					],
+					"Polygon"
+				],
+				[
+					"==",
+					[
+						"get",
+						"riskW"
 					],
 					true
 				]
@@ -7740,24 +7783,54 @@
 					"case",
 					[
 						"all",
-						["get", "riskW"],
+						[
+							"get",
+							"riskW"
+						],
 						[
 							"any",
-							["get", "riskC"],
-							["get", "riskD"],
-							["get", "riskY"],
-							["get", "riskZ"]
+							[
+								"get",
+								"riskC"
+							],
+							[
+								"get",
+								"riskD"
+							],
+							[
+								"get",
+								"riskY"
+							],
+							[
+								"get",
+								"riskZ"
+							]
 						]
 					],
 					"risks:wnv-mbv",
-					["get", "w"],
+					[
+						"get",
+						"w"
+					],
 					"risks:wnv-only",
 					[
 						"any",
-						["get", "riskC"],
-						["get", "riskD"],
-						["get", "riskY"],
-						["get", "riskZ"]
+						[
+							"get",
+							"riskC"
+						],
+						[
+							"get",
+							"riskD"
+						],
+						[
+							"get",
+							"riskY"
+						],
+						[
+							"get",
+							"riskZ"
+						]
 					],
 					"risks:mbv-only",
 					""
@@ -7795,12 +7868,12 @@
 			},
 			"filter": [
 				"==",
-					[
-						"geometry-type"
-					],
-					"Point"
-				]				
-			}
+				[
+					"geometry-type"
+				],
+				"Point"
+			]
+		}
 	],
 	"id": "JPAC",
 	"name": "JPAC"
