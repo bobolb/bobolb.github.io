@@ -7480,6 +7480,14 @@
 				"icon-allow-overlap": true,
 				"icon-ignore-placement": false
 			},
+				"paint": {
+					"icon-opacity": [
+						"interpolate",
+						["linear"],
+						["zoom"],
+						5.9, 0,
+						6, 1]
+					},
 			"filter": [
 				"all",
 				[
