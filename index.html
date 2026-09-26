@@ -273,7 +273,7 @@ geocoder.on('result', (e) => {
   // Make sure to detect marker change for overlapping markers
     // and use mousemove instead of mouseenter event
     let currentFeatureCoordinates = undefined;
- 
+/*
 function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 
     if (geometry.type === 'Polygon') {
@@ -298,7 +298,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
  
     return null;
 }
-
+*/
 	map.on('mousemove', 'label_risks', (e) => {
 	
 		const feature = e.features[0];
