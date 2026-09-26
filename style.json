@@ -991,7 +991,7 @@
 			}
 		},
 		{
-			"id": "riskWNV",
+			"id": "risk-WNV-fill",
 			"type": "fill",
 			"source": "riskRegions",
 			"filter": [
@@ -6479,7 +6479,7 @@
 			]
 		},
 		{
-			"id": "Risk WNV outline",
+			"id": "risk-WNV-outline",
 			"type": "line",
 			"source": "riskRegions",
 			"layout": {
@@ -6580,7 +6580,7 @@
 			]
 		},
 		{
-			"id": "Risk MBV",
+			"id": "risk-MBV-outline",
 			"type": "line",
 			"source": "riskRegions",
 			"layout": {

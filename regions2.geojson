@@ -1714,7 +1714,9 @@
         "riskD": true,
         "riskW": false,
         "riskY": false,
-        "riskZ": false
+        "riskZ": false,
+        "pointLng": 4.17994248,
+        "pointLat": 43.99355046
     },
     "geometry": {
                 "type": "GeometryCollection",
@@ -3392,7 +3394,9 @@
                 "riskD": false,
                 "riskW": true,
                 "riskY": false,
-                "riskZ": false
+                "riskZ": false,
+                "pointLng": -0.65107254,
+                "pointLat": 45.7722114
     },
     "geometry": {
                 "type": "GeometryCollection",
