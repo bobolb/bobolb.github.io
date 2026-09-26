@@ -360,6 +360,14 @@ map.on('load', async () => {
 		map.getCanvas().style.cursor = '';
 		popup.remove();
 	});
+	map.on('move', () => {
+		const popupLngLat = popup.getLngLat();
+		const bounds = map.getBounds();
+		if (!bounds.contains(popupLngLat)) {
+			popup.remove();
+			currentFeature = null;
+		}
+	});
 });
 </script>
 </body>
