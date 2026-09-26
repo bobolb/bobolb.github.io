@@ -304,17 +304,14 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 	return null;
 }
 */
+	const geojson = 
+
 	// show popup on hover
 	map.on('mousemove', 'riskWNV', (e) => {
 
 		const feature = e.features[0];
 
 		console.log("Hover feature:", feature);
-
-		const geometry = e.features[0].geometry.geometries
-			.find(g => g.type === 'Point');
-
-		console.log("Hover geometry:", geometry);
 
 		const coordinates = geometry?.coordinates;
 
