@@ -9,11 +9,6 @@
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.css" />
 <link rel="stylesheet" href="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.css"/>
 <style>
-/*
-.maplibregl-popup {
-	pointer-events: none;
-}
-*/
 .risk-popup,
 .risk-popup * {
 	pointer-events: none;
@@ -324,7 +319,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 
 	map.on('mousemove', hoverLayers, (e) => {
 
-		console.log("mousemove");
+		//console.log("mousemove");
 
 		const feature = e.features[0];
 		const featureId = e.features[0].properties.name;
@@ -422,6 +417,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 		// remove popup
 	map.on('mouseleave', hoverLayers, () => {
 		console.log("mouseleave");
+		console.log("Leaving:", currentFeature);
 		currentFeatureCoordinates = undefined;
 		currentFeature = null;
 		map.getCanvas().style.cursor = '';
