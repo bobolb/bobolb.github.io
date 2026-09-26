@@ -58,13 +58,10 @@ var useRetina = window.devicePixelRatio > 1;
 </script>
 <script type="module">
 
-	// import polylabel
-import polylabel from 'https://esm.sh/polylabel@2.1.0';
-
-	// import maplibre
+// import maplibre
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
 
-	// create map
+// create map
 const map = new maplibregl.Map({
 	container: 'map',
 	style: 'style.json',
@@ -76,15 +73,15 @@ const map = new maplibregl.Map({
 	pitchWithRotate: false
 });
 
-	// disable pitch control
+// disable map touch pitch control
 map.touchPitch.disable();
 
-	// display Zoom, get initial level and update on move/zoom 
+// display Zoom, get initial level and update on move/zoom 
 const zoomDisplay = document.getElementById('zoom-level');
 zoomDisplay.textContent = map.getZoom().toFixed(1);
 map.on('zoom', () => {zoomDisplay.textContent = map.getZoom().toFixed(1);});
 
-	// add navigation controls
+// add navigation controls
 map.addControl(new maplibregl.NavigationControl({
 	visualizePitch: true,
 	visualizeRoll: true,
@@ -94,49 +91,48 @@ map.addControl(new maplibregl.NavigationControl({
 	'top-right'
 );
 
-	// get map bounds
+/*
+// get map bounds
 const bounds = map.getBounds();
 
-	// get viewbox from map bounds
+// get viewbox from map bounds
 const viewbox = [
 	bounds.getSouthWest().lng,
 	bounds.getSouthWest().lat,
 	bounds.getNorthEast().lng,
 	bounds.getNorthEast().lat
-]
-.join(',');
+].join(',');
+*/
 
-	// geocoder query
+// query to geocoder
 const geocoderApi = {
 	forwardGeocode: async (config) => {
+
 		const features = [];
 
 		try {
 			const request =
 			`https://nominatim.openstreetmap.org/search?q=${config.query}` +
 			`&format=geojson` +
-			//`&polygon_geojson=1` +
 			`&addressdetails=1` +
 			`&limit=5`;
-			//`&viewbox=${viewbox}`;
 
-			console.log("Request:", request);
+			//console.log("Geocoder request:", request);
 
 			const response = await fetch(request);
 
-			console.log("Response:", response);
+			//console.log("Geocoder response:", response);
 
 			const geojson = await response.json();
 
 			for (const feature of geojson.features) {
 
-				console.log("Raw feature:", feature);
+				//console.log("Result feature:", feature);
 
 				if (
 				!['country',
 				'region',
 				'state',
-				//'municipality',
 				'county',
 				'city',
 				'town',
@@ -157,34 +153,33 @@ const geocoderApi = {
 					];
 				}
 
-					const point = {
+				const point = {
 					type: 'Feature',
 					geometry: {
-						type: 'Point',
-						coordinates: center
-					},
-					bbox: feature.bbox,
-					text: feature.properties.name,
-					place_name_long: feature.properties.display_name,
-					place_name_short: feature.properties.name,
-					place_type: feature.properties.addresstype,
-					properties: feature.properties,
-					center
-					};
+					type: 'Point',
+					coordinates: center
+				},
+				bbox: feature.bbox,
+				text: feature.properties.name,
+				place_name_long: feature.properties.display_name,
+				place_name_short: feature.properties.name,
+				place_type: feature.properties.addresstype,
+				properties: feature.properties,
+				center
+				};
 
 				features.push(point);
 			}
 		} catch (e) {
 			console.error(`Failed to forwardGeocode with error: ${e}`);
 		}
-
 		return {
 			features
 		};
 	}
 };
 
-	// geocoder format search results
+// geocoder format search results list
 const geocoder = new MaplibreGeocoder(geocoderApi, {
 	maplibregl,
 	render: function(item) {
@@ -192,14 +187,19 @@ const geocoder = new MaplibreGeocoder(geocoderApi, {
 		const typeFormatted = type.charAt(0).toUpperCase() + type.slice(1);
 		return `
 			<div>
-				<strong>${item.place_name_long}</strong><br />
-				<small>${typeFormatted}</small>
+				<strong>
+					${item.place_name_long}
+				</strong>
+				<br />
+				<small>
+					${typeFormatted}
+				</small>
 			</div>
 			`;
 	},
 	marker: {
-			offset: [0, -35]
-			},
+		offset: [0, -35]
+	},
 	showResultMarkers: false,
 	flyTo: false,
 	showResultsWhileTyping: true,
@@ -208,21 +208,19 @@ const geocoder = new MaplibreGeocoder(geocoderApi, {
 	debounceSearch: 500
 });
 
-	// add geocoder search bar
+// add geocoder search bar
 map.addControl(geocoder, 'top-left');
 
-	// geocoder move view to selected result
+// geocoder move view to selected result
 geocoder.on('result', (e) => {
 	document.activeElement?.blur();
 	const result = e.result;
 	console.log("Result selected:", e.result);
-
 	if (
 		[
 			'country',
 			'region',
 			'state',
-			//'municipality',
 			'county',
 			'city',
 			'town',
@@ -246,28 +244,8 @@ geocoder.on('result', (e) => {
 	}
 });
 
-/*
-geocoder.on('result', (e) => {
-	console.log('Selected result:', e.result);
-	const result = e.result;
-	if (
-		result.properties?.addresstype === 'country' &&
-		result.bbox
-	) {
-		map.fitBounds(
-			[
-				[result.bbox[0], result.bbox[1]],
-				[result.bbox[2], result.bbox[3]]
-			],
-			{
-			padding: 50
-			}
-		);
-	}
-});
-*/
-	// create popup but don't add to map yet
-	map.on('load', async () => {
+// create popup but don't add to map yet
+map.on('load', async () => {
 	const popup = new maplibregl.Popup({
 		className: 'risk-popup',
 		closeButton: false,
@@ -285,38 +263,14 @@ geocoder.on('result', (e) => {
 	});
 
 	// set layers to watch for popup
-const hoverLayers = ['risk-WNV-fill', 'risk-MBV-fill'];
+	const hoverLayers = ['risk-WNV-fill', 'risk-MBV-fill'];
 
 	// detect marker change for overlapping markers, use mousemove not mouseenter event
-let currentFeatureCoordinates = undefined;
+	let currentFeatureCoordinates = null;
 
-/*
-// calculate location point for polygon geometries
-function getPoleOfInaccessibility(geometry, precision = 0.00001) {
-
-	if (geometry.type === 'Polygon') {
-		return polylabel(geometry.coordinates, precision);
-	}
-	if (geometry.type === 'MultiPolygon') {
-		let bestPoint = null;
-		let bestDistance = -Infinity;
-
-		for (const polygon of geometry.coordinates) {
-			const point = polylabel(polygon, precision);
-
-			if (point.distance > bestDistance) {
-				bestDistance = point.distance;
-				bestPoint = point;
-			}
-		}
-		return bestPoint;
-	}
-	return null;
-}
-*/
-	// show popup on hover
 	let currentFeature = null;
 
+	// show popup on hover
 	map.on('mousemove', hoverLayers, (e) => {
 
 		//console.log("mousemove");
@@ -339,22 +293,15 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 
 		const featureCoordinates = coordinates.toString();
 
-		//const coordinates = getPoleOfInaccessibility(e.features[0].geometry);
-
-		//const featureCoordinates = e.features[0].geometry.coordinates.toString();
-
 		if (currentFeatureCoordinates !== featureCoordinates) {
 			currentFeatureCoordinates = featureCoordinates;
 
 			// Change the cursor style as a UI indicator.
 			map.getCanvas().style.cursor = 'pointer';
 
-			//const coordinates = e.features[0].geometry.coordinates.slice();
 			const name = e.features[0].properties.name;
 			const country = e.features[0].properties.COUNTRY || "";
 			const type = e.features[0].properties.ENGTYPE_2 || "";
-			//const risks = e.features[0].properties.risks || "";
-
 			const riskC = e.features[0].properties.riskC;
 			const riskD = e.features[0].properties.riskD;
 			const riskW = e.features[0].properties.riskW;
@@ -363,33 +310,24 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 
 			let riskHTML = "";
 
-			//if (risks.toLowerCase().includes("w")) {
 			if (e.features[0].properties.riskW) {
 				riskHTML += '<p style="color:red">West Nile Virus</p>';
 			}
 
 			const mbvRisks = [];
 
-			//if (risks.toLowerCase().includes("c")) {
 			if (e.features[0].properties.riskC) {
 				mbvRisks.push('Chikungunya Virus');
 			}
-
-			//if (risks.toLowerCase().includes("d")) {
 			if (e.features[0].properties.riskD) {
 				mbvRisks.push('Dengue Virus');
 			}
-
-			//if (risks.toLowerCase().includes("y")) {
 			if (e.features[0].properties.riskY) {
 				mbvRisks.push('Yellow Fever Virus');
 			}
-
-			//if (risks.toLowerCase().includes("z")) {
 			if (e.features[0].properties.riskZ) {
 				mbvRisks.push('Zika Virus');
 			}
-
 			if (mbvRisks.length > 0) {
 				riskHTML += `
 					<p style="color:#1919e6">
@@ -414,15 +352,14 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 		};
 	});
 
-		// remove popup
+	// remove popup
 	map.on('mouseleave', hoverLayers, () => {
 		console.log("mouseleave");
 		console.log("Leaving:", currentFeature);
-		currentFeatureCoordinates = undefined;
+		currentFeatureCoordinates = null;
 		currentFeature = null;
 		map.getCanvas().style.cursor = '';
 		popup.remove();
-
 	});
 });
 </script>
