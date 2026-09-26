@@ -90,19 +90,6 @@ map.addControl(new maplibregl.NavigationControl({
 	'top-right'
 );
 
-/*
-// get map bounds
-const bounds = map.getBounds();
-
-// get viewbox from map bounds
-const viewbox = [
-	bounds.getSouthWest().lng,
-	bounds.getSouthWest().lat,
-	bounds.getNorthEast().lng,
-	bounds.getNorthEast().lat
-].join(',');
-*/
-
 // query to geocoder
 const geocoderApi = {
 	forwardGeocode: async (config) => {
@@ -265,121 +252,195 @@ map.on('load', async () => {
 	const hoverLayers = ['risk-WNV-fill', 'risk-MBV-fill'];
 
 	// detect marker change for overlapping markers, use mousemove not mouseenter event
-	let currentFeatureCoordinates = null;
+	//let currentFeatureCoordinates = null;
 
 	let currentFeature = null;
 
-	// show popup on hover
-	map.on('mousemove', hoverLayers, (e) => {
-
-		//console.log("mousemove");
-
-		const feature = e.features[0];
-		const featureId = e.features[0].properties.name;
-
-		if (featureId === currentFeature) {
-			return;
-		}
-
-		currentFeature = featureId;
-
-		console.log("Creating popup for:", currentFeature);
+	function showPopup(feature, pointerLngLat) {
 
 		const pointLng = feature.properties.pointLng;
 		const pointLat = feature.properties.pointLat;
 
 		const coordinates = [pointLng, pointLat];
 
-		const featureCoordinates = coordinates.toString();
+		const name = feature.properties.name;
+		const country = feature.properties.COUNTRY || "";
+		const type = feature.properties.ENGTYPE_2 || "";
 
-		if (currentFeatureCoordinates !== featureCoordinates) {
-			currentFeatureCoordinates = featureCoordinates;
+		let riskHTML = "";
 
-			// Change the cursor style as a UI indicator.
-			map.getCanvas().style.cursor = 'pointer';
-
-			const name = e.features[0].properties.name;
-			const country = e.features[0].properties.COUNTRY || "";
-			const type = e.features[0].properties.ENGTYPE_2 || "";
-			const riskC = e.features[0].properties.riskC;
-			const riskD = e.features[0].properties.riskD;
-			const riskW = e.features[0].properties.riskW;
-			const riskY = e.features[0].properties.riskY;
-			const riskZ = e.features[0].properties.riskZ;
-
-			let riskHTML = "";
-
-			if (e.features[0].properties.riskW) {
-				riskHTML += '<p style="color:red">West Nile Virus</p>';
-			}
-
-			const mbvRisks = [];
-
-			if (e.features[0].properties.riskC) {
-				mbvRisks.push('Chikungunya Virus');
-			}
-			if (e.features[0].properties.riskD) {
-				mbvRisks.push('Dengue Virus');
-			}
-			if (e.features[0].properties.riskY) {
-				mbvRisks.push('Yellow Fever Virus');
-			}
-			if (e.features[0].properties.riskZ) {
-				mbvRisks.push('Zika Virus');
-			}
-			if (mbvRisks.length > 0) {
-				riskHTML += `
-					<p style="color:#1919e6">
-					${mbvRisks.join("<br />")}
-					</p>
-				`;
-			}
-
-			// Ensure that if the map is zoomed out such that multiple
-			// copies of the feature are visible, the popup appears
-			// over the copy being pointed to.
-			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-				coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-			}
-
-			// Populate the popup and set its
-			// coordinates based on the feature found.
-			popup
-				.setLngLat(coordinates)
-				.setHTML(`<p><b><big>${name}</big></b><br /><span style="color:#636363">${type} &vert; ${country}</span></p>${riskHTML}`)
-				.addTo(map);
-		};
-	});
-
-	// remove popup when leaving layer
-	map.on('mouseleave', hoverLayers, () => {
-		console.log("mouseleave");
-		console.log("Leaving:", currentFeature);
-		currentFeatureCoordinates = null;
-		currentFeature = null;
-		map.getCanvas().style.cursor = '';
-		popup.remove();
-	});
-	// remove popup when it moves outside bounds
-	map.on('move', () => {
-		const popupLngLat = popup.getLngLat();
-		const bounds = map.getBounds();
-		if (!popupLngLat) return;
-		if (!bounds.contains(popupLngLat)) {
-			popup.remove();
-			currentFeature = null;
+		if (feature.properties.riskW) {
+			riskHTML += '<p style="color:red">West Nile Virus</p>';
 		}
-	});
-	// click to show popup
-	map.on('click', hoverLayers, (e) => {
-		const feature = e.features[0];
-		currentFeature = feature.properties.name;
-		showPopup(
-			feature,
-			[e.lngLat.lng, e.lngLat.lat]
-		);
-	});
+
+		const mbvRisks = [];
+
+		if (feature.properties.riskC) {
+			mbvRisks.push('Chikungunya Virus');
+		}
+
+		if (feature.properties.riskD) {
+			mbvRisks.push('Dengue Virus');
+		}
+
+		if (feature.properties.riskY) {
+			mbvRisks.push('Yellow Fever Virus');
+		}
+
+		if (feature.properties.riskZ) {
+			mbvRisks.push('Zika Virus');
+		}
+
+		if (mbvRisks.length > 0) {
+			riskHTML += `
+				<p style="color:#1919e6">
+					${mbvRisks.join("<br />")}
+				</p>
+			`;
+		}
+		// Deal with copies across the antimeridian
+		while (Math.abs(pointerLngLat.lng - coordinates[0]) > 180) {
+			coordinates[0] +=
+				pointerLngLat.lng > coordinates[0] ? 360 : -360;
+		}
+
+		popup
+			.setLngLat(coordinates)
+			.setHTML(`
+				<p>
+					<b><big>${name}</big></b><br />
+					<span style="color:#636363">
+						${type} &vert; ${country}
+					</span>
+				</p>
+				${riskHTML}
+			`)
+			.addTo(map);
+	}
+   // Desktop hover
+    map.on('mousemove', hoverLayers, (e) => {
+
+        const feature = e.features[0];
+        const featureId = feature.properties.name;
+
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Don't rebuild popup while moving within same feature
+        if (featureId === currentFeature) {
+            return;
+        }
+
+        currentFeature = featureId;
+
+        console.log("Creating popup for:", currentFeature);
+
+        showPopup(feature, e.lngLat);
+    });
+
+
+    // Tap/click always shows popup, even if it is the same feature
+    map.on('click', hoverLayers, (e) => {
+
+        const feature = e.features[0];
+
+        currentFeature = feature.properties.name;
+
+        console.log("Clicked popup for:", currentFeature);
+
+        showPopup(feature, e.lngLat);
+    });
+
+
+    // Remove when leaving watched layers
+    map.on('mouseleave', hoverLayers, () => {
+
+        currentFeature = null;
+
+        map.getCanvas().style.cursor = '';
+
+        popup.remove();
+    });
+
+
+    // Remove if popup anchor moves outside map
+    map.on('move', () => {
+
+        const popupLngLat = popup.getLngLat();
+
+        if (!popupLngLat) return;
+
+        if (!map.getBounds().contains(popupLngLat)) {
+
+            popup.remove();
+
+            // Important: allow same feature to be selected again
+            currentFeature = null;
+        }
+    });
+
 });
+
+   // Desktop hover
+    map.on('mousemove', hoverLayers, (e) => {
+
+        const feature = e.features[0];
+        const featureId = feature.properties.name;
+
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Don't rebuild popup while moving within same feature
+        if (featureId === currentFeature) {
+            return;
+        }
+
+        currentFeature = featureId;
+
+        console.log("Creating popup for:", currentFeature);
+
+        showPopup(feature, e.lngLat);
+    });
+
+
+    // Tap/click always shows popup, even if it is the same feature
+    map.on('click', hoverLayers, (e) => {
+
+        const feature = e.features[0];
+
+        currentFeature = feature.properties.name;
+
+        console.log("Clicked popup for:", currentFeature);
+
+        showPopup(feature, e.lngLat);
+    });
+
+
+    // Remove when leaving watched layers
+    map.on('mouseleave', hoverLayers, () => {
+
+        currentFeature = null;
+
+        map.getCanvas().style.cursor = '';
+
+        popup.remove();
+    });
+
+
+    // Remove if popup anchor moves outside map
+    map.on('move', () => {
+
+        const popupLngLat = popup.getLngLat();
+
+        if (!popupLngLat) return;
+
+        if (!map.getBounds().contains(popupLngLat)) {
+
+            popup.remove();
+
+            // Important: allow same feature to be selected again
+            currentFeature = null;
+        }
+    });
+
 </script>
 </body>
 </html>
