@@ -315,12 +315,19 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 	map.on('mousemove', hoverLayers, (e) => {
 
 		const feature = e.features[0];
+		const featureId = e.features[0].properties.name;
 
-		if (feature.id === currentFeature) {
+		console.log(
+			"featureId", featureId,
+			"currentFeature:", currentFeature,
+			"layer:", feature.layer.id
+		);
+		
+		if (featureId === currentFeature) {
 			return;
 		}
 
-		currentFeature = e.features[0].properties.name;
+		currentFeature = featureId;
 
 		console.log("Creating popup for:", currentFeature);
 
