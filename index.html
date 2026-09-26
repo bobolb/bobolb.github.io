@@ -351,7 +351,7 @@ map.on('load', async () => {
 		};
 	});
 
-	// remove popup
+	// remove popup when leaving layer
 	map.on('mouseleave', hoverLayers, () => {
 		console.log("mouseleave");
 		console.log("Leaving:", currentFeature);
@@ -360,6 +360,7 @@ map.on('load', async () => {
 		map.getCanvas().style.cursor = '';
 		popup.remove();
 	});
+	// remove popup when it moves outside bounds
 	map.on('move', () => {
 		const popupLngLat = popup.getLngLat();
 		const bounds = map.getBounds();
@@ -368,6 +369,15 @@ map.on('load', async () => {
 			popup.remove();
 			currentFeature = null;
 		}
+	});
+	// click to show popup
+	map.on('click', hoverLayers, (e) => {
+		const feature = e.features[0];
+		currentFeature = feature.properties.name;
+		showPopup(
+			feature,
+			[e.lngLat.lng, e.lngLat.lat]
+		);
 	});
 });
 </script>
