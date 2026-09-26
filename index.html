@@ -18,60 +18,56 @@
 		border-radius: 10px;
 		box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 	}
-	
 	.maplibregl-popup-anchor-top .maplibregl-popup-tip {
 		border-bottom-color: #ffffff;
 	}
-	
 	.maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
 		border-top-color: #ffffff;
 	}
-
 	.maplibregl-popup-anchor-left .maplibregl-popup-tip {
 		border-right-color: #ffffff;
 	}
-
 	.maplibregl-popup-anchor-right .maplibregl-popup-tip {
 		border-left-color: #ffffff;
 	}
-
 	.maplibregl-ctrl-geocoder {
 		width: min(500px, 80vw);
 	}
-	
-.maplibregl-ctrl-geocoder:has(input:not(:placeholder-shown))
-  .maplibregl-ctrl-geocoder--button {
-  display: block !important;
-}
-
+	.maplibregl-ctrl-geocoder:has(input:not(:placeholder-shown))
+	.maplibregl-ctrl-geocoder--button {
+		display: block !important;
+	}
 </style>
-</head>    
+</head>
 <body>
 <script src="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.min.js"></script>
 <div id="zoom-display" style="position: absolute; bottom: 10px; left: 10px; background: white; padding: 5px 10px; font-family: sans-serif; z-index: 1;">
-  Zoom: <span id="zoom-level"></span>
+Zoom: <span id="zoom-level"></span>
 </div>
 <div id="map" style="width: 100%; height: 100%"></div>
-
 <script>
 var useRetina = window.devicePixelRatio > 1;
 </script>
 <script type="module">
 
+// import polylabel
 import polylabel from 'https://esm.sh/polylabel@2.1.0';
 
+// import maplibre
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
-	
+
+// create map
 const map = new maplibregl.Map({
 	container: 'map',
-       style: 'style.json',
+	style: 'style.json',
 	center: [3.206, 44.582],
 	zoom: 5,
 	attributionControl: {compact: true, customAttribution: "JPAC GDRI"},
 	hash: true,
-		pitchWithRotate: false
+	pitchWithRotate: false
 });
 
+// disable pitch control
 map.touchPitch.disable();
 
 // display Zoom, get initial level and update on move/zoom 
@@ -79,32 +75,36 @@ const zoomDisplay = document.getElementById('zoom-level');
 zoomDisplay.textContent = map.getZoom().toFixed(1);
 map.on('zoom', () => {zoomDisplay.textContent = map.getZoom().toFixed(1);});
 
-// navigation controls
+// add navigation controls
 map.addControl(new maplibregl.NavigationControl({
-    visualizePitch: true,
-    visualizeRoll: true,
-    showZoom: true,
-    showCompass: true
+	visualizePitch: true,
+	visualizeRoll: true,
+	showZoom: true,
+	showCompass: true
 	}),
 	'top-right'
 );
 
+// get map bounds
 const bounds = map.getBounds();
 
+// get viewbox from map bounds
 const viewbox = [
 	bounds.getSouthWest().lng,
 	bounds.getSouthWest().lat,
 	bounds.getNorthEast().lng,
 	bounds.getNorthEast().lat
-].join(',');
+]
+.join(',');
 
+// geocoder query
 const geocoderApi = {
-    forwardGeocode: async (config) => {
-        const features = [];
+	forwardGeocode: async (config) => {
+		const features = [];
 
-        try {
-            const request =
-            `https://nominatim.openstreetmap.org/search?q=${config.query}` +
+		try {
+			const request =
+			`https://nominatim.openstreetmap.org/search?q=${config.query}` +
 			`&format=geojson` +
 			//`&polygon_geojson=1` +
 			`&addressdetails=1` +
@@ -112,17 +112,17 @@ const geocoderApi = {
 			//`&viewbox=${viewbox}`;
 
 			console.log("Request:", request);
-			
-            const response = await fetch(request);
-            
+
+			const response = await fetch(request);
+
 			console.log("Response:", response);
 
 			const geojson = await response.json();
-			
-            for (const feature of geojson.features) {               
-				
+
+			for (const feature of geojson.features) {
+
 				console.log("Raw feature:", feature);
-				
+
 				if (
 				!['country',
 				'region',
@@ -132,49 +132,50 @@ const geocoderApi = {
 				'city',
 				'town',
 				'village']
-					.includes(feature.properties.addresstype)
+				.includes(feature.properties.addresstype)
 				) {
 					continue;
 				}
-				
+
 				let center;
 
-                if (feature.geometry.type === "Point") {
-                    center = feature.geometry.coordinates;
-                } else {
-                    center = [
+				if (feature.geometry.type === "Point") {
+					center = feature.geometry.coordinates;
+				} else {
+					center = [
 						(feature.bbox[0] + feature.bbox[2]) / 2,
 						(feature.bbox[1] + feature.bbox[3]) / 2
 					];
-                }
-				
-                const point = {
-                    type: 'Feature',
-                    geometry: {
-                        type: 'Point',
-                        coordinates: center
-                    },
-                    bbox: feature.bbox,
-                    text: feature.properties.name,                    
+				}
+
+					const point = {
+					type: 'Feature',
+					geometry: {
+						type: 'Point',
+						coordinates: center
+					},
+					bbox: feature.bbox,
+					text: feature.properties.name,
 					place_name_long: feature.properties.display_name,
 					place_name_short: feature.properties.name,
-                    place_type: feature.properties.addresstype,
-					properties: feature.properties,							                   
-                    center
-                };
-					
-                features.push(point);				
-            }
-        } catch (e) {
-            console.error(`Failed to forwardGeocode with error: ${e}`);
-        }
+					place_type: feature.properties.addresstype,
+					properties: feature.properties,
+					center
+					};
 
-        return {
-            features
-        };
+				features.push(point);
+			}
+		} catch (e) {
+			console.error(`Failed to forwardGeocode with error: ${e}`);
+		}
+
+		return {
+			features
+		};
 	}
 };
 
+// geocoder format search results
 const geocoder = new MaplibreGeocoder(geocoderApi, {
 	maplibregl,
 	render: function(item) {
@@ -198,134 +199,141 @@ const geocoder = new MaplibreGeocoder(geocoderApi, {
 	debounceSearch: 500
 });
 
+// add geocoder search bar
 map.addControl(geocoder, 'top-left');
 
-geocoder.on('result', (e) => {    
+// geocoder move view to selected result
+geocoder.on('result', (e) => {
 	document.activeElement?.blur();
 	const result = e.result;
 	console.log("Result selected:", e.result);
 
-    if (
-        ['country',
-		'region',
-		'state',
-		//'municipality',
-		'county',
-		'city',
-		'town',
-		'village'].includes(result.properties?.addresstype) &&
-        result.bbox
-    ) {
-        map.fitBounds(
-            [
-                [result.bbox[0], result.bbox[1]],
-                [result.bbox[2], result.bbox[3]]
-            ],
-            { padding: 50 }
-        );
-    } else {
-        map.flyTo({
-            center: result.center,
-            zoom: 10
-        });
-    }
+	if (
+		[
+			'country',
+			'region',
+			'state',
+			//'municipality',
+			'county',
+			'city',
+			'town',
+			'village'
+		]
+		.includes(result.properties?.addresstype) &&
+		result.bbox
+	) {
+		map.fitBounds(
+			[
+				[result.bbox[0], result.bbox[1]],
+				[result.bbox[2], result.bbox[3]]
+			],
+			{ padding: 50 }
+		);
+	} else {
+		map.flyTo({
+			center: result.center,
+			zoom: 10
+		});
+	}
 });
 
 /*
 geocoder.on('result', (e) => {
-    console.log('Selected result:', e.result);
+	console.log('Selected result:', e.result);
 	const result = e.result;
-    if (
-        result.properties?.addresstype === 'country' &&
-        result.bbox
-    ) {
-        map.fitBounds(
-            [
-                [result.bbox[0], result.bbox[1]],
-                [result.bbox[2], result.bbox[3]]
-            ],
-            {
-                padding: 50
-            }
-        );
-    }
+	if (
+		result.properties?.addresstype === 'country' &&
+		result.bbox
+	) {
+		map.fitBounds(
+			[
+				[result.bbox[0], result.bbox[1]],
+				[result.bbox[2], result.bbox[3]]
+			],
+			{
+			padding: 50
+			}
+		);
+	}
 });
 */
+	// create popup but don't add to map yet
 	map.on('load', async () => {
-    // Create a popup, but don't add it to the map yet.
-    const popup = new maplibregl.Popup({
-        closeButton: false,
-        closeOnClick: false,
-								offset: {
-								top: [0, 20],
-								bottom: [0, -20],
-								left: [20, 0],
-								right: [-20, 0],
-								'top-left': [15, 15],
-								'top-right': [-15, 15],
-								'bottom-left': [15, -15],
-								'bottom-right': [-15, -15]
-								}
-    });
+	const popup = new maplibregl.Popup({
+		closeButton: false,
+		closeOnClick: false,
+		offset: {
+			top: [0, 20],
+			bottom: [0, -20],
+			left: [20, 0],
+			right: [-20, 0],
+			'top-left': [15, 15],
+			'top-right': [-15, 15],
+			'bottom-left': [15, -15],
+			'bottom-right': [-15, -15]
+		}
+	});
 
-// const hoverLayers = ['riskWNV', 'risk MBV'];
+// set layers to watch for popup
+//const hoverLayers = ['riskWNV', 'risk MBV'];
 
-  // Make sure to detect marker change for overlapping markers
-    // and use mousemove instead of mouseenter event
-    let currentFeatureCoordinates = undefined;
+// detect marker change for overlapping markers, use mousemove not mouseenter event
+let currentFeatureCoordinates = undefined;
+
 /*
+// calculate location point for polygon geometries
 function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 
-    if (geometry.type === 'Polygon') {
-        return polylabel(geometry.coordinates, precision);
-    }
+	if (geometry.type === 'Polygon') {
+		return polylabel(geometry.coordinates, precision);
+	}
+	if (geometry.type === 'MultiPolygon') {
+		let bestPoint = null;
+		let bestDistance = -Infinity;
 
-    if (geometry.type === 'MultiPolygon') {
-        let bestPoint = null;
-        let bestDistance = -Infinity;
+		for (const polygon of geometry.coordinates) {
+			const point = polylabel(polygon, precision);
 
-        for (const polygon of geometry.coordinates) {
-            const point = polylabel(polygon, precision);
-
-            if (point.distance > bestDistance) {
-                bestDistance = point.distance;
-                bestPoint = point;
-            }
-        }
-
-        return bestPoint;
-    }
- 
-    return null;
+			if (point.distance > bestDistance) {
+				bestDistance = point.distance;
+				bestPoint = point;
+			}
+		}
+		return bestPoint;
+	}
+	return null;
 }
 */
+	// show popup on hover
 	map.on('mousemove', 'riskWNV', (e) => {
-	
+
 		const feature = e.features[0];
-		
+
+		console.log("Hover feature:", feature);
+
 		const geometry = e.features[0].geometry.geometries
-    .find(g => g.type === 'Point');
+		.find(g => g.type === 'Point');
+
+		console.log("Hover geometry:", geometry);
 
 		const coordinates = geometry?.coordinates;
 
-		
-		
 		//const coordinates = getPoleOfInaccessibility(e.features[0].geometry);
 		const featureCoordinates = coordinates.toString();
-		
+
 		//const featureCoordinates = e.features[0].geometry.coordinates.toString();
-        
+
 		if (currentFeatureCoordinates !== featureCoordinates) {
-            currentFeatureCoordinates = featureCoordinates;
+			currentFeatureCoordinates = featureCoordinates;
 
-            // Change the cursor style as a UI indicator.
-            map.getCanvas().style.cursor = 'pointer';
+			// Change the cursor style as a UI indicator.
+			map.getCanvas().style.cursor = 'pointer';
 
-            //const coordinates = e.features[0].geometry.coordinates.slice();
-            const name = e.features[0].properties.name;
+			//const coordinates = e.features[0].geometry.coordinates.slice();
+			const name = e.features[0].properties.name;
 			const country = e.features[0].properties.COUNTRY || "";
 			const type = e.features[0].properties.ENGTYPE_2 || "";
-		//	const risks = e.features[0].properties.risks || "";
+			//const risks = e.features[0].properties.risks || "";
 
 			const riskC = e.features[0].properties.riskC;
 			const riskD = e.features[0].properties.riskD;
@@ -334,63 +342,64 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 			const riskZ = e.features[0].properties.riskZ;
 
 			let riskHTML = "";
-					
-	//		if (risks.toLowerCase().includes("w")) {
+
+			//if (risks.toLowerCase().includes("w")) {
 			if (e.features[0].properties.riskW) {
 				riskHTML += '<p style="color:red">West Nile Virus</p>';
 			}
-				
+
 			const mbvRisks = [];
-			
-	//		if (risks.toLowerCase().includes("c")) {
+
+			//if (risks.toLowerCase().includes("c")) {
 			if (e.features[0].properties.riskC) {
 				mbvRisks.push('Chikungunya Virus');
 			}
-				
-	//		if (risks.toLowerCase().includes("d")) {
+
+			//if (risks.toLowerCase().includes("d")) {
 			if (e.features[0].properties.riskD) {
 				mbvRisks.push('Dengue Virus');
 			}
 
-	//		if (risks.toLowerCase().includes("y")) {
+			//if (risks.toLowerCase().includes("y")) {
 			if (e.features[0].properties.riskY) {
 				mbvRisks.push('Yellow Fever Virus');
 			}
 
-	//		if (risks.toLowerCase().includes("z")) {
+			//if (risks.toLowerCase().includes("z")) {
 			if (e.features[0].properties.riskZ) {
 				mbvRisks.push('Zika Virus');
-			}				
-			
+			}
+
 			if (mbvRisks.length > 0) {
 				riskHTML += `
-				<p style="color:#1919e6">
+					<p style="color:#1919e6">
 					${mbvRisks.join("<br />")}
 					</p>
 				`;
 			}
 
-            // Ensure that if the map is zoomed out such that multiple
-            // copies of the feature are visible, the popup appears
-            // over the copy being pointed to.
-            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-            }
+			// Ensure that if the map is zoomed out such that multiple
+			// copies of the feature are visible, the popup appears
+			// over the copy being pointed to.
+			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+				coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+			}
 
-            // Populate the popup and set its coordinates
-            // based on the feature found.
-            popup
+			// Populate the popup and set its coordinates
+			// based on the feature found.
+			popup
 				.setLngLat(coordinates)
 				.setHTML(`<p><b><big>${name}</big></b><br /><span style="color:#636363">${type} &vert; ${country}</span></p>${riskHTML}`)
 				.addTo(map);
-        };
-    });
+		};
+	});
 
+	// remove popup
 	map.on('mouseleave', 'riskWNV', () => {
-        currentFeatureCoordinates = undefined;
-        map.getCanvas().style.cursor = '';
-        popup.remove();
-    
+		currentFeatureCoordinates = undefined;
+		map.getCanvas().style.cursor = '';
+		popup.remove();
+
 	});
 });
 </script>
