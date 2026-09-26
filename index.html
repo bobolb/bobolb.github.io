@@ -9,7 +9,13 @@
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.css" />
 <link rel="stylesheet" href="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.css"/>
 <style>
+/*
 .maplibregl-popup {
+	pointer-events: none;
+}
+*/
+.risk-popup,
+.risk-popup * {
 	pointer-events: none;
 }
 .maplibregl-popup-content {
@@ -268,6 +274,7 @@ geocoder.on('result', (e) => {
 	// create popup but don't add to map yet
 	map.on('load', async () => {
 	const popup = new maplibregl.Popup({
+		className: 'risk-popup',
 		closeButton: false,
 		closeOnClick: false,
 		offset: {
@@ -316,6 +323,8 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 	let currentFeature = null;
 
 	map.on('mousemove', hoverLayers, (e) => {
+
+		console.log("mousemove");
 
 		const feature = e.features[0];
 		const featureId = e.features[0].properties.name;
@@ -401,8 +410,8 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 				coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 			}
 
-			// Populate the popup and set its coordinates
-			// based on the feature found.
+			// Populate the popup and set its
+			// coordinates based on the feature found.
 			popup
 				.setLngLat(coordinates)
 				.setHTML(`<p><b><big>${name}</big></b><br /><span style="color:#636363">${type} &vert; ${country}</span></p>${riskHTML}`)
@@ -412,7 +421,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 
 		// remove popup
 	map.on('mouseleave', hoverLayers, () => {
-		console.log("LEAVE");
+		console.log("mouseleave");
 		currentFeatureCoordinates = undefined;
 		currentFeature = null;
 		map.getCanvas().style.cursor = '';
