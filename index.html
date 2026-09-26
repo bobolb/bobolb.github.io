@@ -309,14 +309,12 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 	return null;
 }
 */
-	const geojson = 
-
 	// show popup on hover
+	let currentFeature = null;
+
 	map.on('mousemove', hoverLayers, (e) => {
 
 		const feature = e.features[0];
-
-		let currentFeature = null;
 
 		if (feature.id === currentFeature) {
 			return;
