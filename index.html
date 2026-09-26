@@ -302,7 +302,15 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 	map.on('mousemove', 'label_risks', (e) => {
 	
 		const feature = e.features[0];
-		const coordinates = getPoleOfInaccessibility(e.features[0].geometry);
+		
+		const geometry = e.features[0].geometry.geometries
+    .find(g => g.type === 'Point');
+
+		const coordinates = geometry?.coordinates;
+
+		
+		
+		//const coordinates = getPoleOfInaccessibility(e.features[0].geometry);
 		const featureCoordinates = coordinates.toString();
 		
 		//const featureCoordinates = e.features[0].geometry.coordinates.toString();
