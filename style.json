@@ -995,15 +995,15 @@
 			"type": "fill",
 			"source": "riskRegions",
 			"filter": [
-/*				"all",
+				"all",
 				[
 					"==",
 					[
 						"geometry-type"
 					],
-					"Polygon"
+					"Point"
 				],
-				[ */
+				[
 					"get",
 					"riskW"
 				]
