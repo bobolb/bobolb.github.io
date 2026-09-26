@@ -9,40 +9,40 @@
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.css" />
 <link rel="stylesheet" href="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.css"/>
 <style>
-	.maplibregl-popup {
-		pointer-events: none;
-	}
-	.maplibregl-popup-content {
-		background-color: #ffffff;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		padding-right: 20px;
-		padding-left: 20px;
-		border-radius: 10px;
-		box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-	}
-	.maplibregl-popup-anchor-top .maplibregl-popup-tip {
-		border-bottom-color: #ffffff;
-	}
-	.maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
-		border-top-color: #ffffff;
-	}
-	.maplibregl-popup-anchor-left .maplibregl-popup-tip {
-		border-right-color: #ffffff;
-	}
-	.maplibregl-popup-anchor-right .maplibregl-popup-tip {
-		border-left-color: #ffffff;
-	}
-	.maplibregl-ctrl-geocoder {
-		width: min(500px, 80vw);
-	}
-	.maplibregl-ctrl-geocoder:has(input:not(:placeholder-shown))
-	.maplibregl-ctrl-geocoder--button {
-		display: block !important;
-	}
-	.maplibregl-ctrl-attrib.maplibregl-compact {
-		display: inline-flex !important;
-		align-items: flex-end !important;
+.maplibregl-popup {
+	pointer-events: none;
+}
+.maplibregl-popup-content {
+	background-color: #ffffff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	border-radius: 10px;
+	box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+.maplibregl-popup-anchor-top .maplibregl-popup-tip {
+	border-bottom-color: #ffffff;
+}
+.maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
+	border-top-color: #ffffff;
+}
+.maplibregl-popup-anchor-left .maplibregl-popup-tip {
+	border-right-color: #ffffff;
+}
+.maplibregl-popup-anchor-right .maplibregl-popup-tip {
+	border-left-color: #ffffff;
+}
+.maplibregl-ctrl-geocoder {
+	width: min(500px, 80vw);
+}
+.maplibregl-ctrl-geocoder:has(input:not(:placeholder-shown))
+.maplibregl-ctrl-geocoder--button {
+	display: block !important;
+}
+.maplibregl-ctrl-attrib.maplibregl-compact {
+	display: inline-flex !important;
+	align-items: flex-end !important;
 }
 </style>
 </head>
@@ -326,7 +326,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 
 		currentFeature = featureId;
 
-		//console.log("Creating popup for:", currentFeature);
+		console.log("Creating popup for:", currentFeature);
 
 		const pointLng = feature.properties.pointLng;
 		const pointLat = feature.properties.pointLat;
