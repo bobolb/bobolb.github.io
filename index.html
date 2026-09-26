@@ -41,9 +41,13 @@
 .maplibregl-ctrl-geocoder--button {
 	display: block !important;
 }
-.maplibregl-ctrl-attrib.maplibregl-compact {
+.maplibregl-ctrl-attrib .maplibregl-compact {
 	display: inline-flex !important;
 	align-items: flex-end !important;
+}
+/* Hides the automatic pipe/divider element in MapLibre v6 */
+.maplibregl-ctrl-attrib-inner .maplibregl-style-attribution-divider {
+	display: none !important;
 }
 </style>
 </head>
