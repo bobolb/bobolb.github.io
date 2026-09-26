@@ -324,6 +324,8 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 
 		currentFeature = feature.id;
 
+		console.log("Current feature:", currentFeature)
+
 		const pointLng = feature.properties.pointLng;
 		const pointLat = feature.properties.pointLat;
 
@@ -410,6 +412,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 	// remove popup
 	map.on('mouseleave', hoverLayers, () => {
 		currentFeatureCoordinates = undefined;
+		currentFeature = null;
 		map.getCanvas().style.cursor = '';
 		popup.remove();
 
