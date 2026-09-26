@@ -57,13 +57,13 @@ var useRetina = window.devicePixelRatio > 1;
 </script>
 <script type="module">
 
-// import polylabel
+	// import polylabel
 import polylabel from 'https://esm.sh/polylabel@2.1.0';
 
-// import maplibre
+	// import maplibre
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
 
-// create map
+	// create map
 const map = new maplibregl.Map({
 	container: 'map',
 	style: 'style.json',
@@ -75,15 +75,15 @@ const map = new maplibregl.Map({
 	pitchWithRotate: false
 });
 
-// disable pitch control
+	// disable pitch control
 map.touchPitch.disable();
 
-// display Zoom, get initial level and update on move/zoom 
+	// display Zoom, get initial level and update on move/zoom 
 const zoomDisplay = document.getElementById('zoom-level');
 zoomDisplay.textContent = map.getZoom().toFixed(1);
 map.on('zoom', () => {zoomDisplay.textContent = map.getZoom().toFixed(1);});
 
-// add navigation controls
+	// add navigation controls
 map.addControl(new maplibregl.NavigationControl({
 	visualizePitch: true,
 	visualizeRoll: true,
@@ -93,10 +93,10 @@ map.addControl(new maplibregl.NavigationControl({
 	'top-right'
 );
 
-// get map bounds
+	// get map bounds
 const bounds = map.getBounds();
 
-// get viewbox from map bounds
+	// get viewbox from map bounds
 const viewbox = [
 	bounds.getSouthWest().lng,
 	bounds.getSouthWest().lat,
@@ -105,7 +105,7 @@ const viewbox = [
 ]
 .join(',');
 
-// geocoder query
+	// geocoder query
 const geocoderApi = {
 	forwardGeocode: async (config) => {
 		const features = [];
@@ -183,7 +183,7 @@ const geocoderApi = {
 	}
 };
 
-// geocoder format search results
+	// geocoder format search results
 const geocoder = new MaplibreGeocoder(geocoderApi, {
 	maplibregl,
 	render: function(item) {
@@ -207,10 +207,10 @@ const geocoder = new MaplibreGeocoder(geocoderApi, {
 	debounceSearch: 500
 });
 
-// add geocoder search bar
+	// add geocoder search bar
 map.addControl(geocoder, 'top-left');
 
-// geocoder move view to selected result
+	// geocoder move view to selected result
 geocoder.on('result', (e) => {
 	document.activeElement?.blur();
 	const result = e.result;
@@ -282,10 +282,10 @@ geocoder.on('result', (e) => {
 		}
 	});
 
-// set layers to watch for popup
+	// set layers to watch for popup
 const hoverLayers = ['risk-WNV-fill', 'risk-MBV-fill'];
 
-// detect marker change for overlapping markers, use mousemove not mouseenter event
+	// detect marker change for overlapping markers, use mousemove not mouseenter event
 let currentFeatureCoordinates = undefined;
 
 /*
@@ -410,8 +410,9 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 		};
 	});
 
-	// remove popup
+		// remove popup
 	map.on('mouseleave', hoverLayers, () => {
+		console.log("LEAVE");
 		currentFeatureCoordinates = undefined;
 		currentFeature = null;
 		map.getCanvas().style.cursor = '';
