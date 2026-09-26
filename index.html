@@ -37,6 +37,10 @@
 	.maplibregl-ctrl-geocoder--button {
 		display: block !important;
 	}
+	.maplibregl-ctrl-attrib.maplibregl-compact {
+		display: inline-flex !important;
+		align-items: flex-end !important;
+}
 </style>
 </head>
 <body>
@@ -62,7 +66,7 @@ const map = new maplibregl.Map({
 	style: 'style.json',
 	center: [3.206, 44.582],
 	zoom: 5,
-	//attributionControl: {compact: true, customAttribution: "JPAC GDRI"},
+	attributionControl: {compact: true, customAttribution: "JPAC GDRI"},
 	attributionControl: false,
 	hash: true,
 	pitchWithRotate: false
@@ -85,11 +89,6 @@ map.addControl(new maplibregl.NavigationControl({
 	}),
 	'top-right'
 );
-
-map.addControl(new maplibregl.AttributionControl({
-	compact: true,
-	customAttribution: "JPAC &vert; Geographical Disease Risk Index<br /><a href=\"https://openfreemap.org/\" target=\"_blank\">&copy; OpenFreeMap</a> <a href=\"https://openmaptiles.org\" target=\"_blank\">&copy; OpenMapTiles</a> <a href=\"https://openstreetmap.org\" target=\"_blank\">Data from OpenStreetMap</a>",
-}))
 
 // get map bounds
 const bounds = map.getBounds();
