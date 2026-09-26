@@ -320,7 +320,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 			return;
 		}
 
-		currentFeature = feature.id;
+		currentFeature = e.features[0].properties.name;
 
 		console.log("Current feature:", currentFeature)
 
