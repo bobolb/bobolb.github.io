@@ -307,7 +307,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 	const geojson = 
 
 	// show popup on hover
-	map.on('mousemove', 'riskWNV', (e) => {
+	map.on('mouseenter', 'riskWNV', (e) => {
 
 		const feature = e.features[0];
 
