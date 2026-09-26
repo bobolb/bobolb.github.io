@@ -312,7 +312,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 		console.log("Hover feature:", feature);
 
 		const geometry = e.features[0].geometry.geometries
-		.find(g => g.type === 'Point');
+			.find(g => g.type === 'Point');
 
 		console.log("Hover geometry:", geometry);
 

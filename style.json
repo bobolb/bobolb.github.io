@@ -995,7 +995,7 @@
 			"type": "fill",
 			"source": "riskRegions",
 			"filter": [
-				"all",
+/*				"all",
 				[
 					"==",
 					[
@@ -1003,7 +1003,7 @@
 					],
 					"Polygon"
 				],
-				[
+				[ */
 					"get",
 					"riskW"
 				]
