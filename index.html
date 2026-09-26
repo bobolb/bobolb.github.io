@@ -401,7 +401,7 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 	});
 
 	// remove popup
-	map.on('mouseleave', 'riskWNV', () => {
+	map.on('mouseleave', hoverLayers, () => {
 		currentFeatureCoordinates = undefined;
 		map.getCanvas().style.cursor = '';
 		popup.remove();
