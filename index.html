@@ -363,6 +363,7 @@ map.on('load', async () => {
 	map.on('move', () => {
 		const popupLngLat = popup.getLngLat();
 		const bounds = map.getBounds();
+		if (!popupLngLat) return;
 		if (!bounds.contains(popupLngLat)) {
 			popup.remove();
 			currentFeature = null;
