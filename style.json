@@ -995,18 +995,10 @@
 			"type": "fill",
 			"source": "riskRegions",
 			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"geometry-type"
-					],
-					"Point"
-				],
-				[
+				
 					"get",
 					"riskW"
-				]
+				
 			],
 			"paint": {
 				"fill-pattern": "risks:red",
