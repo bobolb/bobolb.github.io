@@ -991,6 +991,47 @@
 			}
 		},
 		{
+			"id": "risk-MLB-fill",
+			"type": "fill",
+			"source": "riskRegions",
+			"filter": [
+				"all",
+				[
+					"==",
+					[
+						"geometry-type"
+					],
+					"Polygon"
+				],
+				[
+					"any",
+					[
+						"get",
+						"riskC"
+					],
+					[
+						"get",
+						"riskD"
+					],
+					[
+						"get",
+						"riskY"
+					],
+					[
+						"get",
+						"riskZ"
+					]
+				]
+			],
+			"paint": {
+				"fill-color": "#fff",
+				"fill-opacity": 0
+			},
+			"layout": {
+				"visibility": "visible"
+			}
+		},
+		{
 			"id": "risk-WNV-fill",
 			"type": "fill",
 			"source": "riskRegions",
@@ -6584,7 +6625,8 @@
 			"type": "line",
 			"source": "riskRegions",
 			"layout": {
-				"line-join": "round"
+				"line-join": "round",
+				"visibility": "visible"
 			},
 			"paint": {
 				"line-color": "hsl(240, 80%, 50%)",
@@ -6613,7 +6655,7 @@
 					],
 					"Polygon"
 				],
-				[					
+				[
 					"any",
 					[
 						"get",
@@ -6630,7 +6672,7 @@
 					[
 						"get",
 						"riskZ"
-					]						
+					]
 				]
 			]
 		},
@@ -6904,7 +6946,7 @@
 					[
 						"get",
 						"rank"
-					], 
+					],
 					null
 				],
 				[
