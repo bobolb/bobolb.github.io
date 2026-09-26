@@ -8,13 +8,12 @@
 			"tiles": [
 				"https://tiles.openfreemap.org/natural_earth/ne2sr/{z}/{x}/{y}.png"
 			],
-			"type": "raster",
-			"attribution": "ne2_shaded"
+			"type": "raster"
 		},
 		"openmaptiles": {
 			"type": "vector",
 			"url": "https://tiles.openfreemap.org/planet",
-			"attribution": "vector"
+			"attribution": "OSM
 		},
 		"riskRegions": {
 			"type": "geojson",
