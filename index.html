@@ -317,11 +317,11 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 		const feature = e.features[0];
 		const featureId = e.features[0].properties.name;
 
-		console.log(
-			"featureId", featureId,
-			"currentFeature:", currentFeature,
-			"layer:", feature.layer.id
-		);
+		//console.log(
+		//	"featureId", featureId,
+		//	"currentFeature:", currentFeature,
+		//	"layer:", feature.layer.id
+		//);
 		
 		if (featureId === currentFeature) {
 			return;
