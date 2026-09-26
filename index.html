@@ -316,12 +316,11 @@ function getPoleOfInaccessibility(geometry, precision = 0.00001) {
 		const pointLng = feature.properties.pointLng;
 		const pointLat = feature.properties.pointLat;
 
-		const coordinates = `${pointLng}, ${pointLat}`;
+		const coordinates = [pointLng, pointLat];
 
-		const featureCoordinates = coordinates;
+		const featureCoordinates = coordinates.toString();
 
 		//const coordinates = getPoleOfInaccessibility(e.features[0].geometry);
-		//const featureCoordinates = coordinates.toString();
 
 		//const featureCoordinates = e.features[0].geometry.coordinates.toString();
 
