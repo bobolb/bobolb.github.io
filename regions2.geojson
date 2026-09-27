@@ -2,6 +2,27 @@
     "type": "FeatureCollection",
     "features": [
     {
+"type": "Feature",
+            "properties": {
+                "GID_1": "AUS.7_1",
+                "GID_0": "AUS",
+                "COUNTRY": "Australia",
+                "NAME_1": "Queensland",
+                "VARNAME_1": "NA",
+                "NL_NAME_1": "NA",
+                "TYPE_1": "State",
+                "ENGTYPE_1": "State",
+                "CC_1": "3",
+                "HASC_1": "AU.QL",
+                "ISO_1": "AU-QLD",
+                "dist_pole": 4.5719229005050437
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [145.287931536156407, -23.830449989218689]
+            }
+    },
+    {
     "type": "Feature",
     "properties": {
         "GID_2": "FRA.11.8_1",
@@ -7444,6 +7465,6 @@
                 ]
     },
     "id": "4668ffa9-1ec8-464d-bd65-1909b195d3b6"
-    }   
+    }
     ]
 }
