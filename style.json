@@ -8066,6 +8066,36 @@
 				],
 				"Point"
 			]
+		},
+		{
+			"id": "queensland",
+			"type": "fill",
+			"source": "openmaptiles",
+			"source-layer": "place",
+			"layout": {
+				"visibility": "visible"
+			},
+			"paint": {
+				"fill-color": "#60c"
+			},
+			"filter": [
+				"all",
+				[
+					"==",
+					[
+						"geometry-type"
+					],
+						"Polygon"
+				],
+				[
+					"==",
+					[
+						"get",
+						"osm_id"
+					],
+					2316595
+				]
+			]
 		}
 	],
 	"id": "JPAC",
