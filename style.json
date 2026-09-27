@@ -6611,45 +6611,6 @@
 					true
 				]
 			]
-		},		
-		{
-			"id": "risks-POI",
-			"type": "symbol",
-			"source": "riskRegions",
-			"minzoom": 2,
-			"layout": {
-				"icon-image": "risks:mbv-only",
-				"icon-allow-overlap": true,
-				"icon-ignore-placement": false
-			},
-			"filter": [
-				"==",
-				[
-					"geometry-type"
-				],
-				"Point"
-			]
-		},
-		{
-			"id": "risk-outline",
-			"type": "line",
-			"source": "riskRegions",
-			"layout": {
-				"line-join": "round",
-				"visibility": "visible"
-			},
-			"paint": {
-				"line-color": "#6600cc",
-				"line-width": 5
-			},
-			"filter": [
-				"all",
-				[
-					"==",
-					["geometry-type"],
-					"Polygon"
-				]
-			]
 		},
 		{
 			"id": "risk-MBV-outline",
@@ -8055,6 +8016,45 @@
 					5.9,
 					1
 				]
+			},
+			"filter": [
+				"==",
+				[
+					"geometry-type"
+				],
+				"Point"
+			]
+		},
+		{
+			"id": "all-risks-fill",
+			"type": "fill",
+			"source": "riskRegions",
+			"layout": {
+				"visibility": "visible"
+			},
+			"paint": {
+				"fill-color": "orange"
+			},
+			"filter": [
+				"all",
+				[
+					"==",
+					[
+						"geometry-type"
+					],
+					"Polygon"
+				]
+			]
+		},
+		{
+			"id": "all-risks-point",
+			"type": "symbol",
+			"source": "riskRegions",
+			"minzoom": 2,
+			"layout": {
+				"icon-image": "danger",
+				"icon-allow-overlap": true,
+				"icon-ignore-placement": true
 			},
 			"filter": [
 				"==",
