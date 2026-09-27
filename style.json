@@ -6611,9 +6611,27 @@
 					true
 				]
 			]
+		},		
+		{
+			"id": "risks-POI",
+			"type": "symbol",
+			"source": "riskRegions",
+			"minzoom": 2,
+			"layout": {
+				"icon-image": "risk:mbv-only",
+				"icon-allow-overlap": true,
+				"icon-ignore-placement": false
+			},
+			"filter": [
+				"==",
+				[
+					"geometry-type"
+				],
+				"Point"
+			]
 		},
 		{
-			"id": "queensland-outline",
+			"id": "risk-outline",
 			"type": "line",
 			"source": "riskRegions",
 			"layout": {
@@ -6621,33 +6639,16 @@
 				"visibility": "visible"
 			},
 			"paint": {
-				"line-color": "#0f0",
-				"line-width": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					0,
-					1,
-					5,
-					2,
-					10,
-					8
-				]
+				"line-color": "#6600cc",
+				"line-width": 5
 			},
 			"filter": [
 				"all",
 				[
 					"==",
-					[
-						"geometry-type"
-					],
+					["geometry-type"],
 					"Polygon"
 				]
-				
 			]
 		},
 		{
