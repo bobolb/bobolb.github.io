@@ -8048,14 +8048,13 @@
 		},
 		{
 			"id": "all-risks-point",
-			"type": "symbol",
+			"type": "circle",
 			"source": "riskRegions",
-			"minzoom": 2,
-			"layout": {
-				"icon-image": "circle",
-				"icon-size": 2,
-				"icon-allow-overlap": true,
-				"icon-ignore-placement": true
+			"paint": {
+				"circle-radius": 5,
+				"circle-color": "yellow",
+				"circle-stroke-color": "black",
+				"circle-stroke-width": 2
 			},
 			"filter": [
 				"==",
