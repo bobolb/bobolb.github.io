@@ -6613,6 +6613,44 @@
 			]
 		},
 		{
+			"id": "queensland-outline",
+			"type": "line",
+			"source": "riskRegions",
+			"layout": {
+				"line-join": "round",
+				"visibility": "visible"
+			},
+			"paint": {
+				"line-color": "#0f0",
+				"line-width": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					0,
+					1,
+					5,
+					2,
+					10,
+					8
+				]
+			},
+			"filter": [
+				"all",
+				[
+					"==",
+					[
+						"geometry-type"
+					],
+					"Polygon"
+				]
+				
+			]
+		},
+		{
 			"id": "risk-MBV-outline",
 			"type": "line",
 			"source": "riskRegions",
