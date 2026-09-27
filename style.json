@@ -8071,7 +8071,7 @@
 			"id": "queensland",
 			"type": "fill",
 			"source": "openmaptiles",
-			"source-layer": "place",
+			"source-layer": "boundary",
 			"layout": {
 				"visibility": "visible"
 			},
