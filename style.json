@@ -17,7 +17,7 @@
 		" riskRegions": {
 			"type": "geojson",
 			"data": "https://bobolb.github.io/regions2.geojson"
-		}
+		},
 	},
 	"sprite": [
 		{
