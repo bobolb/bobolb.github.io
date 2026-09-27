@@ -8052,7 +8052,8 @@
 			"source": "riskRegions",
 			"minzoom": 2,
 			"layout": {
-				"icon-image": "danger",
+				"icon-image": "circle",
+				"icon-size": 2,
 				"icon-allow-overlap": true,
 				"icon-ignore-placement": true
 			},
