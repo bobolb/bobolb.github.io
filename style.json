@@ -12,8 +12,7 @@
 		},
 		"openmaptiles": {
 			"type": "vector",
-			"url": "https://tiles.openfreemap.org/planet",
-				"attribution": "OSM"
+			"url": "https://tiles.openfreemap.org/planet"
 		},
 		"riskRegions": {
 			"type": "geojson",
