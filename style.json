@@ -8030,7 +8030,7 @@
 			"type": "fill",
 			"source": "riskRegions",
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			},
 			"paint": {
 				"fill-color": "orange"
@@ -8050,6 +8050,9 @@
 			"id": "all-risks-point",
 			"type": "circle",
 			"source": "riskRegions",
+			"layout": {
+				"visibility": "none"
+			},
 			"paint": {
 				"circle-radius": 5,
 				"circle-color": "yellow",
