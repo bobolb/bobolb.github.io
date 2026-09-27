@@ -209,7 +209,7 @@ map.addControl(geocoder, 'top-left');
 geocoder.on('result', (e) => {
 	document.activeElement?.blur();
 	const result = e.result;
-	console.log("Result selected:", e.result);
+	//console.log("Result selected:", e.result);
 	if (
 		[
 			'country',
@@ -340,7 +340,7 @@ map.on('load', async () => {
 
         currentFeature = featureId;
 
-        console.log("Creating popup for:", currentFeature);
+        //console.log("Creating popup for:", currentFeature);
 
         showPopup(feature, e.lngLat);
     });
@@ -353,7 +353,7 @@ map.on('load', async () => {
 
         currentFeature = feature.properties.name;
 
-        console.log("Clicked popup for:", currentFeature);
+        //console.log("Clicked popup for:", currentFeature);
 
         showPopup(feature, e.lngLat);
     });
