@@ -384,67 +384,6 @@ map.on('load', async () => {
 
 });
 
-   // Desktop hover
-    map.on('mousemove', hoverLayers, (e) => {
-
-        const feature = e.features[0];
-        const featureId = feature.properties.name;
-
-        map.getCanvas().style.cursor = 'pointer';
-
-        // Don't rebuild popup while moving within same feature
-        if (featureId === currentFeature) {
-            return;
-        }
-
-        currentFeature = featureId;
-
-        console.log("Creating popup for:", currentFeature);
-
-        showPopup(feature, e.lngLat);
-    });
-
-
-    // Tap/click always shows popup, even if it is the same feature
-    map.on('click', hoverLayers, (e) => {
-
-        const feature = e.features[0];
-
-        currentFeature = feature.properties.name;
-
-        console.log("Clicked popup for:", currentFeature);
-
-        showPopup(feature, e.lngLat);
-    });
-
-
-    // Remove when leaving watched layers
-    map.on('mouseleave', hoverLayers, () => {
-
-        currentFeature = null;
-
-        map.getCanvas().style.cursor = '';
-
-        popup.remove();
-    });
-
-
-    // Remove if popup anchor moves outside map
-    map.on('move', () => {
-
-        const popupLngLat = popup.getLngLat();
-
-        if (!popupLngLat) return;
-
-        if (!map.getBounds().contains(popupLngLat)) {
-
-            popup.remove();
-
-            // Important: allow same feature to be selected again
-            currentFeature = null;
-        }
-    });
-
 </script>
 </body>
 </html>
