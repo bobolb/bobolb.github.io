@@ -48,6 +48,11 @@
 .maplibregl-ctrl-attrib-button {
 	align-self: flex-end !important;
 }
+.maplibregl-ctrl-attrib.maplibregl-compact
+.maplibregl-ctrl-attrib-button {
+	top: auto !important;
+	bottom: 0 !important;
+}
 </style>
 </head>
 <body>
@@ -70,7 +75,7 @@ const map = new maplibregl.Map({
 	style: 'style.json',
 	center: [3.206, 44.582],
 	zoom: 5,
-	attributionControl: {compact: true, customAttribution: 'Geographical Disease Risk Index | JPAC<br />'},
+	attributionControl: {compact: true, customAttribution: '<b>Geographical Disease Risk Index</b> | JPAC<br />'},
 	hash: true,
 	pitchWithRotate: false
 });
