@@ -979,7 +979,7 @@
 				]
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -1028,18 +1028,8 @@
 			"type": "fill",
 			"source": "riskRegions",
 			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"geometry-type"
-					],
-					"Polygon"
-				],
-				[
 					"get",
 					"riskW"
-				]
 			],
 			"paint": {
 				"fill-pattern": "risks:red",
@@ -1059,7 +1049,7 @@
 				]
 			},
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
