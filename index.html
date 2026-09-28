@@ -264,6 +264,15 @@ map.on('load', async () => {
 
 	let currentFeature = null;
 
+	function getFeatureName(feature) {
+		return (
+			feature.properties.NAME_2 ||
+			feature.properties.NAME_1 ||
+			feature.properties.COUNTRY ||
+			""
+		);
+	}
+
 	function showPopup(feature, pointerLngLat) {
 
 		const pointLng = feature.properties.pointLng;
@@ -271,10 +280,7 @@ map.on('load', async () => {
 
 		const coordinates = [pointLng, pointLat];
 
-		const name =
-			feature.properties.NAME_2 ||
-			feature.properties.NAME_1 ||
-			feature.properties.COUNTRY || "";
+		const name = getFeatureName(feature);
 		const country = feature.properties.COUNTRY || "";
 		const type =
 			feature.properties.ENGTYPE_2 ||
@@ -325,7 +331,7 @@ map.on('load', async () => {
 					${name !== country ? `
 						<br />
 						<span style="color:#636363">
-							${type} &vert; ${country}
+							${type} | ${country}
 						</span>
 					` : ""}
 				</p>
@@ -337,7 +343,7 @@ map.on('load', async () => {
     map.on('mousemove', hoverLayers, (e) => {
 
         const feature = e.features[0];
-        const featureId = feature.properties.name;
+        const featureId = getFeatureName(feature);
 
         map.getCanvas().style.cursor = 'pointer';
 
@@ -359,7 +365,7 @@ map.on('load', async () => {
 
         const feature = e.features[0];
 
-        currentFeature = feature.properties.name;
+        currentFeature = getFeatureName(feature);
 
         //console.log("Clicked popup for:", currentFeature);
 
