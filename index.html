@@ -271,9 +271,14 @@ map.on('load', async () => {
 
 		const coordinates = [pointLng, pointLat];
 
-		const name = feature.properties.name;
+		const name =
+			feature.properties.NAME_2 ||
+			feature.properties.NAME_1 ||
+			feature.properties.COUNTRY || "";
 		const country = feature.properties.COUNTRY || "";
-		const type = feature.properties.ENGTYPE_2 || "";
+		const type =
+			feature.properties.ENGTYPE_2 ||
+			feature.properties.ENGTYPE_1 || "";
 
 		let riskHTML = "";
 
@@ -316,10 +321,13 @@ map.on('load', async () => {
 			.setLngLat(coordinates)
 			.setHTML(`
 				<p>
-					<b><big>${name}</big></b><br />
-					<span style="color:#636363">
-						${type} &vert; ${country}
-					</span>
+					<b><big>${name}</big></b>
+					${name !== country ? `
+						<br />
+						<span style="color:#636363">
+							${type} &vert; ${country}
+						</span>
+					` : ""}
 				</p>
 				${riskHTML}
 			`)
