@@ -7991,7 +7991,7 @@
 				],
 				"icon-allow-overlap": true,
 				"icon-ignore-placement": false,
-				"visibility": "visible"
+				"visibility": "none"
 			},
 			"paint": {
 				"icon-opacity": [
