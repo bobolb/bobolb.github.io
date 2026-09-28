@@ -8000,7 +8000,8 @@
 					1
 				],
 				"icon-allow-overlap": true,
-				"icon-ignore-placement": false
+				"icon-ignore-placement": false,
+				"visibility": "none"
 			},
 			"paint": {
 				"icon-opacity": [
