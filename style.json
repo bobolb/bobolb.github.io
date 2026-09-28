@@ -7918,7 +7918,7 @@
 			"id": "label_risks",
 			"type": "symbol",
 			"source": "riskRegions",
-			"minzoom": 5.8,
+			"minzoom": 5.3,
 			"layout": {
 				"icon-image": [
 					"case",
@@ -7984,9 +7984,9 @@
 					[
 						"zoom"
 					],
-					5.8,
+					5.3,
 					0.1,
-					6.1,
+					5.6,
 					1
 				],
 				"icon-allow-overlap": true,
@@ -8002,9 +8002,9 @@
 					[
 						"zoom"
 					],
-					5.8,
+					5.3,
 					0,
-					5.9,
+					5.4,
 					1
 				]
 			},
