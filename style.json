@@ -8,7 +8,7 @@
 		},
 		"riskRegions": {
 			"type": "geojson",
-			"data": "https://bobolb.github.io/all_combined.geojson"
+			"data": "https://bobolb.github.io/regions3.geojson"
 		}
 	},
 	"sprite": [
