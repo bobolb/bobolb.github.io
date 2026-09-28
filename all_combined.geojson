@@ -11786,7 +11786,7 @@
         "pointLng": 19.237153710618337,
         "pointLat": 42.77735274805049,
         "riskC": false,
-        "riskD": false,
+        "riskD": true,
         "riskW": false,
         "riskY": false,
         "riskZ": false
