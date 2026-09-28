@@ -280,7 +280,7 @@ map.on('load', async () => {
 			feature.properties.ENGTYPE_2 ||
 			feature.properties.ENGTYPE_1 || "";
 
-		let riskHTML = '<p><b>Risks present:</b></p>';
+		let riskHTML = "";
 
 		if (feature.properties.riskW) {
 			riskHTML += '<p style="color:red">West Nile Virus</p>';
