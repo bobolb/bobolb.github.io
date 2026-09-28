@@ -979,7 +979,7 @@
 				]
 			},
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
@@ -1059,7 +1059,7 @@
 				]
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
