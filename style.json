@@ -9,6 +9,12 @@
 		"riskRegions": {
 			"type": "geojson",
 			"data": "https://bobolb.github.io/all_combined_minimised.geojson"
+		},
+		"tilemaker": {
+			"type": "vector",
+			"tiles": ["https://tilemaker.org/tiles/{z}/{x}/{y}.pbf"],
+			"minzoom": 0,
+			"maxzoom": 12
 		}
 	},
 	"sprite": [
@@ -7197,9 +7203,9 @@
 		{
 			"id": "label_state",
 			"type": "symbol",
-			"source": "openmaptiles",
+			"source": "tilemaker",
 			"source-layer": "place",
-			"minzoom": 5,
+			"minzoom": 2,
 			"maxzoom": 8,
 			"filter": [
 				"==",
@@ -7243,7 +7249,7 @@
 				"text-font": [
 					"Noto Sans Italic"
 				],
-				"text-letter-spacing": 0.2,
+				"text-letter-spacing": 0.05,
 				"text-max-width": 9,
 				"text-size": [
 					"interpolate",
@@ -7259,7 +7265,7 @@
 					14
 				],
 				"text-transform": "uppercase",
-				"visibility": "none"
+				"visibility": "visible"
 			},
 			"paint": {
 				"text-color": "#333",
