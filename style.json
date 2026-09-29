@@ -7643,13 +7643,14 @@
 					[
 						"Isère",
 						"Gironde",
-						"Gard"
+						"Gard",
+						"Hérault"
 					]
 				]
 			],
 			"paint": {
 				"fill-pattern": "risks:red",
-				"fill-opacity": 1,
+				"fill-opacity": 0.5,
 				"fill-outline-color": "black"
 			}
 		}
