@@ -8,7 +8,7 @@
 		},
 		"riskRegions": {
 			"type": "geojson",
-			"data": "https://bobolb.github.io/all_combined_minimised.geojson"
+			"data": "https://bobolb.github.io/regions2.geojson"
 		},
 		"pmtiles": {
 			"type": "vector",
@@ -7618,8 +7618,10 @@
 						"get",
 						"NAME_2"
 					],
-					"Var", 1,
-					"Vaucluse", 2,
+					"Var", 0.75,
+					"Vaucluse", 0.25,
+					"Dordogne", 0.5,
+					"Charente", 1,					
 					0
 				]
 			}
