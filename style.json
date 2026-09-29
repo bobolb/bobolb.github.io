@@ -7621,9 +7621,33 @@
 					"Var", 0.75,
 					"Vaucluse", 0.25,
 					"Dordogne", 0.5,
-					"Charente", 1,					
+					"Charente", 1,
 					0
 				]
+			}
+		},
+		{
+			"id": "risks_admin_1_2_fill",
+			"type": "fill",
+			"source": "pmtiles",
+			"source-layer": "FRA",
+			"filter": [
+				"in",
+				[
+					"get",
+					"NAME_2"
+				],
+				[
+					"literal",
+					[
+						"Isère",
+						"Gironde",
+						"Gard"
+					]
+				]
+			],
+			"paint": {
+				"icon-image": "risks:red"
 			}
 		}
 	],
