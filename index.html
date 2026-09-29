@@ -56,6 +56,7 @@
 </style>
 </head>
 <body>
+<script src="https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js"></script>
 <script src="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.min.js"></script>
 <div id="zoom-display" style="position: absolute; bottom: 10px; left: 10px; background: white; padding: 5px 10px; font-family: sans-serif; z-index: 1;">
 Zoom: <span id="zoom-level"></span>
@@ -68,6 +69,10 @@ var useRetina = window.devicePixelRatio > 1;
 
 // import maplibre
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
+
+// pmtiles
+const protocol = new pmtiles.Protocol();
+maplibregl.addProtocol("pmtiles", protocol.tile);
 
 // create map
 const map = new maplibregl.Map({
