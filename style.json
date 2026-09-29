@@ -7647,7 +7647,8 @@
 				]
 			],
 			"paint": {
-				"icon-image": "risks:red"
+				"fill-pattern": "risks:red",
+				"fill-opacity": 1
 			}
 		}
 	],
