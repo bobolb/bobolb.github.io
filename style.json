@@ -7623,7 +7623,8 @@
 					"Dordogne", 0.25,
 					"Charente", 1,
 					0
-				]
+				],
+				"fill-outline-color": "#1919e6"
 			}
 		},
 		{
