@@ -9,12 +9,6 @@
 		"riskRegions": {
 			"type": "geojson",
 			"data": "https://bobolb.github.io/all_combined_minimised.geojson"
-		},
-		"tilemaker": {
-			"type": "vector",
-			"tiles": ["https://tilemaker.org/tiles/{z}/{x}/{y}.pbf"],
-			"minzoom": 0,
-			"maxzoom": 12
 		}
 	},
 	"sprite": [
@@ -7203,7 +7197,7 @@
 		{
 			"id": "label_state",
 			"type": "symbol",
-			"source": "tilemaker",
+			"source": "openmaptiles",
 			"source-layer": "place",
 			"minzoom": 2,
 			"maxzoom": 8,
