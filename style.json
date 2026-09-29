@@ -10,12 +10,6 @@
 			"type": "geojson",
 			"data": "https://bobolb.github.io/all_combined_minimised.geojson"
 		},
-		"maplibre": {
-			"type": "vector",
-			"tiles": [
-				"https://demotiles.maplibre.org/tiles/{z}/{x}/{y}.pbf"
-			]
-		},
 		"pmtiles": {
 			"type": "vector",
 			"url": "pmtiles://https://bobolb.github.io/admin.pmtiles"
@@ -953,49 +947,6 @@
 			}
 		},
 		{
-			"id": "riskWNV-original",
-			"type": "fill",
-			"source": "riskRegions",
-			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"geometry-type"
-					],
-					"Polygon"
-				],
-				[
-					"==",
-					[
-						"get",
-						"riskWNV"
-					],
-					true
-				]
-			],
-			"paint": {
-				"fill-pattern": "risks:red",
-				"fill-color": "#ff0000",
-				"fill-opacity": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					8,
-					1,
-					8.5,
-					0.8
-				]
-			},
-			"layout": {
-				"visibility": "none"
-			}
-		},
-		{
 			"id": "risk-MBV-fill",
 			"type": "fill",
 			"source": "riskRegions",
@@ -1033,7 +984,7 @@
 				"fill-opacity": 0
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -1062,7 +1013,7 @@
 				]
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -6455,111 +6406,6 @@
 			}
 		},
 		{
-			"id": "Risk WNV outline-original",
-			"type": "line",
-			"source": "riskRegions",
-			"layout": {
-				"line-join": "round",
-				"visibility": "none"
-			},
-			"paint": {
-				"line-color": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					0,
-					"hsl(0, 100%, 25%)",
-					4,
-					"hsl(0, 100%, 25%)",
-					6,
-					"hsl(0, 100%, 50%)"
-				],
-				"line-width": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					0,
-					0.5,
-					4,
-					0.5,
-					5,
-					1.5
-				],
-				"line-opacity": 1
-			},
-			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"geometry-type"
-					],
-					"Polygon"
-				],
-				[
-					"==",
-					[
-						"get",
-						"riskW"
-					],
-					true
-				]
-			]
-		},
-		{
-			"id": "Risk MBV-original",
-			"type": "line",
-			"source": "riskRegions",
-			"layout": {
-				"line-join": "round",
-				"visibility": "none"
-			},
-			"paint": {
-				"line-color": "hsl(240, 80%, 50%)",
-				"line-width": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					0,
-					1,
-					5,
-					2,
-					10,
-					8
-				]
-			},
-			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"geometry-type"
-					],
-					"Polygon"
-				],
-				[
-					"==",
-					[
-						"get",
-						"riskMBV"
-					],
-					true
-				]
-			]
-		},
-		{
 			"id": "risk-WNV-outline",
 			"type": "line",
 			"source": "riskRegions",
@@ -6670,173 +6516,6 @@
 					]
 				]
 			]
-		},
-		{
-			"id": "LabelWNV",
-			"type": "symbol",
-			"source": "riskRegions",
-			"minzoom": 6,
-			"layout": {
-				"icon-image": "risks:w",
-				"icon-size": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					6,
-					0.1,
-					6.2,
-					1
-				],
-				"icon-allow-overlap": true,
-				"icon-ignore-placement": true,
-				"visibility": "none"
-			},
-			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"geometry-type"
-					],
-					"Point"
-				],
-				[
-					"==",
-					[
-						"get",
-						"riskWNV"
-					],
-					true
-				]
-			]
-		},
-		{
-			"id": "LabelMBV",
-			"type": "symbol",
-			"source": "riskRegions",
-			"minzoom": 6,
-			"layout": {
-				"icon-image": "risks:wd",
-				"icon-size": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					6,
-					0.1,
-					6.2,
-					1
-				],
-				"icon-allow-overlap": true,
-				"icon-ignore-placement": true,
-				"visibility": "none"
-			},
-			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"geometry-type"
-					],
-					"Point"
-				],
-				[
-					"==",
-					[
-						"get",
-						"riskMBV"
-					],
-					true
-				]
-			]
-		},
-		{
-			"id": "label_other",
-			"type": "symbol",
-			"source": "openmaptiles",
-			"source-layer": "place",
-			"minzoom": 12,
-			"filter": [
-				"match",
-				[
-					"get",
-					"class"
-				],
-				[
-					"city",
-					"continent",
-					"country",
-					"state",
-					"town",
-					"village"
-				],
-				false,
-				true
-			],
-			"layout": {
-				"text-field": [
-					"case",
-					[
-						"has",
-						"name:nonlatin"
-					],
-					[
-						"concat",
-						[
-							"get",
-							"name:latin"
-						],
-						"\n",
-						[
-							"get",
-							"name:nonlatin"
-						]
-					],
-					[
-						"coalesce",
-						[
-							"get",
-							"name_en"
-						],
-						[
-							"get",
-							"name"
-						]
-					]
-				],
-				"text-font": [
-					"Noto Sans Italic"
-				],
-				"text-letter-spacing": 0.1,
-				"text-max-width": 9,
-				"text-size": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					8,
-					9,
-					12,
-					10
-				],
-				"visibility": "none"
-			},
-			"paint": {
-				"text-color": "#00f",
-				"text-halo-blur": 1,
-				"text-halo-color": "#fff",
-				"text-halo-width": 1
-			}
 		},
 		{
 			"id": "nature_reserve_and_protected_area_label",
@@ -7695,25 +7374,6 @@
 			}
 		},
 		{
-			"id": "countries-fill-maplibre",
-			"type": "fill",
-			"source": "maplibre",
-			"source-layer": "countries",
-			"filter": [
-				"in",
-				"NAME",
-				"France",
-				"Spain"
-			],
-			"layout": {
-				"visibility": "none"
-			},
-			"paint": {
-				"fill-color": "green",
-				"fill-opacity": 0.5
-			}
-		},		
-		{
 			"id": "label_country_1",
 			"type": "symbol",
 			"source": "openmaptiles",
@@ -7815,136 +7475,6 @@
 				"text-halo-color": "#fff",
 				"text-halo-width": 2
 			}
-		},
-		{
-			"id": "LabelRisks-original",
-			"type": "symbol",
-			"source": "riskRegions",
-			"minzoom": 6,
-			"layout": {
-				"icon-image": [
-					"concat",
-					"risks:",
-					[
-						"to-string",
-						[
-							"get",
-							"risks"
-						]
-					]
-				],
-				"icon-size": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					6,
-					0.1,
-					6.3,
-					1
-				],
-				"icon-allow-overlap": true,
-				"icon-ignore-placement": false,
-				"visibility": "none"
-			},
-			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"geometry-type"
-					],
-					"Point"
-				],
-				[
-					"has",
-					"risks"
-				]
-			]
-		},
-		{
-			"id": "LabelRisks",
-			"type": "symbol",
-			"source": "riskRegions",
-			"minzoom": 5.8,
-			"layout": {
-				"icon-image": [
-					"case",
-					[
-						"all",
-						[
-							"get",
-							"riskWNV"
-						],
-						[
-							"get",
-							"riskMBV"
-						]
-					],
-					"risks:wnv-mbv",
-					[
-						"get",
-						"riskWNV"
-					],
-					"risks:wnv-only",
-					"risks:mbv-only"
-				],
-				"icon-size": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					5.8,
-					0.1,
-					6.1,
-					1
-				],
-				"icon-allow-overlap": true,
-				"icon-ignore-placement": false,
-				"visibility": "none"
-			},
-			"paint": {
-				"icon-opacity": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					5.8,
-					0,
-					5.9,
-					1
-				]
-			},
-			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"geometry-type"
-					],
-					"Point"
-				],
-				[
-					"any",
-					[
-						"get",
-						"riskWNV"
-					],
-					[
-						"get",
-						"riskMBV"
-					]
-				]
-			]
 		},
 		{
 			"id": "label_risks",
@@ -8049,49 +7579,7 @@
 			]
 		},
 		{
-			"id": "all-risks-fill",
-			"type": "fill",
-			"source": "riskRegions",
-			"layout": {
-				"visibility": "none"
-			},
-			"paint": {
-				"fill-color": "orange"
-			},
-			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"geometry-type"
-					],
-					"Polygon"
-				]
-			]
-		},
-		{
-			"id": "all-risks-point",
-			"type": "circle",
-			"source": "riskRegions",
-			"layout": {
-				"visibility": "none"
-			},
-			"paint": {
-				"circle-radius": 5,
-				"circle-color": "yellow",
-				"circle-stroke-color": "black",
-				"circle-stroke-width": 2
-			},
-			"filter": [
-				"==",
-				[
-					"geometry-type"
-				],
-				"Point"
-			]
-		},
-		{
-			"id": "admin_levels",
+			"id": "risks_admin_1_2",
 			"type": "fill",
 			"source": "pmtiles",
 			"source-layer": "FRA",
@@ -8105,12 +7593,23 @@
 					"literal",
 					[
 						"Var",
-						"Charente"
+						"Charente",
+						"Dordogne",
+						"Vaucluse"
 					]
 				]
 			],
 			"paint": {
-				"fill-color": "#6600cc",
+				"fill-color": [
+					"match",
+					[
+						"get",
+						"NAME_2"
+					],
+					"Var", "#6600cc",
+					"Vaucluse", "#1919e6",
+					"#00ff00"
+				],
 				"fill-opacity": 0.5
 			}
 		}
