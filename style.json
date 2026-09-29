@@ -8095,6 +8095,20 @@
 			"type": "fill",
 			"source": "pmtiles",
 			"source-layer": "FRA",
+			"filter": [
+				"in",
+				[
+					"get",
+					"NAME_2"
+				],
+				[
+					"literal",
+					[
+						"Var",
+						"Charente"
+					]
+				]
+			],
 			"paint": {
 				"fill-color": "#6600cc",
 				"fill-opacity": 0.5
