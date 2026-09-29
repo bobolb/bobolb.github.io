@@ -9,6 +9,27 @@
 		"riskRegions": {
 			"type": "geojson",
 			"data": "https://bobolb.github.io/all_combined_minimised.geojson"
+		},
+		"maplibre": {
+			"type": "vector",
+			"tiles": [
+				"https://demotiles.maplibre.org/tiles/{z}/{x}/{y}.pbf"
+			]
+		},
+		"datahub": {
+			"type": "geojson",
+			"data": "https://r2.datahub.io/clvyjaryy0000la0cxieg4o8o/main/raw/data/countries.geojson"
+		},
+		"github": {
+			"type": "geojson",
+			"data": "https://raw.githubusercontent.com/martynafford/natural-earth-geojson/master/110m/cultural/ne_110m_admin_0_countries.json"
+		},
+		"naturalearth": {
+			"type": "raster",
+			"tileSize": 256,
+			"tiles": [
+				"https://tiles.openfreemap.org/natural_earth/ne2sr/{z}/{x}/{y}.png"
+			]
 		}
 	},
 	"sprite": [
@@ -28,6 +49,9 @@
 			"type": "background",
 			"paint": {
 				"background-color": "#f8f4f0"
+			},
+			"layout": {
+				"visibility": "visible"
 			}
 		},
 		{
@@ -7259,7 +7283,7 @@
 					14
 				],
 				"text-transform": "uppercase",
-				"visibility": "visible"
+				"visibility": "none"
 			},
 			"paint": {
 				"text-color": "#333",
@@ -7682,6 +7706,84 @@
 			}
 		},
 		{
+			"id": "countries-fill-maplibre",
+			"type": "fill",
+			"source": "maplibre",
+			"source-layer": "countries",
+			"filter": [
+				"in",
+				"NAME",
+				"France",
+				"Spain"
+			],
+			"layout": {
+				"visibility": "none"
+			},
+			"paint": {
+				"fill-color": "green",
+				"fill-opacity": 0.5
+			}
+		},
+		{
+			"id": "countries-fill-datahub",
+			"type": "fill",
+			"source": "datahub",
+			"filter": [
+				"all"
+			],
+			"layout": {
+				"visibility": "none"
+			},
+			"paint": {
+				"fill-color": "green",
+				"fill-opacity": 0.5
+			}
+		},
+		{
+			"id": "countries-fill-github",
+			"type": "fill",
+			"source": "github",
+			"filter": [
+				"match",
+				[
+					"get",
+					"ADMIN"
+				],
+				[
+					"France",
+					"Switzerland",
+					"Netherlands"
+				],
+				true,
+				false
+			],
+			"layout": {
+				"visibility": "none"
+			},
+			"paint": {
+				"fill-color": "orange",
+				"fill-opacity": 0.5
+			}
+		},
+		{
+			"id": "countries-centroids-maplibre",
+			"type": "symbol",
+			"source": "maplibre",
+			"source-layer": "countries",
+			"filter": [
+				"in",
+				"NAME",
+				"France",
+				"Spain"
+			],
+			"layout": {
+				"visibility": "none",
+				"icon-image": "circle_11_black",
+				"icon-ignore-placement": true,
+				"icon-allow-overlap": true
+			}
+		},
+		{
 			"id": "label_country_1",
 			"type": "symbol",
 			"source": "openmaptiles",
@@ -8057,6 +8159,14 @@
 				],
 				"Point"
 			]
+		},
+		{
+			"id": "naturalearth",
+			"type": "raster",
+			"source": "naturalearth",
+			"layout": {
+				"visibility": "none"
+			}
 		}
 	],
 	"id": "JPAC",
