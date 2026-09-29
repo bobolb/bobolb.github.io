@@ -18,7 +18,7 @@
 		},
 		"pmtiles": {
 			"type": "vector",
-			"url": "pmtiles:/https://bobolb.github.io/outall.pmtiles"
+			"url": "pmtiles://https://bobolb.github.io/outall.pmtiles"
 		}
 	},
 	"sprite": [
