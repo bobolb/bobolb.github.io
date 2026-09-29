@@ -7648,7 +7648,8 @@
 			],
 			"paint": {
 				"fill-pattern": "risks:red",
-				"fill-opacity": 1
+				"fill-opacity": 1,
+				"fill-outline-color": "black"
 			}
 		}
 	],
