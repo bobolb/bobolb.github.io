@@ -7579,7 +7579,7 @@
 			]
 		},
 		{
-			"id": "risks_ADM_0",
+			"id": "risks_ADM_0_fill",
 			"type": "fill",
 			"source": "pmtiles",
 			"source-layer": "ADM_0",
@@ -7603,6 +7603,33 @@
 				"fill-color": "#60c",
 				"fill-opacity": 0.5,
 				"fill-outline-color": "#60c"
+			}
+		},
+		{
+			"id": "risks_ADM_0_outline",
+			"type": "line",
+			"source": "pmtiles",
+			"source-layer": "ADM_0",
+			"filter": [
+				"in",
+				[
+					"get",
+					"GID_0"
+				],
+				[
+					"literal",
+					[
+						"AFG",
+						"IRN",
+						"DZA",
+						"ALB"
+					]
+				]
+			],
+			"paint": {
+				"line-color": "#60c",
+				"line-opacity": 1,
+				"line-width": 3
 			}
 		}
 	],
