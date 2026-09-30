@@ -7582,7 +7582,7 @@
 			"id": "risks_ADM_0_fill",
 			"type": "fill",
 			"source": "pmtiles",
-			"source-layer": "ALB_0",
+			"source-layer": "ALB",
 			"filter": [
 				"in",
 				[
@@ -7609,7 +7609,7 @@
 			"id": "risks_ADM_0_outline",
 			"type": "line",
 			"source": "pmtiles",
-			"source-layer": "ADM_0",
+			"source-layer": "ALB",
 			"filter": [
 				"in",
 				[
