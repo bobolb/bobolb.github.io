@@ -7651,7 +7651,7 @@
 			"paint": {
 				"fill-pattern": "risks:red",
 				"fill-opacity": 0.5,
-				"fill-outline-color": "black"
+				"fill-outline-color": "red"
 			}
 		}
 	],
