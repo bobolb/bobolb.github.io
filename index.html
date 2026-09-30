@@ -85,10 +85,10 @@ const map = new maplibregl.Map({
 	container: 'map',
 	style: 'style.json',
 	center: [2, 46],
-	zoom: 4,
-	minZoom: 3,
+	zoom: 5,
+	minZoom: 4,
 	maxZoom: 16,
-	attributionControl: {compact: false},
+	attributionControl: {compact: false, customAttribution: "<a href='https://gadm.org/'>GADM Database</a>"},
 	hash: true,
 	pitchWithRotate: false
 });
