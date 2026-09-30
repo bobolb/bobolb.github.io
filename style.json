@@ -2125,7 +2125,8 @@
 			],
 			"layout": {
 				"line-cap": "round",
-				"line-join": "round"
+				"line-join": "round",
+				"visibility": "none"
 			},
 			"paint": {
 				"line-color": "rgba(153, 153, 153, 1)",
@@ -5075,7 +5076,9 @@
 					0,
 					0.4,
 					4,
-					1
+					1,
+					6,
+					0
 				],
 				"line-width": [
 					"interpolate",
@@ -5141,7 +5144,7 @@
 				]
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
