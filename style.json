@@ -7579,79 +7579,30 @@
 			]
 		},
 		{
-			"id": "risks_admin_1_2",
+			"id": "risks_ADM_0",
 			"type": "fill",
 			"source": "pmtiles",
-			"source-layer": "FRA",
+			"source-layer": "ADM_0",
 			"filter": [
 				"in",
 				[
 					"get",
-					"NAME_2"
+					"GID_0"
 				],
 				[
 					"literal",
 					[
-						"Var",
-						"Charente",
-						"Dordogne",
-						"Vaucluse"
+						"AFG",
+						"IRN",
+						"DZA",
+						"ALB"
 					]
 				]
 			],
 			"paint": {
-				"fill-color": [
-					"match",
-					[
-						"get",
-						"NAME_2"
-					],
-					"Var",
-					"#6600cc",
-					"Vaucluse",
-					"#1919e6",
-					"#00ff00"
-				],
-				"fill-opacity": [
-					"match",
-					[
-						"get",
-						"NAME_2"
-					],
-					"Var", 0.75,
-					"Vaucluse", 0.5,
-					"Dordogne", 0.25,
-					"Charente", 1,
-					0
-				],
-				"fill-outline-color": "#1919e6"
-			}
-		},
-		{
-			"id": "risks_admin_1_2_fill",
-			"type": "fill",
-			"source": "pmtiles",
-			"source-layer": "FRA",
-			"filter": [
-				"in",
-				[
-					"get",
-					"NAME_2"
-				],
-				[
-					"literal",
-					[
-						"Isère",
-						"Gironde",
-						"Gard",
-						"Hérault"
-					]
-				]
-			],
-			"paint": {
-				"fill-pattern": "risks:red",
+				"fill-color": "#60c",
 				"fill-opacity": 0.5,
-				"fill-outline-color": "red"
+				"fill-outline-color": "#60c"
 			}
 		}
 	],
