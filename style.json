@@ -12,7 +12,7 @@
 		},
 		"pmtiles": {
 			"type": "vector",
-			"url": "pmtiles://https://bobolb.github.io/ADM_0.pmtiles"
+			"url": "pmtiles://https://bobolb.github.io/ALB_0.pmtiles"
 		}
 	},
 	"sprite": [
