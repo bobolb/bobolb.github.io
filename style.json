@@ -8230,6 +8230,78 @@
 				"fill-opacity": 0.75,
 				"fill-outline-color": "#000"
 			}
+		},
+		{
+			"id": "ADM_2_symbol",
+			"type": "symbol",
+			"source": "ADM_2",
+			"source-layer": "point",
+			"filter": [
+				"any",
+				[
+					"in",
+					[
+						"get",
+						"NAME_2"
+					],
+					[
+						"literal",
+						[
+							"Alpes-Maritimes",
+							"Bouches-du-Rhône",
+							"Charente",
+							"Charente-Maritime",
+							"Dordogne",
+							"Gard",
+							"Gironde",
+							"Haute-Garonne",
+							"Hautes-Pyrénées",
+							"Hérault",
+							"Isère",
+							"Pyrénées-Orientales",
+							"Var",
+							"Vaucluse"
+						]
+					]
+				],
+				[
+					"in",
+					[
+						"get",
+						"NAME_2"
+					],
+					[
+						"literal",
+						[
+							"Livorno",
+							"Modena",
+							"Verona"
+						]
+					]
+				]
+			],
+			"layout": {
+				"icon-image": "risks:warning",
+				"icon-size": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					3,
+					0.5,
+					5,
+					1
+				],
+				"icon-allow-overlap": true,
+				"icon-ignore-placement": true,
+				"visibility": "visible"
+			},
+			"paint": {
+				"icon-opacity": 1
+			}
 		}
 	],
 	"id": "JPAC",
