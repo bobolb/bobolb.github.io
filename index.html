@@ -67,6 +67,8 @@ var useRetina = window.devicePixelRatio > 1;
 </script>
 <script type="module">
 
+const DEBUG = true;
+
 // import maplibre
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
 
@@ -74,7 +76,7 @@ import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-
 const protocol = new pmtiles.Protocol();
 //maplibregl.addProtocol("pmtiles", protocol.tile);
 maplibregl.addProtocol("pmtiles", (params, controller) => {
-	//console.log("PMTiles request:", params.url);
+	//if (DEBUG) console.log("PMTiles request:", params.url);
 
 	return protocol.tile(params, controller);
 
@@ -124,17 +126,17 @@ const geocoderApi = {
 			`&addressdetails=1` +
 			`&limit=5`;
 
-			//console.log("Geocoder request:", request);
+			if (DEBUG) console.log("Geocoder request:", request);
 
 			const response = await fetch(request);
 
-			//console.log("Geocoder response:", response);
+			if (DEBUG) console.log("Geocoder response:", response);
 
 			const geojson = await response.json();
 
 			for (const feature of geojson.features) {
 
-				//console.log("Result feature:", feature);
+				if (DEBUG) console.log("Result feature:", feature);
 
 				if (
 				!['country',
@@ -222,7 +224,9 @@ map.addControl(geocoder, 'top-left');
 geocoder.on('result', (e) => {
 	document.activeElement?.blur();
 	const result = e.result;
-	//console.log("Result selected:", e.result);
+	
+	if (DEBUG) console.log("Result selected:", e.result);
+	
 	if (
 		[
 			'country',
@@ -259,10 +263,10 @@ map.on('load', async () => {
 		closeOnClick: false,
 		// offset was 0 and 20 for t/b/l/r and 15 for corners		
 		offset: {
-			top: [0, 10],
+			top: [0, 35],
 			bottom: [0, -5],
 			left: [5, 0],
-			right: [-7, 0],
+			right: [0, 0],
 			'top-left': [15, 15],
 			'top-right': [-15, 15],
 			'bottom-left': [15, -15],
@@ -293,7 +297,7 @@ map.on('load', async () => {
 		
 		const coordinates = feature.geometry.coordinates;
 
-		console.log(
+		if (DEBUG) console.log(
 			"Lat:", pointerLngLat.lat.toFixed(4),
 			"Lng:", pointerLngLat.lng.toFixed(4)
 		);
@@ -383,7 +387,8 @@ map.on('load', async () => {
 
 		currentFeature = featureId;
 
-		//console.log("Creating popup for:", currentFeature);
+		if (DEBUG) console.log("Creating popup for:", currentFeature);
+		
 		showPopup(feature, e.lngLat);
 		//showPopup(feature, coordinates);
 
@@ -393,7 +398,9 @@ map.on('load', async () => {
 	map.on('click', 'ADM_0_fill', (e) => {
 		const feature = e.features[0];
 		currentFeature = getFeatureName(feature);
-		//console.log("Clicked popup for:", currentFeature);
+		
+		if (DEBUG) console.log("Clicked popup for:", currentFeature);
+		
 		showPopup(feature, e.lngLat);
 	});
 
