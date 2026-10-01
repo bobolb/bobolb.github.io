@@ -416,6 +416,15 @@ map.on('load', async () => {
         }
     });
 
+    // Get mouse coordinates
+    map.on('move', () => {
+
+        const { lng, lat } = e.lnglat;
+
+		console.log('Longitude:', lng);
+		console.log('Latitude:', lat);
+    });
+
 });
 
 </script>
