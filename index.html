@@ -389,7 +389,7 @@ map.on('load', async () => {
 	});
 
 	// Tap/click always shows popup, even if it is the same feature
-	map.on('click', hoverLayers, (e) => {
+	map.on('click', 'ADM_0_fill', (e) => {
 		const feature = e.features[0];
 		currentFeature = getFeatureName(feature);
 		//console.log("Clicked popup for:", currentFeature);
