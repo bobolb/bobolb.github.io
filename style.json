@@ -13,6 +13,10 @@
 		"ADM_0": {
 			"type": "vector",
 			"url": "pmtiles://https://bobolb.github.io/ADM_0.pmtiles"
+		},
+		"ADM_1": {
+			"type": "vector",
+			"url": "pmtiles://https://bobolb.github.io/ADM_1.pmtiles"
 		}
 	},
 	"sprite": [
@@ -7592,7 +7596,18 @@
 			"source-layer": "polygon",
 			"paint": {
 				"fill-color": "#60c",
-  				"fill-opacity": 0.5,
+  				"fill-opacity": 0.25,
+				"fill-outline-color": "#000"
+			}
+		},
+		{
+			"id": "ADM_1_fill",
+			"type": "fill",
+			"source": "ADM_1",
+			"source-layer": "polygon",
+			"paint": {
+				"fill-color": "#60c",
+  				"fill-opacity": 0.25,
 				"fill-outline-color": "#000"
 			}
 		}
