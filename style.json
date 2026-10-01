@@ -7873,7 +7873,7 @@
 					"NAME_1"
 				],
 				"text-font": [
-					"Noto Sans Regular"
+					"Noto Sans Bold"
 				],
 				"text-line-height": 1.1,
 				"text-max-width": 12,
@@ -7901,6 +7901,64 @@
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 2
+			}
+		},
+		{
+			"id": "ADM_1_symbol",
+			"type": "symbol",
+			"source": "ADM_1",
+			"source-layer": "point",
+			"filter": [
+				"any",
+				[
+					"in",
+					[
+						"get",
+						"NAME_1"
+					],
+					[
+						"literal",
+						[
+							"Andalucía",
+							"Extremadura"
+						]
+					]
+				],
+				[
+					"in",
+					[
+						"get",
+						"NAME_1"
+					],
+					[
+						"literal",
+						[
+							"Queensland"
+						]
+					]
+				]
+			],
+			"layout": {
+				"icon-image": "risks:wnv-mbv",
+				"icon-size": 1,
+				"icon-allow-overlap": true,
+				"icon-ignore-placement": true,
+				"visibility": "visible"
+			},
+			"paint": {
+				"icon-opacity": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					5.3,
+					0,
+					5.4,
+					1
+				]
 			}
 		},
 		{
