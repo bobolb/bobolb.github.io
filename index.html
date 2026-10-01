@@ -263,7 +263,7 @@ map.on('load', async () => {
 		closeOnClick: false,
 		// offset was 0 and 20 for t/b/l/r and 15 for corners		
 		offset: {
-			top: [0, 20],
+			top: [0, 35],
 			bottom: [0, -6],
 			left: [12, 0],
 			right: [-8, 0],
@@ -297,11 +297,10 @@ map.on('load', async () => {
 		
 		const coordinates = feature.geometry.coordinates;
 
-		if (DEBUG) console.log("Lat:", pointerLngLat.lat.toFixed(4),"Lng:", pointerLngLat.lng.toFixed(4));
+		if (DEBUG) console.log("Lat:", pointerLngLat.lat.toFixed(4));
+		if (DEBUG) console.log("Lng:", pointerLngLat.lng.toFixed(4));
 
 		const name = getFeatureName(feature);
-
-		if (DEBUG) console.log("Feature:", name);
 
 		const country = feature.properties.COUNTRY || "";
 		const type =
@@ -359,13 +358,15 @@ map.on('load', async () => {
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
 
+		if (DEBUG) console.log("Hover on:", featureId);
+
 		map.getCanvas().style.cursor = 'pointer';
 
 		// New feature: rebuild popup if feature changed
 		if (featureId !== currentFeature) {
 			currentFeature = featureId;
 
-			if (DEBUG) console.log("Showing popup for:", currentFeature);
+			if (DEBUG) console.log("Popup:", currentFeature);
 			
 			showPopup(feature, e.lngLat);
 		}
@@ -380,6 +381,8 @@ map.on('load', async () => {
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
 
+		if (DEBUG) console.log("Moved to:", featureId);
+
 		map.getCanvas().style.cursor = 'pointer';
 
 		// Don't rebuild popup while moving within same feature
@@ -389,7 +392,7 @@ map.on('load', async () => {
 
 		currentFeature = featureId;
 
-		if (DEBUG) console.log("Showing popup for:", currentFeature);
+		if (DEBUG) console.log("Popup:", currentFeature);
 		
 		showPopup(feature, e.lngLat);
 		//showPopup(feature, coordinates);
@@ -408,6 +411,9 @@ map.on('load', async () => {
 
 	// Remove when leaving watched layers - ADM_0_1_2
 	map.on('mouseleave', ['ADM_0_fill', 'ADM_1_fill', 'ADM_2_fill'], () => {
+
+		if (DEBUG) console.log("Leaving:", currentFeature);
+
 		currentFeature = null;
 		map.getCanvas().style.cursor = '';
 		popup.remove();
