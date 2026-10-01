@@ -417,7 +417,7 @@ map.on('load', async () => {
     });
 
     // Get mouse coordinates
-    map.on('mousemove', () => {
+    map.on('mousemove', (e) => {
 
         const { lng, lat } = e.lnglat;
 
