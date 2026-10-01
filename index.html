@@ -275,9 +275,7 @@ map.on('load', async () => {
 
 	// detect marker change for overlapping markers, use mousemove not mouseenter event
 	//let currentFeatureCoordinates = null;
-
 	let currentFeature = null;
-
 	function getFeatureName(feature) {
 		return (
 			feature.properties.NAME_2 ||
@@ -288,46 +286,37 @@ map.on('load', async () => {
 	}
 
 	function showPopup(feature, pointerLngLat) {
-
 		//const pointLng = feature.properties.pointLng;
 		//const pointLat = feature.properties.pointLat;
-
 		//const coordinates = [pointLng, pointLat];
-
 		//const coordinates = feature.geometry.coordinates;
 
-		const coordinates = e.lngLat;
+		console.log("Lat:", pointerLngLat.lat);
+		console.log("Lng:", pointerLngLat.lng);
 
 		const name = getFeatureName(feature);
+
 		const country = feature.properties.COUNTRY || "";
 		const type =
 			feature.properties.ENGTYPE_2 ||
 			feature.properties.ENGTYPE_1 || "";
-
 		let riskHTML = "";
-
 		if (feature.properties.riskW) {
 			riskHTML += '<p style="color:red">West Nile Virus</p>';
 		}
-
 		const mbvRisks = [];
-
 		if (feature.properties.riskC) {
 			mbvRisks.push('Chikungunya Virus');
 		}
-
 		if (feature.properties.riskD) {
 			mbvRisks.push('Dengue Virus');
 		}
-
 		if (feature.properties.riskY) {
 			mbvRisks.push('Yellow Fever Virus');
 		}
-
 		if (feature.properties.riskZ) {
 			mbvRisks.push('Zika Virus');
 		}
-
 		if (mbvRisks.length > 0) {
 			riskHTML += `
 				<p style="color:#1919e6">
@@ -336,13 +325,13 @@ map.on('load', async () => {
 			`;
 		}
 		// Deal with copies across the antimeridian
-		while (Math.abs(pointerLngLat.lng - coordinates[0]) > 180) {
-			coordinates[0] +=
-				pointerLngLat.lng > coordinates[0] ? 360 : -360;
-		}
+		//while (Math.abs(pointerLngLat.lng - coordinates[0]) > 180) {
+		//	coordinates[0] +=
+		//		pointerLngLat.lng > coordinates[0] ? 360 : -360;
+		//}
 
 		popup
-			.setLngLat(coordinates)
+			.setLngLat(pointerLngLat)
 			.setHTML(`
 				<p>
 					<b><big>${name}</big></b>
@@ -357,74 +346,45 @@ map.on('load', async () => {
 			`)
 			.addTo(map);
 	}
-   // Desktop hover
-    map.on('mousemove', hoverLayers, (e) => {
 
-        const feature = e.features[0];
-        const featureId = getFeatureName(feature);
+	// Desktop hover
+	map.on('mousemove', hoverLayers, (e) => {
+		const feature = e.features[0];
+		const featureId = getFeatureName(feature);
+		map.getCanvas().style.cursor = 'pointer';
+		// Don't rebuild popup while moving within same feature
+		if (featureId === currentFeature) {
+			return;
+		}
+		currentFeature = featureId;
+		//console.log("Creating popup for:", currentFeature);
+		showPopup(feature, e.lngLat);
+	});
 
-        map.getCanvas().style.cursor = 'pointer';
+	// Tap/click always shows popup, even if it is the same feature
+	map.on('click', hoverLayers, (e) => {
+		const feature = e.features[0];
+		currentFeature = getFeatureName(feature);
+		//console.log("Clicked popup for:", currentFeature);
+		showPopup(feature, e.lngLat);
+	});
 
-        // Don't rebuild popup while moving within same feature
-        if (featureId === currentFeature) {
-            return;
-        }
-
-        currentFeature = featureId;
-
-        //console.log("Creating popup for:", currentFeature);
-
-        showPopup(feature, e.lngLat);
+	// Remove when leaving watched layers
+	map.on('mouseleave', hoverLayers, () => {
+		currentFeature = null;
+		map.getCanvas().style.cursor = '';
+		popup.remove();
     });
 
-
-    // Tap/click always shows popup, even if it is the same feature
-    map.on('click', hoverLayers, (e) => {
-
-        const feature = e.features[0];
-
-        currentFeature = getFeatureName(feature);
-
-        //console.log("Clicked popup for:", currentFeature);
-
-        showPopup(feature, e.lngLat);
-    });
-
-
-    // Remove when leaving watched layers
-    map.on('mouseleave', hoverLayers, () => {
-
-        currentFeature = null;
-
-        map.getCanvas().style.cursor = '';
-
-        popup.remove();
-    });
-
-
-    // Remove if popup anchor moves outside map
-    map.on('move', () => {
-
-        const popupLngLat = popup.getLngLat();
-
-        if (!popupLngLat) return;
-
-        if (!map.getBounds().contains(popupLngLat)) {
-
-            popup.remove();
-
-            // Important: allow same feature to be selected again
-            currentFeature = null;
-        }
-    });
-
-    // Get mouse coordinates
-	map.on('mousemove', (e) => {
-
-		const { lng, lat } = e.lngLat;
-
-		console.log('Longitude:', lng);
-		console.log('Latitude:', lat);
+	// Remove if popup anchor moves outside map
+	map.on('move', () => {
+		const popupLngLat = popup.getLngLat();
+		if (!popupLngLat) return;
+		if (!map.getBounds().contains(popupLngLat)) {
+			popup.remove();
+			// Important: allow same feature to be selected again
+			currentFeature = null;
+		}
 	});
 
 });
