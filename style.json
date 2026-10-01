@@ -8000,7 +8000,7 @@
 				],
 				"icon-allow-overlap": true,
 				"icon-ignore-placement": true,
-				"visibility": "visible"
+				"visibility": "none"
 			},
 			"paint": {
 				"icon-opacity": 1
@@ -8170,7 +8170,7 @@
 				],
 				"icon-allow-overlap": true,
 				"icon-ignore-placement": true,
-				"visibility": "visible"
+				"visibility": "none"
 			},
 			"paint": {
 				"icon-opacity": 1
@@ -8290,9 +8290,9 @@
 					[
 						"zoom"
 					],
-					3,
-					0.5,
-					5,
+					5.3,
+					0.1,
+					5.6,
 					1
 				],
 				"icon-allow-overlap": true,
@@ -8300,7 +8300,19 @@
 				"visibility": "visible"
 			},
 			"paint": {
-				"icon-opacity": 1
+				"icon-opacity": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					5.3,
+					0,
+					5.4,
+					1
+				]
 			}
 		}
 	],
