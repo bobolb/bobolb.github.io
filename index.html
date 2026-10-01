@@ -356,7 +356,7 @@ map.on('load', async () => {
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
 
-		map.getCanvas().style.cursor = 'crosshair';
+		map.getCanvas().style.cursor = 'pointer';
 
 		// New feature: rebuild popup if feature changed
 		if (featureId !== currentFeature) {
@@ -374,7 +374,7 @@ map.on('load', async () => {
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
 
-		map.getCanvas().style.cursor = 'default';
+		map.getCanvas().style.cursor = 'pointer';
 
 		// Don't rebuild popup while moving within same feature
 		if (featureId === currentFeature) {
