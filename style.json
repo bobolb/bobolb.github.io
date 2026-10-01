@@ -7829,7 +7829,7 @@
 			"layout":{
 				"text-field": [
 					"get",
-					"name"
+					"NAME_1"
 				],
 				"text-font": [
 					"Noto Sans Regular"
