@@ -7787,63 +7787,8 @@
 			],
 			"paint": {
 				"fill-color": "#60c",
-  				"fill-opacity": 0.25,
+				"fill-opacity": 0.25,
 				"fill-outline-color": "#000"
-			}
-		},
-		{
-			"id": "ADM_1_label",
-			"type": "symbol",
-			"source": "ADM_1",
-			"source-layer": "point",
-			"filter": [
-				"any",
-				[
-					"in",
-					[
-						"get",
-						"NAME_1"
-					],
-					[
-						"literal",
-						[
-							"Andalucía",
-							"Extremadura"
-						]
-					]
-				],
-				[
-					"in",
-					[
-						"get",
-						"NAME_1"
-					],
-					[
-						"literal",
-						[
-							"Queensland"
-						]
-					]
-				]
-			],
-			"layout":{
-				"text-field": [
-					"get",
-					"NAME_1"
-				],
-				"text-font": [
-					"Noto Sans Regular"
-				],
-				"text-line-height": 1.1,
-				"text-max-width": 12,
-				"text-size": 12,
-				"visibility": "visible"
-			},
-			"paint": {
-				"text-color": "#60c",
-				"text-halo-blur": 1,
-				"text-halo-color": "#fff",
-				"text-halo-width": 2
 			}
 		},
 		{
@@ -7883,8 +7828,79 @@
 			],
 			"paint": {
 				"fill-color": "#60c",
-  				"fill-opacity": 0.5,
+				"fill-opacity": 0.5,
 				"fill-outline-color": "#000"
+			}
+		},
+		{
+			"id": "ADM_1_label",
+			"type": "symbol",
+			"source": "ADM_1",
+			"source-layer": "point",
+			"filter": [
+				"any",
+				[
+					"in",
+					[
+						"get",
+						"NAME_1"
+					],
+					[
+						"literal",
+						[
+							"Andalucía",
+							"Extremadura"
+						]
+					]
+				],
+				[
+					"in",
+					[
+						"get",
+						"NAME_1"
+					],
+					[
+						"literal",
+						[
+							"Queensland"
+						]
+					]
+				]
+			],
+			"layout": {
+				"text-field": [
+					"get",
+					"NAME_1"
+				],
+				"text-font": [
+					"Noto Sans Regular"
+				],
+				"text-line-height": 1.1,
+				"text-max-width": 12,
+				"text-size": [
+					"interpolate",
+					[
+						"exponential",
+						1.2
+					],
+					[
+						"zoom"
+					],
+					4,
+					12,
+					7,
+					14,
+					11,
+					20
+				],
+				"text-transform": "uppercase",
+				"visibility": "visible"
+			},
+			"paint": {
+				"text-color": "#60c",
+				"text-halo-blur": 1,
+				"text-halo-color": "#fff",
+				"text-halo-width": 2
 			}
 		},
 		{
@@ -7938,7 +7954,7 @@
 			],
 			"paint": {
 				"fill-color": "#60c",
-  				"fill-opacity": 0.75,
+				"fill-opacity": 0.75,
 				"fill-outline-color": "#000"
 			}
 		}
