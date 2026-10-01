@@ -7792,6 +7792,61 @@
 			}
 		},
 		{
+			"id": "ADM_1_label",
+			"type": "symbol",
+			"source": "ADM_1",
+			"source-layer": "point",
+			"filter": [
+				"any",
+				[
+					"in",
+					[
+						"get",
+						"NAME_1"
+					],
+					[
+						"literal",
+						[
+							"Andalucía",
+							"Extremadura"
+						]
+					]
+				],
+				[
+					"in",
+					[
+						"get",
+						"NAME_1"
+					],
+					[
+						"literal",
+						[
+							"Queensland"
+						]
+					]
+				]
+			],
+			"layout":{
+				"text-field": [
+					"get",
+					"name"
+				],
+				"text-font": [
+					"Noto Sans Regular"
+				],
+				"text-line-height": 1.1,
+				"text-max-width": 12,
+				"text-size": 12,
+				"visibility": "visible"
+			},
+			"paint": {
+				"text-color": "#60c",
+				"text-halo-blur": 1,
+				"text-halo-color": "#fff",
+				"text-halo-width": 2
+			}
+		},
+		{
 			"id": "ADM_1_fill",
 			"type": "fill",
 			"source": "ADM_1",
