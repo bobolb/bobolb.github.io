@@ -291,8 +291,10 @@ map.on('load', async () => {
 		//const coordinates = [pointLng, pointLat];
 		//const coordinates = feature.geometry.coordinates;
 
-		console.log("Lat:", pointerLngLat.lat);
-		console.log("Lng:", pointerLngLat.lng);
+		console.log(
+			"Lat:", pointerLngLat.lat.toFixed(4),
+			"Lng:", pointerLngLat.lng.toFixed(4)
+		);
 
 		const name = getFeatureName(feature);
 
@@ -351,7 +353,21 @@ map.on('load', async () => {
 	map.on('mousemove', hoverLayers, (e) => {
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
+
 		map.getCanvas().style.cursor = 'pointer';
+
+		// New featureL rebuild popup
+		if (featureId !== currentFeature) {
+			currentFeature = featureId;
+			showPopup(feature, e.lngLat);
+		}
+
+		// Always follow mouse
+		popiup.setLngLat(e.lngLat);
+
+	}
+		
+/*
 		// Don't rebuild popup while moving within same feature
 		if (featureId === currentFeature) {
 			return;
@@ -359,6 +375,7 @@ map.on('load', async () => {
 		currentFeature = featureId;
 		//console.log("Creating popup for:", currentFeature);
 		showPopup(feature, e.lngLat);
+*/
 	});
 
 	// Tap/click always shows popup, even if it is the same feature
