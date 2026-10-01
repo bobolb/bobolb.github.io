@@ -7943,8 +7943,7 @@
 				"icon-size": [
 					"interpolate",
 					[
-						"exponential",
-						1.2
+						"linear"
 					],
 					[
 						"zoom"
