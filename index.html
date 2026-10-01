@@ -294,7 +294,9 @@ map.on('load', async () => {
 
 		//const coordinates = [pointLng, pointLat];
 
-		const coordinates = feature.geometry.coordinates;
+		//const coordinates = feature.geometry.coordinates;
+
+		const coordinates = e.lngLat;
 
 		const name = getFeatureName(feature);
 		const country = feature.properties.COUNTRY || "";
