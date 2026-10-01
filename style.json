@@ -7946,19 +7946,7 @@
 				"visibility": "visible"
 			},
 			"paint": {
-				"icon-opacity": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					5.3,
-					0,
-					5.4,
-					1
-				]
+				"icon-opacity": 1
 			}
 		},
 		{
