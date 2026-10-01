@@ -384,11 +384,12 @@ map.on('load', async () => {
 		currentFeature = featureId;
 
 		//console.log("Creating popup for:", currentFeature);
-		showPopup(feature, coordinates);
+		showPopup(feature, e.lngLat);
+		//showPopup(feature, coordinates);
 
 	});
 
-	// Tap/click always shows popup, even if it is the same feature
+	// Tap/click always shows popup, even if it is the same feature - ADM_1
 	map.on('click', 'ADM_0_fill', (e) => {
 		const feature = e.features[0];
 		currentFeature = getFeatureName(feature);
