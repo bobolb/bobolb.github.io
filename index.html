@@ -356,7 +356,7 @@ map.on('load', async () => {
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
 
-		map.getCanvas().style.cursor = 'pointer';
+		map.getCanvas().style.cursor = 'crosshair';
 
 		// New feature: rebuild popup if feature changed
 		if (featureId !== currentFeature) {
@@ -369,12 +369,12 @@ map.on('load', async () => {
 
 	});
 
-		// Desktop hover - ADM_1_2
+	// Desktop hover - ADM_1_2
 	map.on('mousemove', ['ADM_1_fill', 'ADM_2_fill'], (e) => {
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
 
-		map.getCanvas().style.cursor = 'pointer';
+		map.getCanvas().style.cursor = 'default';
 
 		// Don't rebuild popup while moving within same feature
 		if (featureId === currentFeature) {
@@ -396,8 +396,8 @@ map.on('load', async () => {
 		showPopup(feature, e.lngLat);
 	});
 
-	// Remove when leaving watched layers - ADM_0
-	map.on('mouseleave', 'ADM_0_fill', () => {
+	// Remove when leaving watched layers - ADM_0_1_2
+	map.on('mouseleave', ['ADM_0_fill', 'ADM_1_fill', 'ADM_2_fill'], () => {
 		currentFeature = null;
 		map.getCanvas().style.cursor = '';
 		popup.remove();
