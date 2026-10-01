@@ -7797,16 +7797,32 @@
 			"source": "ADM_1",
 			"source-layer": "polygon",
 			"filter": [
-				"in",
+				"any",
 				[
-					"get",
-					"GID_0"
+					"in",
+					[
+						"get",
+						"NAME_1"
+					],
+					[
+						"literal",
+						[
+							"Andalucía",
+							"Extremadura"
+						]
+					]
 				],
 				[
-					"literal",
+					"in",
 					[
-						"ESP",
-						"AUS"
+						"get",
+						"NAME_2"
+					],
+					[
+						"literal",
+						[
+							"Queensland"
+						]
 					]
 				]
 			],
@@ -7822,16 +7838,46 @@
 			"source": "ADM_2",
 			"source-layer": "polygon",
 			"filter": [
-				"in",
+				"any",
 				[
-					"get",
-					"GID_0"
+					"in",
+					[
+						"get",
+						"NAME_2"
+					],
+					[
+						"literal",
+						[
+							"Alpes-Maritimes",
+							"Bouches-du-Rhône",
+							"Charente",
+							"Charente-Maritime",
+							"Dordogne",
+							"Gard",
+							"Gironde",
+							"Haute-Garonne",
+							"Hautes-Pyrénées",
+							"Hérault",
+							"Isère",
+							"Pyrénées-Orientales",
+							"Var",
+							"Vaucluse"
+						]
+					]
 				],
 				[
-					"literal",
+					"in",
 					[
-						"FRA",
-						"ITA"
+						"get",
+						"NAME_2"
+					],
+					[
+						"literal",
+						[
+							"Livorno",
+							"Modena",
+							"Verona"
+						]
 					]
 				]
 			],
