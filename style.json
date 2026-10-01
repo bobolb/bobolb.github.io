@@ -7894,7 +7894,7 @@
 					20
 				],
 				"text-transform": "uppercase",
-				"visibility": "visible"
+				"visibility": "none"
 			},
 			"paint": {
 				"text-color": "#60c",
