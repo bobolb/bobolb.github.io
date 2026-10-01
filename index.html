@@ -297,12 +297,11 @@ map.on('load', async () => {
 		
 		const coordinates = feature.geometry.coordinates;
 
-		if (DEBUG) console.log(
-			"Lat:", pointerLngLat.lat.toFixed(4),
-			"Lng:", pointerLngLat.lng.toFixed(4)
-		);
+		if (DEBUG) console.log("Lat:", pointerLngLat.lat.toFixed(4),"Lng:", pointerLngLat.lng.toFixed(4));
 
 		const name = getFeatureName(feature);
+
+		if (DEBUG) console.log("Feature:", name);
 
 		const country = feature.properties.COUNTRY || "";
 		const type =
@@ -365,6 +364,9 @@ map.on('load', async () => {
 		// New feature: rebuild popup if feature changed
 		if (featureId !== currentFeature) {
 			currentFeature = featureId;
+
+			if (DEBUG) console.log("Showing popup for:", currentFeature);
+			
 			showPopup(feature, e.lngLat);
 		}
 
@@ -387,7 +389,7 @@ map.on('load', async () => {
 
 		currentFeature = featureId;
 
-		if (DEBUG) console.log("Creating popup for:", currentFeature);
+		if (DEBUG) console.log("Showing popup for:", currentFeature);
 		
 		showPopup(feature, e.lngLat);
 		//showPopup(feature, coordinates);
