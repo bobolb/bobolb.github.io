@@ -288,10 +288,12 @@ map.on('load', async () => {
 
 	function showPopup(feature, pointerLngLat) {
 
-		const pointLng = feature.properties.pointLng;
-		const pointLat = feature.properties.pointLat;
+		//const pointLng = feature.properties.pointLng;
+		//const pointLat = feature.properties.pointLat;
 
-		const coordinates = [pointLng, pointLat];
+		//const coordinates = [pointLng, pointLat];
+
+		const coordinates = feature.geometry.coordinates;
 
 		const name = getFeatureName(feature);
 		const country = feature.properties.COUNTRY || "";
