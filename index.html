@@ -417,13 +417,13 @@ map.on('load', async () => {
     });
 
     // Get mouse coordinates
-    map.on('mousemove', (e) => {
+	map.on('mousemove', (e) => {
 
-        const { lng, lat } = e.lnglat;
+		const { lng, lat } = e.lngLat;
 
 		console.log('Longitude:', lng);
 		console.log('Latitude:', lat);
-    });
+	});
 
 });
 
