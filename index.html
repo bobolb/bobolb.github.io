@@ -396,8 +396,8 @@ map.on('load', async () => {
 		showPopup(feature, e.lngLat);
 	});
 
-	// Remove when leaving watched layers
-	map.on('mouseleave', hoverLayers, () => {
+	// Remove when leaving watched layers - ADM_0
+	map.on('mouseleave', 'ADM_0_fill', () => {
 		currentFeature = null;
 		map.getCanvas().style.cursor = '';
 		popup.remove();
