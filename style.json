@@ -7786,8 +7786,8 @@
 				]
 			],
 			"paint": {
-				"fill-color": "#60c",
-				"fill-opacity": 0.25,
+				"fill-pattern": "risks:red",
+				"fill-opacity": 1,
 				"fill-outline-color": "#000"
 			}
 		},
