@@ -356,23 +356,21 @@ map.on('load', async () => {
 
 		map.getCanvas().style.cursor = 'pointer';
 
-		// New featureL rebuild popup
+		// New feature: rebuild popup
 		if (featureId !== currentFeature) {
 			currentFeature = featureId;
 			showPopup(feature, e.lngLat);
 		}
-
 		// Always follow mouse
-		popiup.setLngLat(e.lngLat);
-
-	}
-		
+		popup.setLngLat(e.lngLat);
 /*
 		// Don't rebuild popup while moving within same feature
 		if (featureId === currentFeature) {
 			return;
 		}
+
 		currentFeature = featureId;
+
 		//console.log("Creating popup for:", currentFeature);
 		showPopup(feature, e.lngLat);
 */
