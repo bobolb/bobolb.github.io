@@ -7939,7 +7939,7 @@
 				]
 			],
 			"layout": {
-				"icon-image": "risks:wnv-mbv",
+				"icon-image": "risks:warning",
 				"icon-size": 1,
 				"icon-allow-overlap": true,
 				"icon-ignore-placement": true,
