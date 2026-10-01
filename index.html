@@ -292,11 +292,6 @@ map.on('load', async () => {
 		//const coordinates = [pointLng, pointLat];
 		//const coordinates = feature.geometry.coordinates;
 
-		console.log(
-			"Lat:", pointerLngLat.lat.toFixed(4),
-			"Lng:", pointerLngLat.lng.toFixed(4)
-		);
-
 		const name = getFeatureName(feature);
 
 		const country = feature.properties.COUNTRY || "";
@@ -354,7 +349,12 @@ map.on('load', async () => {
 	map.on('mousemove', hoverLayers, (e) => {
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
-
+		
+		console.log(
+			"Lat:", pointerLngLat.lat.toFixed(4),
+			"Lng:", pointerLngLat.lng.toFixed(4)
+		);
+		
 		map.getCanvas().style.cursor = 'pointer';
 
 		// New feature: rebuild popup
