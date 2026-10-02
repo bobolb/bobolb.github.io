@@ -7597,7 +7597,7 @@
 			"id": "ADM_0_fill",
 			"type": "fill",
 			"source": "ADM_0",
-			"source-layer": "polygon",
+			"source-layer": "ADM_0",
 			"filter": [
 				"in",
 				[
@@ -7786,8 +7786,8 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:red",
-				"fill-opacity": 1,
+				"fill-color": "#60c",
+				"fill-opacity": 0.5,
 				"fill-outline-color": "#000"
 			}
 		},
@@ -8045,8 +8045,11 @@
 				"fill-color": "#60c",
 				"fill-opacity": 0.5,
 				"fill-outline-color": "#000"
+			},
+			"layout": {
+				"visibility": "none"
 			}
-		},		
+		},
 		{
 			"id": "ADM_1_symbol",
 			"type": "symbol",
@@ -8158,6 +8161,9 @@
 				"fill-color": "#60c",
 				"fill-opacity": 0.75,
 				"fill-outline-color": "#000"
+			},
+			"layout": {
+				"visibility": "none"
 			}
 		},
 		{
