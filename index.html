@@ -79,10 +79,6 @@ maplibregl.addProtocol("pmtiles", (params, controller) => {
 	return protocol.tile(params, controller);
 });
 
-map.on("error", e => {
-	console.error("MAP ERROR:", e.error);
-});
-
 // create map
 const map = new maplibregl.Map({
 	container: 'map',
@@ -433,6 +429,12 @@ map.on('load', async () => {
 			currentFeature = null;
 
 		}
+
+	});
+
+	map.on("error", e => {
+
+		console.error("MAP ERROR:", e.error);
 
 	});
 
