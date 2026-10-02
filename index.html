@@ -77,7 +77,8 @@ const protocol = new pmtiles.Protocol({
 
 maplibregl.addProtocol("pmtiles", (params, controller) => {
 
-	console.log("PMTiles request:", params.url.split(".io/")[1]);
+	//if (DEBUG) console.log("PMTiles request:", params.url.split(".io/")[1]);
+	if (DEBUG) console.log("PMTiles request:", params.url);
 
 	return protocol.tile(params, controller);
 });
