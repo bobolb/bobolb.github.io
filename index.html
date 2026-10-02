@@ -358,8 +358,6 @@ map.on('load', async () => {
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
 
-		if (DEBUG) console.log("Hover on:", featureId);
-
 		map.getCanvas().style.cursor = 'pointer';
 
 		// New feature: rebuild popup if feature changed
