@@ -7756,7 +7756,7 @@
 				]
 			],
 			"paint": {
-				"fill-color": "#60c",
+				"fill-color": "#0f0",
 				"fill-opacity": 0.25,
 				"fill-outline-color": "#000"
 			}
@@ -8012,7 +8012,7 @@
 				]
 			],
 			"paint": {
-				"fill-color": "#60c",
+				"fill-color": "#f00",
 				"fill-opacity": 0.5,
 				"fill-outline-color": "#000"
 			},
@@ -8128,7 +8128,7 @@
 				]
 			],
 			"paint": {
-				"fill-color": "#60c",
+				"fill-color": "#00f",
 				"fill-opacity": 0.75,
 				"fill-outline-color": "#000"
 			},
