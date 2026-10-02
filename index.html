@@ -67,7 +67,7 @@ var useRetina = window.devicePixelRatio > 1;
 </script>
 <script type="module">
 
-const DEBUG = false;
+const DEBUG = true;
 
 // import maplibre
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
@@ -378,8 +378,6 @@ map.on('load', async () => {
 	map.on('mousemove', ['ADM_1_fill', 'ADM_2_fill'], (e) => {
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
-
-		if (DEBUG) console.log("Moved to:", featureId);
 
 		map.getCanvas().style.cursor = 'pointer';
 
