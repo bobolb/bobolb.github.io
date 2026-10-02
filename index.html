@@ -72,7 +72,7 @@ import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-
 const protocol = new pmtiles.Protocol();
 maplibregl.addProtocol("pmtiles", (params, controller) => {
 
-	if (DEBUG) console.log("PMTiles request:", params.url);
+	console.log("PMTiles request:", params.url.split(".io/")[1]);
 
 	return protocol.tile(params, controller);
 });
