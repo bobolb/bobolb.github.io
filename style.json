@@ -10,6 +10,10 @@
 			"type": "geojson",
 			"data": "https://bobolb.github.io/regions2.geojson"
 		},
+		"ADM": {
+			"type": "vector",
+			"url": "pmtiles://https://bobolb.github.io/ADM.pmtiles"
+		},
 		"ADM_0": {
 			"type": "vector",
 			"url": "pmtiles://https://bobolb.github.io/ADM_0.pmtiles"
@@ -7596,7 +7600,7 @@
 		{
 			"id": "ADM_0_fill",
 			"type": "fill",
-			"source": "ADM_0",
+			"source": "ADM",
 			"source-layer": "ADM_0",
 			"filter": [
 				"in",
@@ -7787,7 +7791,7 @@
 			],
 			"paint": {
 				"fill-color": "#60c",
-				"fill-opacity": 0.5,
+				"fill-opacity": 0.25,
 				"fill-outline-color": "#000"
 			}
 		},
@@ -8009,8 +8013,8 @@
 		{
 			"id": "ADM_1_fill",
 			"type": "fill",
-			"source": "ADM_1",
-			"source-layer": "polygon",
+			"source": "ADM",
+			"source-layer": "ADM_1",
 			"filter": [
 				"any",
 				[
@@ -8047,7 +8051,7 @@
 				"fill-outline-color": "#000"
 			},
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
@@ -8111,8 +8115,8 @@
 		{
 			"id": "ADM_2_fill",
 			"type": "fill",
-			"source": "ADM_2",
-			"source-layer": "polygon",
+			"source": "ADM",
+			"source-layer": "ADM_2",
 			"filter": [
 				"any",
 				[
@@ -8163,7 +8167,7 @@
 				"fill-outline-color": "#000"
 			},
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
