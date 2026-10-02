@@ -257,7 +257,7 @@ map.on('load', async () => {
 		closeButton: false,
 		closeOnClick: false,		
 		offset: {
-			top: [0, 25],
+			top: [0, 30],
 			bottom: [0, -6],
 			left: [8, 0],
 			right: [-8, 0],
@@ -269,12 +269,11 @@ map.on('load', async () => {
 	});
 
 	// set layers to watch for popup
-	//const hoverLayers = ['risk-WNV-fill', 'risk-MBV-fill'];
-	//const hoverLayers = ['ADM_1_fill', 'ADM_2_fill'];
+//	const hoverLayers = ['risk-WNV-fill', 'risk-MBV-fill', 'ADM_1_fill', 'ADM_2_fill'];
 
-	// detect marker change for overlapping markers, use mousemove not mouseenter event
-	//let currentFeatureCoordinates = null;
+	// detect marker change for overlapping markers, use mousemove not mouseenter event	
 	let currentFeature = null;
+	
 	function getFeatureName(feature) {
 		return (
 			feature.properties.NAME_2 ||
@@ -285,10 +284,7 @@ map.on('load', async () => {
 	}
 
 	function showPopup(feature, pointerLngLat) {
-		//const pointLng = feature.properties.pointLng;
-		//const pointLat = feature.properties.pointLat;
-		//const coordinates = [pointLng, pointLat];
-		
+				
 		const coordinates = feature.geometry.coordinates;
 
 		if (DEBUG) console.log("Lat:", pointerLngLat.lat.toFixed(4));
@@ -325,10 +321,10 @@ map.on('load', async () => {
 			`;
 		}
 		// Deal with copies across the antimeridian
-		//while (Math.abs(pointerLngLat.lng - coordinates[0]) > 180) {
-		//	coordinates[0] +=
-		//		pointerLngLat.lng > coordinates[0] ? 360 : -360;
-		//}
+//		while (Math.abs(pointerLngLat.lng - coordinates[0]) > 180) {
+//			coordinates[0] +=
+//			pointerLngLat.lng > coordinates[0] ? 360 : -360;
+//		}
 
 		popup
 			.setLngLat(pointerLngLat)
@@ -349,6 +345,7 @@ map.on('load', async () => {
 
 	// Desktop hover - ADM_0
 	map.on('mousemove', 'ADM_0_fill', (e) => {
+
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
 
@@ -370,6 +367,7 @@ map.on('load', async () => {
 
 	// Desktop hover - ADM_1_2
 	map.on('mousemove', ['ADM_1_fill', 'ADM_2_fill'], (e) => {
+
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
 
@@ -385,18 +383,20 @@ map.on('load', async () => {
 		if (DEBUG) console.log("Popup:", currentFeature);
 		
 		showPopup(feature, e.lngLat);
-		//showPopup(feature, coordinates);
 
 	});
 
 	// Tap/click always shows popup, even if it is the same feature - ADM_1
 	map.on('click', 'ADM_0_fill', (e) => {
+
 		const feature = e.features[0];
+
 		currentFeature = getFeatureName(feature);
-		
+
 		if (DEBUG) console.log("Clicked popup for:", currentFeature);
-		
+
 		showPopup(feature, e.lngLat);
+
 	});
 
 	// Remove when leaving watched layers - ADM_0_1_2
@@ -405,23 +405,32 @@ map.on('load', async () => {
 		if (DEBUG) console.log("Leaving:", currentFeature);
 
 		currentFeature = null;
+
 		map.getCanvas().style.cursor = '';
+
 		popup.remove();
-    });
+
+	});
 
 	// Remove if popup anchor moves outside map
 	map.on('move', () => {
+
 		const popupLngLat = popup.getLngLat();
+
 		if (!popupLngLat) return;
+
 		if (!map.getBounds().contains(popupLngLat)) {
+
 			popup.remove();
+
 			// Important: allow same feature to be selected again
 			currentFeature = null;
+
 		}
+
 	});
 
 });
-
 </script>
 </body>
 </html>

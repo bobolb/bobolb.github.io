@@ -5140,8 +5140,25 @@
 			"paint": {
 				"line-color": "hsl(248,7%,66%)",
 				"line-dasharray": [
+					2,
+					1
+				],
+				"line-opacity": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					0,
+					0.4,
+					4,
 					1,
-					2
+					8,
+					1,
+					8.5,
+					0
 				],
 				"line-width": [
 					"interpolate",
@@ -5154,13 +5171,15 @@
 					3,
 					1,
 					5,
-					1.2,
-					12,
-					3
+					1.5,
+					8,
+					1,
+					8.5,
+					0
 				]
 			},
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
@@ -5339,7 +5358,7 @@
 				"text-font": [
 					"Noto Sans Italic"
 				],
-				"text-letter-spacing": 0.2,
+				"text-letter-spacing": 0.1,
 				"text-max-width": 5,
 				"text-size": 14,
 				"visibility": "visible"
@@ -5402,7 +5421,7 @@
 				"text-font": [
 					"Noto Sans Italic"
 				],
-				"text-letter-spacing": 0.1,
+				"text-letter-spacing": 0.05,
 				"text-max-width": 12,
 				"text-size": [
 					"interpolate",
@@ -5478,9 +5497,10 @@
 				"text-font": [
 					"Noto Sans Italic"
 				],
-				"text-letter-spacing": 0.2,
+				"text-letter-spacing": 0.05,
 				"text-max-width": 5,
-				"text-size": 14
+				"text-size": 14,
+				"visibility": "visible"
 			},
 			"paint": {
 				"text-color": "#495e91",
@@ -6799,7 +6819,7 @@
 				"visibility": "visible"
 			},
 			"paint": {
-				"text-color": "#323232",
+				"text-color": "#333",
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 2
@@ -6836,7 +6856,7 @@
 					[
 						"zoom"
 					],
-					"dot_10",
+					"dot_9",
 					13,
 					""
 				],
@@ -6899,7 +6919,7 @@
 				"visibility": "visible"
 			},
 			"paint": {
-				"text-color": "#000",
+				"text-color": "#333",
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 2
@@ -7011,7 +7031,7 @@
 					[
 						"zoom"
 					],
-					"dot_11",
+					"dot_10",
 					12,
 					""
 				],
@@ -7049,7 +7069,7 @@
 					]
 				],
 				"text-font": [
-					"Noto Sans Regular"
+					"Noto Sans Bold"
 				],
 				"text-line-height": 1.1,
 				"text-max-width": 12,
@@ -7076,7 +7096,7 @@
 				"visibility": "visible"
 			},
 			"paint": {
-				"text-color": "#000",
+				"text-color": "#333",
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 2
@@ -7179,7 +7199,7 @@
 				"visibility": "visible"
 			},
 			"paint": {
-				"text-color": "#000",
+				"text-color": "#333",
 				"text-halo-blur": 1,
 				"text-halo-color": "#fff",
 				"text-halo-width": 2
@@ -7214,39 +7234,21 @@
 			"layout": {
 				"text-transform": "uppercase",
 				"text-field": [
-					"case",
+					"coalesce",
 					[
-						"has",
-						"name:nonlatin"
+						"get",
+						"name_en"
 					],
 					[
-						"concat",
-						[
-							"get",
-							"name:latin"
-						],
-						"\n",
-						[
-							"get",
-							"name:nonlatin"
-						]
-					],
-					[
-						"coalesce",
-						[
-							"get",
-							"name_en"
-						],
-						[
-							"get",
-							"name"
-						]
+						"get",
+						"name"
 					]
 				],
 				"text-font": [
 					"Noto Sans Bold"
 				],
 				"text-max-width": 6.25,
+				"text-letter-spacing": 0.05,
 				"text-size": [
 					"interpolate",
 					[
@@ -7280,7 +7282,7 @@
 						"zoom"
 					],
 					4,
-					"#000",
+					"#333",
 					5,
 					"#6b7a85"
 				],
@@ -7317,39 +7319,21 @@
 			"layout": {
 				"text-transform": "uppercase",
 				"text-field": [
-					"case",
+					"coalesce",
 					[
-						"has",
-						"name:nonlatin"
+						"get",
+						"name_en"
 					],
 					[
-						"concat",
-						[
-							"get",
-							"name:latin"
-						],
-						"\n",
-						[
-							"get",
-							"name:nonlatin"
-						]
-					],
-					[
-						"coalesce",
-						[
-							"get",
-							"name_en"
-						],
-						[
-							"get",
-							"name"
-						]
+						"get",
+						"name"
 					]
 				],
 				"text-font": [
 					"Noto Sans Bold"
 				],
 				"text-max-width": 6.25,
+				"text-letter-spacing": 0.05,
 				"text-size": [
 					"interpolate",
 					[
@@ -7383,7 +7367,7 @@
 						"zoom"
 					],
 					4,
-					"#000",
+					"#333",
 					5,
 					"#6b7a85"
 				],
@@ -7420,39 +7404,21 @@
 			"layout": {
 				"text-transform": "uppercase",
 				"text-field": [
-					"case",
+					"coalesce",
 					[
-						"has",
-						"name:nonlatin"
+						"get",
+						"name_en"
 					],
 					[
-						"concat",
-						[
-							"get",
-							"name:latin"
-						],
-						"\n",
-						[
-							"get",
-							"name:nonlatin"
-						]
-					],
-					[
-						"coalesce",
-						[
-							"get",
-							"name_en"
-						],
-						[
-							"get",
-							"name"
-						]
+						"get",
+						"name"
 					]
 				],
 				"text-font": [
 					"Noto Sans Bold"
 				],
 				"text-max-width": 6.25,
+				"text-letter-spacing": 0.05,
 				"text-size": [
 					"interpolate",
 					[
@@ -7486,7 +7452,7 @@
 						"zoom"
 					],
 					4,
-					"#000",
+					"#333",
 					5,
 					"#6b7a85"
 				],
