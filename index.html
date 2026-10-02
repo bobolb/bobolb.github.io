@@ -1,11 +1,11 @@
 <html>
 <head>
 <title>GDRI map | JPAC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.css" />
 <link rel="stylesheet" href="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.css"/>
 <style>
@@ -58,13 +58,9 @@
 <body>
 <script src="https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js"></script>
 <script src="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.min.js"></script>
-<div id="zoom-display" style="position: absolute; bottom: 10px; left: 10px; background: white; padding: 5px 10px; font-family: sans-serif; z-index: 1;">
-Zoom: <span id="zoom-level"></span>
-</div>
+<div id="zoom-display" style="position: absolute; bottom: 10px; left: 10px; background: white; padding: 5px 10px; font-family: sans-serif; z-index: 1;">Zoom: <span id="zoom-level"></span></div>
 <div id="map" style="width: 100%; height: 100%"></div>
-<script>
-var useRetina = window.devicePixelRatio > 1;
-</script>
+<script>var useRetina = window.devicePixelRatio > 1;</script>
 <script type="module">
 
 const DEBUG = true;
@@ -74,12 +70,11 @@ import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-
 
 // pmtiles
 const protocol = new pmtiles.Protocol();
-//maplibregl.addProtocol("pmtiles", protocol.tile);
 maplibregl.addProtocol("pmtiles", (params, controller) => {
-	//if (DEBUG) console.log("PMTiles request:", params.url);
+
+	if (DEBUG) console.log("PMTiles request:", params.url);
 
 	return protocol.tile(params, controller);
-
 });
 
 // create map
@@ -260,10 +255,9 @@ map.on('load', async () => {
 	const popup = new maplibregl.Popup({
 		className: 'risk-popup',
 		closeButton: false,
-		closeOnClick: false,
-		// offset was 0 and 20 for t/b/l/r and 15 for corners		
+		closeOnClick: false,		
 		offset: {
-			top: [0, 30],
+			top: [0, 25],
 			bottom: [0, -6],
 			left: [8, 0],
 			right: [-8, 0],
