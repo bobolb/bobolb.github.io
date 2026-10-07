@@ -7765,7 +7765,7 @@
 				"fill-outline-color": "#000"
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -8024,7 +8024,7 @@
 				"fill-outline-color": "#000"
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -8140,7 +8140,7 @@
 				"fill-outline-color": "#000"
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -8231,7 +8231,7 @@
 			"id": "PMT",
 			"type": "fill",
 			"source": "PMT",
-			"source-layer": "PMT",			
+			"source-layer": "PMT",
 			"paint": {
 				"fill-color": "#60c",
 				"fill-opacity": 0.25,
