@@ -7237,7 +7237,7 @@
 					"coalesce",
 					[
 						"get",
-						"name_en"
+						"name_int"
 					],
 					[
 						"get",
@@ -7322,7 +7322,7 @@
 					"coalesce",
 					[
 						"get",
-						"name_en"
+						"name_int"
 					],
 					[
 						"get",
@@ -7407,7 +7407,7 @@
 					"coalesce",
 					[
 						"get",
-						"name_en"
+						"name_int"
 					],
 					[
 						"get",
