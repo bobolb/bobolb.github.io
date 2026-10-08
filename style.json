@@ -26,9 +26,9 @@
 			"type": "vector",
 			"url": "pmtiles://https://bobolb.github.io/ADM_2.pmtiles"
 		},
-		"PMT": {
+		"GADM": {
 			"type": "vector",
-			"url": "pmtiles://https://bobolb.github.io/PMT.pmtiles"
+			"url": "pmtiles://https://bobolb.github.io/gadm.pmtiles"
 		}
 	},
 	"sprite": [
@@ -8228,13 +8228,13 @@
 			}
 		},
 		{
-			"id": "PMT",
+			"id": "GADM",
 			"type": "fill",
-			"source": "PMT",
-			"source-layer": "PMT",
+			"source": "GADM",
+			"source-layer": "ADM_0",
 			"paint": {
-				"fill-color": "#60c",
-				"fill-opacity": 0.3,
+				"fill-color": "#0f0",
+				"fill-opacity": 0.4,
 				"fill-outline-color": "#000"
 			},
 			"layout": {
