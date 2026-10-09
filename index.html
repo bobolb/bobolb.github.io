@@ -70,16 +70,11 @@ import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-
 
 // pmtiles
 const protocol = new pmtiles.Protocol({
-
 	errorOnMissingTile: true
-
 });
 
 maplibregl.addProtocol("pmtiles", (params, controller) => {
-
-	//if (DEBUG) console.log("PMTiles request:", params.url.split(".io/")[1]);
-	if (DEBUG) console.log("PMTiles request:", params.url);
-
+	if (DEBUG) console.log("PMTiles request:", params.url.split(".io/")[1]);
 	return protocol.tile(params, controller);
 });
 
@@ -102,7 +97,9 @@ map.touchPitch.disable();
 // display Zoom, get initial level and update on move/zoom 
 const zoomDisplay = document.getElementById('zoom-level');
 zoomDisplay.textContent = map.getZoom().toFixed(1);
-map.on('zoom', () => {zoomDisplay.textContent = map.getZoom().toFixed(1);});
+map.on('zoom', () => {
+	zoomDisplay.textContent = map.getZoom().toFixed(1);
+});
 
 // add navigation controls
 map.addControl(new maplibregl.NavigationControl({
@@ -137,7 +134,7 @@ const geocoderApi = {
 
 			for (const feature of geojson.features) {
 
-				if (DEBUG) console.log("Result feature:", feature);
+				if (DEBUG) console.log("Geocoder result:", feature);
 
 				if (
 				!['country',
@@ -361,7 +358,7 @@ map.on('load', async () => {
 		if (featureId !== currentFeature) {
 			currentFeature = featureId;
 
-			if (DEBUG) console.log("Popup:", currentFeature);
+			if (DEBUG) console.log("Mousemove:", currentFeature);
 			
 			showPopup(feature, e.lngLat);
 		}
@@ -401,7 +398,7 @@ map.on('load', async () => {
 
 		currentFeature = getFeatureName(feature);
 
-		if (DEBUG) console.log("Clicked popup for:", currentFeature);
+		if (DEBUG) console.log("Click:", currentFeature);
 
 		showPopup(feature, e.lngLat);
 
@@ -410,7 +407,7 @@ map.on('load', async () => {
 	// Remove when leaving watched layers - ADM_0_1_2
 	map.on('mouseleave', hoverLayers, () => {
 
-		if (DEBUG) console.log("Leaving:", currentFeature);
+		if (DEBUG) console.log("Mouseleave:", currentFeature);
 
 		currentFeature = null;
 
@@ -429,6 +426,8 @@ map.on('load', async () => {
 
 		if (!map.getBounds().contains(popupLngLat)) {
 
+			if (DEBUG) console.log("Removing popup:", currentFeature);
+			
 			popup.remove();
 
 			// Important: allow same feature to be selected again
