@@ -350,7 +350,7 @@ map.on('load', async () => {
 	}
 
 	// Desktop hover - ADM_0
-	map.on('mousemove', 'ADM_0_fill', (e) => {
+	map.on('mousemove', 'GADM', (e) => {
 
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
@@ -393,7 +393,7 @@ map.on('load', async () => {
 	});
 
 	// Tap/click always shows popup, even if it is the same feature - ADM_1
-	map.on('click', 'ADM_0_fill', (e) => {
+	map.on('click', 'GADM', (e) => {
 
 		const feature = e.features[0];
 
@@ -406,7 +406,7 @@ map.on('load', async () => {
 	});
 
 	// Remove when leaving watched layers - ADM_0_1_2
-	map.on('mouseleave', ['ADM_0_fill', 'ADM_1_fill', 'ADM_2_fill'], () => {
+	map.on('mouseleave', ['GADM'], () => {
 
 		if (DEBUG) console.log("Leaving:", currentFeature);
 
