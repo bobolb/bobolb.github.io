@@ -275,7 +275,7 @@ map.on('load', async () => {
 	});
 
 	// set layers to watch for popup
-//	const hoverLayers = ['risk-WNV-fill', 'risk-MBV-fill', 'ADM_1_fill', 'ADM_2_fill'];
+	const hoverLayers = ['GADM'];
 
 	// detect marker change for overlapping markers, use mousemove not mouseenter event	
 	let currentFeature = null;
@@ -350,7 +350,7 @@ map.on('load', async () => {
 	}
 
 	// Desktop hover - ADM_0
-	map.on('mousemove', 'GADM', (e) => {
+	map.on('mousemove', hoverLayers, (e) => {
 
 		const feature = e.features[0];
 		const featureId = getFeatureName(feature);
@@ -371,6 +371,7 @@ map.on('load', async () => {
 
 	});
 
+/*	
 	// Desktop hover - ADM_1_2
 	map.on('mousemove', ['ADM_1_fill', 'ADM_2_fill'], (e) => {
 
@@ -391,9 +392,10 @@ map.on('load', async () => {
 		showPopup(feature, e.lngLat);
 
 	});
+*/
 
-	// Tap/click always shows popup, even if it is the same feature - ADM_1
-	map.on('click', 'GADM', (e) => {
+// Tap/click always shows popup, even if it is the same feature - ADM_1
+	map.on('click', hoverLayers, (e) => {
 
 		const feature = e.features[0];
 
@@ -406,7 +408,7 @@ map.on('load', async () => {
 	});
 
 	// Remove when leaving watched layers - ADM_0_1_2
-	map.on('mouseleave', ['GADM'], () => {
+	map.on('mouseleave', hoverLayers, () => {
 
 		if (DEBUG) console.log("Leaving:", currentFeature);
 
@@ -436,6 +438,7 @@ map.on('load', async () => {
 
 	});
 
+/*
 	map.on("idle", () => {
 		for (const layer of ["ADM_0", "ADM_1", "ADM_2"]) {
 		const features = map.querySourceFeatures("ADM", {
@@ -444,6 +447,7 @@ map.on('load', async () => {
 		if (DEBUG) console.log(layer, features.length);
 		}
 	});
+*/
 
 });
 </script>
