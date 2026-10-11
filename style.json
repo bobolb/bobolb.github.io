@@ -7760,12 +7760,12 @@
 				]
 			],
 			"paint": {
-				"fill-color": "#0f0",
-				"fill-opacity": 0.25,
+				"fill-color": "#f00",
+				"fill-opacity": 0.5,
 				"fill-outline-color": "#000"
 			},
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
@@ -8019,12 +8019,12 @@
 				]
 			],
 			"paint": {
-				"fill-color": "#f00",
+				"fill-color": "#0f0",
 				"fill-opacity": 0.5,
 				"fill-outline-color": "#000"
 			},
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
@@ -8112,6 +8112,7 @@
 							"Hautes-Pyrénées",
 							"Hérault",
 							"Isère",
+							"Lot",
 							"Pyrénées-Orientales",
 							"Var",
 							"Vaucluse"
@@ -8127,6 +8128,7 @@
 					[
 						"literal",
 						[
+							"Lecce",
 							"Livorno",
 							"Modena",
 							"Verona"
@@ -8136,11 +8138,11 @@
 			],
 			"paint": {
 				"fill-color": "#00f",
-				"fill-opacity": 0.75,
+				"fill-opacity": 0.5,
 				"fill-outline-color": "#000"
 			},
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
@@ -8251,7 +8253,7 @@
 				"fill-outline-color": "#000"
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		}
 	],
