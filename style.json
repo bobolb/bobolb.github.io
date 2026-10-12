@@ -25,6 +25,10 @@
 		"ADM_2": {
 			"type": "vector",
 			"url": "pmtiles://https://bobolb.github.io/ADM_2.pmtiles"
+		},
+		"ADM_1_2_combined": {
+			"type": "geojson",
+			"data": "//https://bobolb.github.io/ADM_1_2_combined.geojsonl"
 		}
 	},
 	"sprite": [
@@ -961,7 +965,7 @@
 		{
 			"id": "risk-MBV-fill",
 			"type": "fill",
-			"source": "riskRegions",
+			"source": "ADM_1_2_combined",
 			"filter": [
 				"all",
 				[
@@ -996,13 +1000,13 @@
 				"fill-opacity": 0
 			},
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
 			"id": "risk-WNV-fill",
 			"type": "fill",
-			"source": "riskRegions",
+			"source": "ADM_1_2_combined",
 			"filter": [
 				"get",
 				"riskW"
@@ -1025,7 +1029,7 @@
 				]
 			},
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
@@ -6447,10 +6451,10 @@
 		{
 			"id": "risk-WNV-outline",
 			"type": "line",
-			"source": "riskRegions",
+			"source": "ADM_1_2_combined",
 			"layout": {
 				"line-join": "round",
-				"visibility": "none"
+				"visibility": "visible"
 			},
 			"paint": {
 				"line-color": [
@@ -6503,10 +6507,10 @@
 		{
 			"id": "risk-MBV-outline",
 			"type": "line",
-			"source": "riskRegions",
+			"source": "ADM_1_2_combined",
 			"layout": {
 				"line-join": "round",
-				"visibility": "none"
+				"visibility": "visible"
 			},
 			"paint": {
 				"line-color": "hsl(240, 80%, 50%)",
@@ -7235,9 +7239,29 @@
 				"text-transform": "uppercase",
 				"text-field": [
 					"case",
-					["==", ["get", "iso_a2"], "PS"],
-					["get", "name_int"],
-					["coalesce", ["get", "name:en"],["get","name_int"]]
+					[
+						"==",
+						[
+							"get",
+							"iso_a2"
+						],
+						"PS"
+					],
+					[
+						"get",
+						"name_int"
+					],
+					[
+						"coalesce",
+						[
+							"get",
+							"name:en"
+						],
+						[
+							"get",
+							"name_int"
+						]
+					]
 				],
 				"text-font": [
 					"Noto Sans Bold"
@@ -7400,9 +7424,29 @@
 				"text-transform": "uppercase",
 				"text-field": [
 					"case",
-					["==", ["get", "iso_a2"], "TR"],
-					["get", "name_int"],
-					["coalesce", ["get", "name:en"],["get","name_int"]]
+					[
+						"==",
+						[
+							"get",
+							"iso_a2"
+						],
+						"TR"
+					],
+					[
+						"get",
+						"name_int"
+					],
+					[
+						"coalesce",
+						[
+							"get",
+							"name:en"
+						],
+						[
+							"get",
+							"name_int"
+						]
+					]
 				],
 				"text-font": [
 					"Noto Sans Bold"
@@ -8413,7 +8457,7 @@
 				]
 			],
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -8457,7 +8501,7 @@
 				]
 			],
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -8517,7 +8561,7 @@
 				]
 			],
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		}
 	],
