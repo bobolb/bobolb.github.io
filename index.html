@@ -272,7 +272,7 @@ map.on('load', async () => {
 	});
 
 	// set layers to watch for popup
-	const hoverLayers = ['ADM'];
+	const hoverLayers = ['ADM_all_0', 'ADM_all_1', 'ADM_all_2'];
 
 	// detect marker change for overlapping markers, use mousemove not mouseenter event	
 	let currentFeature = null;
@@ -436,24 +436,6 @@ map.on('load', async () => {
 		}
 
 	});
-
-/*
-	map.on("idle", () => {
-		for (const layer of ["ADM_0", "ADM_1", "ADM_2"]) {
-		const features = map.querySourceFeatures("ADM", {
-			sourceLayer: layer
-		});
-		if (DEBUG) console.log(layer, features.length);
-		}
-	});
-*/
-
-map.on('error', (e) => {
-    // Check if the error is related to a tile failing to load
-    if (e.error && e.error.message === 'Tile not found.') {
-        console.error('Tile failed to load:', e);
-    }
-});
 
 });
 </script>
