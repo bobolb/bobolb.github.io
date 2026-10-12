@@ -28,7 +28,7 @@
 		},
 		"ADM_1_2_combined": {
 			"type": "geojson",
-			"data": "https://bobolb.github.io/ADM_1_2_combined.geojsonl"
+			"data": "https://bobolb.github.io/ADM_1_2_combined.geojson"
 		}
 	},
 	"sprite": [
