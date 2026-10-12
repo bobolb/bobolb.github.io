@@ -448,6 +448,13 @@ map.on('load', async () => {
 	});
 */
 
+map.on('error', (e) => {
+    // Check if the error is related to a tile failing to load
+    if (e.error && e.error.message === 'Tile not found.') {
+        console.error('Tile failed to load:', e);
+    }
+});
+
 });
 </script>
 </body>
