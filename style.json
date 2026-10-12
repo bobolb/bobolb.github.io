@@ -7570,7 +7570,7 @@
 		{
 			"id": "ADM_0_fill",
 			"type": "fill",
-			"source": "ADM",
+			"source": "ADM_0",
 			"source-layer": "ADM_0",
 			"filter": [
 				"in",
@@ -7986,7 +7986,7 @@
 		{
 			"id": "ADM_1_fill",
 			"type": "fill",
-			"source": "ADM",
+			"source": "ADM_1",
 			"source-layer": "ADM_1",
 			"filter": [
 				"any",
@@ -8088,7 +8088,7 @@
 		{
 			"id": "ADM_2_fill",
 			"type": "fill",
-			"source": "ADM",
+			"source": "ADM_2",
 			"source-layer": "ADM_2",
 			"filter": [
 				"any",
