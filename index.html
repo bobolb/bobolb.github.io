@@ -297,12 +297,13 @@ map.on('load', async () => {
 
 		const country = feature.properties.COUNTRY || ""
 			.replace(/([a-z])([A-Z])/g, '$1 $2')
-			.replace(/and/g, ' and ');
-		const type =
+			.replace(/and([A-Z])/g, ' and $1');
+		const type = (
 			feature.properties.ENGTYPE_2 ||
 			feature.properties.ENGTYPE_1 || ""
+			)
 			.replace(/([a-z])([A-Z])/g, '$1 $2')
-			.replace(/and/g, ' and ');;
+			.replace(/and([A-Z])/g, ' and $1');
 		let riskHTML = "";
 		if (feature.properties.riskW) {
 			riskHTML += '<p style="color:red">West Nile Virus</p>';
