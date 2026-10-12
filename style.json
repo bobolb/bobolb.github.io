@@ -25,10 +25,6 @@
 		"ADM_2": {
 			"type": "vector",
 			"url": "pmtiles://https://bobolb.github.io/ADM_2.pmtiles"
-		},
-		"GADM": {
-			"type": "vector",
-			"url": "pmtiles://https://bobolb.github.io/gadm.pmtiles"
 		}
 	},
 	"sprite": [
@@ -7238,15 +7234,10 @@
 			"layout": {
 				"text-transform": "uppercase",
 				"text-field": [
-					"coalesce",
-					[
-						"get",
-						"name_int"
-					],
-					[
-						"get",
-						"name"
-					]
+					"case",
+					["==", ["get", "iso_a2"], "PS"],
+					["get", "name_int"],
+					["coalesce", ["get", "name:en"],["get","name_int"]]
 				],
 				"text-font": [
 					"Noto Sans Bold"
@@ -7326,11 +7317,11 @@
 					"coalesce",
 					[
 						"get",
-						"name_int"
+						"name:en"
 					],
 					[
 						"get",
-						"name"
+						"name_int"
 					]
 				],
 				"text-font": [
@@ -7408,15 +7399,10 @@
 			"layout": {
 				"text-transform": "uppercase",
 				"text-field": [
-					"coalesce",
-					[
-						"get",
-						"name:en"
-					],
-					[
-						"get",
-						"name"
-					]
+					"case",
+					["==", ["get", "iso_a2"], "TR"],
+					["get", "name_int"],
+					["coalesce", ["get", "name:en"],["get","name_int"]]
 				],
 				"text-font": [
 					"Noto Sans Bold"
@@ -7765,7 +7751,7 @@
 				"fill-outline-color": "#000"
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -8024,7 +8010,7 @@
 				"fill-outline-color": "#000"
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -8142,7 +8128,7 @@
 				"fill-outline-color": "#000"
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -8230,30 +8216,69 @@
 			}
 		},
 		{
-			"id": "GADM",
+			"id": "ADM_all_0",
 			"type": "fill",
-			"source": "GADM",
+			"source": "ADM",
 			"source-layer": "ADM_0",
+			"paint": {
+				"fill-color": "#ff0",
+				"fill-opacity": 0.5,
+				"fill-outline-color": "#000"
+			},
 			"filter": [
-				"in",
+				"==",
 				[
 					"get",
 					"GID_0"
 				],
-				[
-					"literal",
-					[
-						"NLD"
-					]
-				]
+				"DEU"
 			],
+			"layout": {
+				"visibility": "visible"
+			}
+		},
+		{
+			"id": "ADM_all_1",
+			"type": "fill",
+			"source": "ADM",
+			"source-layer": "ADM_1",
 			"paint": {
-				"fill-color": "#60c",
-				"fill-opacity": 0.6,
+				"fill-color": "#0ff",
+				"fill-opacity": 0.5,
 				"fill-outline-color": "#000"
 			},
+			"filter": [
+				"==",
+				[
+					"get",
+					"GID_1"
+				],
+				"ESP.14_1"
+			],
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
+			}
+		},
+		{
+			"id": "ADM_all_2",
+			"type": "fill",
+			"source": "ADM",
+			"source-layer": "ADM_2",
+			"paint": {
+				"fill-color": "#f0f",
+				"fill-opacity": 0.5,
+				"fill-outline-color": "#000"
+			},
+			"filter": [
+				"==",
+				[
+					"get",
+					"GID_2"
+				],
+				"FRA.13.3_1"
+			],
+			"layout": {
+				"visibility": "visible"
 			}
 		}
 	],
