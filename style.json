@@ -8576,36 +8576,63 @@
 			"paint": {
 				"fill-pattern": "risks:blue",
 				"fill-color": "#1919e6",
-				"fill-opacity": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					8,
-					1,
-					8.5,
-					0.8
-				]
+				"fill-opacity": 1
 			},
 			"filter": [
 				"all",
-				[	
+				[
 					"any",
-					["==", ["get", "riskC"], true],
-					["==", ["get", "riskD"], true],
-					["==", ["get", "riskY"], true],
-					["==", ["get", "riskZ"], true]
-				],
-				["!",
+					[
+						"==",
 						[
-							"in",
-								["get", "GID_0"],
-								["literal", ["FRA", "ITA", "AUS"]]
+							"get",
+							"riskC"
+						],
+						true
+					],
+					[
+						"==",
+						[
+							"get",
+							"riskD"
+						],
+						true
+					],
+					[
+						"==",
+						[
+							"get",
+							"riskY"
+						],
+						true
+					],
+					[
+						"==",
+						[
+							"get",
+							"riskZ"
+						],
+						true
+					]
+				],
+				[
+					"!",
+					[
+						"in",
+						[
+							"get",
+							"GID_0"
+						],
+						[
+							"literal",
+							[
+								"FRA",
+								"ITA",
+								"AUS"
+							]
 						]
 					]
+				]
 			],
 			"layout": {
 				"visibility": "visible"
@@ -8635,14 +8662,31 @@
 			},
 			"filter": [
 				"all",
-					["==", ["get", "riskW"], true],
-					["!",
+				[
+					"==",
+					[
+						"get",
+						"riskW"
+					],
+					true
+				],
+				[
+					"!",
+					[
+						"in",
 						[
-							"in",
-								["get", "GID_0"],
-								["literal", ["FRA", "ESP"]]
+							"get",
+							"GID_0"
+						],
+						[
+							"literal",
+							[
+								"FRA",
+								"ESP"
+							]
 						]
 					]
+				]
 			],
 			"layout": {
 				"visibility": "visible"
@@ -8662,7 +8706,7 @@
 					[
 						"zoom"
 					],
-					0,
+					3,
 					"hsl(0, 100%, 25%)",
 					4,
 					"hsl(0, 100%, 25%)",
@@ -8677,7 +8721,7 @@
 					[
 						"zoom"
 					],
-					0,
+					3,
 					0.5,
 					4,
 					0.5,
@@ -8688,17 +8732,34 @@
 			},
 			"filter": [
 				"all",
-				[	
+				[
 					"any",
-					["==", ["get", "riskW"], true]
-				],
-				["!",
+					[
+						"==",
 						[
-							"in",
-								["get", "GID_0"],
-								["literal", ["FRA", "ESP"]]
+							"get",
+							"riskW"
+						],
+						true
+					]
+				],
+				[
+					"!",
+					[
+						"in",
+						[
+							"get",
+							"GID_0"
+						],
+						[
+							"literal",
+							[
+								"FRA",
+								"ESP"
+							]
 						]
 					]
+				]
 			],
 			"layout": {
 				"line-join": "round",
@@ -8711,7 +8772,7 @@
 			"source": "GADM",
 			"source-layer": "GADM",
 			"paint": {
-				"line-color": "hsl(240, 80%, 50%)",
+				"line-color": "#1919e6",
 				"line-width": [
 					"interpolate",
 					[
@@ -8720,9 +8781,9 @@
 					[
 						"zoom"
 					],
-					0,
-					0,
-					5,
+					3,
+					1,
+					4,
 					2,
 					10,
 					8
@@ -8730,20 +8791,59 @@
 			},
 			"filter": [
 				"all",
-				[	
+				[
 					"any",
-					["==", ["get", "riskC"], true],
-					["==", ["get", "riskD"], true],
-					["==", ["get", "riskY"], true],
-					["==", ["get", "riskZ"], true]
-				],
-				["!",
+					[
+						"==",
 						[
-							"in",
-								["get", "GID_0"],
-								["literal", ["FRA", "ITA", "AUS"]]
+							"get",
+							"riskC"
+						],
+						true
+					],
+					[
+						"==",
+						[
+							"get",
+							"riskD"
+						],
+						true
+					],
+					[
+						"==",
+						[
+							"get",
+							"riskY"
+						],
+						true
+					],
+					[
+						"==",
+						[
+							"get",
+							"riskZ"
+						],
+						true
+					]
+				],
+				[
+					"!",
+					[
+						"in",
+						[
+							"get",
+							"GID_0"
+						],
+						[
+							"literal",
+							[
+								"FRA",
+								"ITA",
+								"AUS"
+							]
 						]
 					]
+				]
 			],
 			"layout": {
 				"line-join": "round",
