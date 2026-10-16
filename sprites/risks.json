@@ -3,6 +3,13 @@
     "height": 32,
     "width": 32,
     "pixelRatio": 1,
+    "x": 32,
+    "y": 0
+  },
+    "red-original": {
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 1,
     "x": 0,
     "y": 0
   },

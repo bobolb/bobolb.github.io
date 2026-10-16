@@ -3,9 +3,16 @@
     "height": 64,
     "width": 64,
     "pixelRatio": 2,
+    "x": 64,
+    "y": 0
+  },
+  "red-original": {
+    "height": 64,
+    "width": 64,
+    "pixelRatio": 2,
     "x": 0,
     "y": 0
-  }, 
+  },
   "wnv-mbv": {
     "height": 64,
     "width": 64,
