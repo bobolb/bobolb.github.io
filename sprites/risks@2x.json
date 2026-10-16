@@ -13,6 +13,13 @@
     "x": 0,
     "y": 0
   },
+  "blue": {
+    "height": 64,
+    "width": 64,
+    "pixelRatio": 2,
+    "x": 96,
+    "y": 0
+  },
   "wnv-mbv": {
     "height": 64,
     "width": 64,

@@ -8569,7 +8569,50 @@
 			}
 		},
 		{
-			"id": "GADM_WNV",
+			"id": "GADM_MBV_fill",
+			"type": "fill",
+			"source": "GADM",
+			"source-layer": "GADM",
+			"paint": {
+				"fill-pattern": "risks:blue",
+				"fill-color": "#1919e6",
+				"fill-opacity": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					8,
+					1,
+					8.5,
+					0.8
+				]
+			},
+			"filter": [
+				"all",
+				[	
+					"any",
+					["==", ["get", "riskC"], true],
+					["==", ["get", "riskD"], true],
+					["==", ["get", "riskY"], true],
+					["==", ["get", "riskZ"], true]
+				],
+				["!",
+						[
+							"in",
+								["get", "GID_0"],
+								["literal", ["FRA", "ITA", "AUS"]]
+						]
+					]
+			],
+			"layout": {
+				"visibility": "visible"
+			}
+		},
+		{
+			"id": "GADM_WNV_fill",
 			"type": "fill",
 			"source": "GADM",
 			"source-layer": "GADM",
@@ -8606,7 +8649,7 @@
 			}
 		},
 		{
-			"id": "GADM_MBV",
+			"id": "GADM_MBV_line",
 			"type": "line",
 			"source": "GADM",
 			"source-layer": "GADM",

@@ -13,6 +13,13 @@
     "x": 0,
     "y": 0
   },
+    "blue": {
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 1,
+    "x": 128,
+    "y": 0
+  },
   "w": {
     "height": 32,
     "width": 32,
