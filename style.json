@@ -1037,6 +1037,130 @@
 			}
 		},
 		{
+			"id": "GADM_MBV_fill",
+			"type": "fill",
+			"source": "GADM",
+			"source-layer": "GADM",
+			"paint": {
+				"fill-pattern": "risks:blue",
+				"fill-color": "#1919e6",
+				"fill-opacity": 1
+			},
+			"filter": [
+				"all",
+				[
+					"any",
+					[
+						"==",
+						[
+							"get",
+							"riskC"
+						],
+						true
+					],
+					[
+						"==",
+						[
+							"get",
+							"riskD"
+						],
+						true
+					],
+					[
+						"==",
+						[
+							"get",
+							"riskY"
+						],
+						true
+					],
+					[
+						"==",
+						[
+							"get",
+							"riskZ"
+						],
+						true
+					]
+				],
+				[
+					"!",
+					[
+						"in",
+						[
+							"get",
+							"GID_0"
+						],
+						[
+							"literal",
+							[
+								"FRA",
+								"ITA",
+								"AUS"
+							]
+						]
+					]
+				]
+			],
+			"layout": {
+				"visibility": "visible"
+			}
+		},
+		{
+			"id": "GADM_WNV_fill",
+			"type": "fill",
+			"source": "GADM",
+			"source-layer": "GADM",
+			"paint": {
+				"fill-pattern": "risks:red",
+				"fill-color": "#ff0000",
+				"fill-opacity": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					8,
+					1,
+					8.5,
+					0.8
+				]
+			},
+			"filter": [
+				"all",
+				[
+					"==",
+					[
+						"get",
+						"riskW"
+					],
+					true
+				],
+				[
+					"!",
+					[
+						"in",
+						[
+							"get",
+							"GID_0"
+						],
+						[
+							"literal",
+							[
+								"FRA",
+								"ESP"
+							]
+						]
+					]
+				]
+			],
+			"layout": {
+				"visibility": "visible"
+			}
+		},
+		{
 			"id": "building-top",
 			"type": "fill",
 			"source": "openmaptiles",
@@ -6565,6 +6689,164 @@
 			]
 		},
 		{
+			"id": "GADM_WNV_line",
+			"type": "line",
+			"source": "GADM",
+			"source-layer": "GADM",
+			"paint": {
+				"line-color": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					3,
+					"hsl(0, 100%, 25%)",
+					4,
+					"hsl(0, 100%, 25%)",
+					6,
+					"hsl(0, 100%, 50%)"
+				],
+				"line-width": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					3,
+					0.5,
+					4,
+					0.5,
+					5,
+					1.5
+				],
+				"line-opacity": 1
+			},
+			"filter": [
+				"all",
+				[
+					"any",
+					[
+						"==",
+						[
+							"get",
+							"riskW"
+						],
+						true
+					]
+				],
+				[
+					"!",
+					[
+						"in",
+						[
+							"get",
+							"GID_0"
+						],
+						[
+							"literal",
+							[
+								"FRA",
+								"ESP"
+							]
+						]
+					]
+				]
+			],
+			"layout": {
+				"line-join": "round",
+				"visibility": "visible"
+			}
+		},
+		{
+			"id": "GADM_MBV_line",
+			"type": "line",
+			"source": "GADM",
+			"source-layer": "GADM",
+			"paint": {
+				"line-color": "#1919e6",
+				"line-width": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					3,
+					1,
+					4,
+					2,
+					10,
+					6
+				]
+			},
+			"filter": [
+				"all",
+				[
+					"any",
+					[
+						"==",
+						[
+							"get",
+							"riskC"
+						],
+						true
+					],
+					[
+						"==",
+						[
+							"get",
+							"riskD"
+						],
+						true
+					],
+					[
+						"==",
+						[
+							"get",
+							"riskY"
+						],
+						true
+					],
+					[
+						"==",
+						[
+							"get",
+							"riskZ"
+						],
+						true
+					]
+				],
+				[
+					"!",
+					[
+						"in",
+						[
+							"get",
+							"GID_0"
+						],
+						[
+							"literal",
+							[
+								"FRA",
+								"ITA",
+								"AUS"
+							]
+						]
+					]
+				]
+			],
+			"layout": {
+				"line-join": "round",
+				"visibility": "visible"
+			}
+		},
+		{
 			"id": "nature_reserve_and_protected_area_label",
 			"type": "symbol",
 			"source": "openmaptiles",
@@ -8566,288 +8848,6 @@
 			],
 			"layout": {
 				"visibility": "none"
-			}
-		},
-		{
-			"id": "GADM_MBV_fill",
-			"type": "fill",
-			"source": "GADM",
-			"source-layer": "GADM",
-			"paint": {
-				"fill-pattern": "risks:blue",
-				"fill-color": "#1919e6",
-				"fill-opacity": 1
-			},
-			"filter": [
-				"all",
-				[
-					"any",
-					[
-						"==",
-						[
-							"get",
-							"riskC"
-						],
-						true
-					],
-					[
-						"==",
-						[
-							"get",
-							"riskD"
-						],
-						true
-					],
-					[
-						"==",
-						[
-							"get",
-							"riskY"
-						],
-						true
-					],
-					[
-						"==",
-						[
-							"get",
-							"riskZ"
-						],
-						true
-					]
-				],
-				[
-					"!",
-					[
-						"in",
-						[
-							"get",
-							"GID_0"
-						],
-						[
-							"literal",
-							[
-								"FRA",
-								"ITA",
-								"AUS"
-							]
-						]
-					]
-				]
-			],
-			"layout": {
-				"visibility": "visible"
-			}
-		},
-		{
-			"id": "GADM_WNV_fill",
-			"type": "fill",
-			"source": "GADM",
-			"source-layer": "GADM",
-			"paint": {
-				"fill-pattern": "risks:red",
-				"fill-color": "#ff0000",
-				"fill-opacity": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					8,
-					1,
-					8.5,
-					0.8
-				]
-			},
-			"filter": [
-				"all",
-				[
-					"==",
-					[
-						"get",
-						"riskW"
-					],
-					true
-				],
-				[
-					"!",
-					[
-						"in",
-						[
-							"get",
-							"GID_0"
-						],
-						[
-							"literal",
-							[
-								"FRA",
-								"ESP"
-							]
-						]
-					]
-				]
-			],
-			"layout": {
-				"visibility": "visible"
-			}
-		},
-		{
-			"id": "GADM_WNV_line",
-			"type": "line",
-			"source": "GADM",
-			"source-layer": "GADM",
-			"paint": {
-				"line-color": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					3,
-					"hsl(0, 100%, 25%)",
-					4,
-					"hsl(0, 100%, 25%)",
-					6,
-					"hsl(0, 100%, 50%)"
-				],
-				"line-width": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					3,
-					0.5,
-					4,
-					0.5,
-					5,
-					1.5
-				],
-				"line-opacity": 1
-			},
-			"filter": [
-				"all",
-				[
-					"any",
-					[
-						"==",
-						[
-							"get",
-							"riskW"
-						],
-						true
-					]
-				],
-				[
-					"!",
-					[
-						"in",
-						[
-							"get",
-							"GID_0"
-						],
-						[
-							"literal",
-							[
-								"FRA",
-								"ESP"
-							]
-						]
-					]
-				]
-			],
-			"layout": {
-				"line-join": "round",
-				"visibility": "visible"
-			}
-		},
-		{
-			"id": "GADM_MBV_line",
-			"type": "line",
-			"source": "GADM",
-			"source-layer": "GADM",
-			"paint": {
-				"line-color": "#1919e6",
-				"line-width": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					3,
-					1,
-					4,
-					2,
-					10,
-					8
-				]
-			},
-			"filter": [
-				"all",
-				[
-					"any",
-					[
-						"==",
-						[
-							"get",
-							"riskC"
-						],
-						true
-					],
-					[
-						"==",
-						[
-							"get",
-							"riskD"
-						],
-						true
-					],
-					[
-						"==",
-						[
-							"get",
-							"riskY"
-						],
-						true
-					],
-					[
-						"==",
-						[
-							"get",
-							"riskZ"
-						],
-						true
-					]
-				],
-				[
-					"!",
-					[
-						"in",
-						[
-							"get",
-							"GID_0"
-						],
-						[
-							"literal",
-							[
-								"FRA",
-								"ITA",
-								"AUS"
-							]
-						]
-					]
-				]
-			],
-			"layout": {
-				"line-join": "round",
-				"visibility": "visible"
 			}
 		}
 	],
