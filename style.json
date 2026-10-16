@@ -8649,6 +8649,63 @@
 			}
 		},
 		{
+			"id": "GADM_WNV_line",
+			"type": "line",
+			"source": "GADM",
+			"source-layer": "GADM",
+			"paint": {
+				"line-color": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					0,
+					"hsl(0, 100%, 25%)",
+					4,
+					"hsl(0, 100%, 25%)",
+					6,
+					"hsl(0, 100%, 50%)"
+				],
+				"line-width": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					0,
+					0.5,
+					4,
+					0.5,
+					5,
+					1.5
+				],
+				"line-opacity": 1
+			},
+			"filter": [
+				"all",
+				[	
+					"any",
+					["==", ["get", "riskW"], true]
+				],
+				["!",
+						[
+							"in",
+								["get", "GID_0"],
+								["literal", ["FRA", "ESP"]]
+						]
+					]
+			],
+			"layout": {
+				"line-join": "round",
+				"visibility": "visible"
+			}
+		},
+		{
 			"id": "GADM_MBV_line",
 			"type": "line",
 			"source": "GADM",
@@ -8664,7 +8721,7 @@
 						"zoom"
 					],
 					0,
-					1,
+					0,
 					5,
 					2,
 					10,
@@ -8689,6 +8746,7 @@
 					]
 			],
 			"layout": {
+				"line-join": "round",
 				"visibility": "visible"
 			}
 		}
