@@ -8604,6 +8604,50 @@
 			"layout": {
 				"visibility": "visible"
 			}
+		},
+		{
+			"id": "GADM_MBV",
+			"type": "line",
+			"source": "GADM",
+			"source-layer": "GADM",
+			"paint": {
+				"line-color": "hsl(240, 80%, 50%)",
+				"line-width": [
+					"interpolate",
+					[
+						"linear"
+					],
+					[
+						"zoom"
+					],
+					0,
+					1,
+					5,
+					2,
+					10,
+					8
+				]
+			},
+			"filter": [
+				"all",
+				[	
+					"any",
+					["==", ["get", "riskC"], true],
+					["==", ["get", "riskD"], true],
+					["==", ["get", "riskY"], true],
+					["==", ["get", "riskZ"], true]
+				],
+				["!",
+						[
+							"in",
+								["get", "GID_0"],
+								["literal", ["FRA", "ITA", "AUS"]]
+						]
+					]
+			],
+			"layout": {
+				"visibility": "visible"
+			}
 		}
 	],
 	"id": "JPAC",
