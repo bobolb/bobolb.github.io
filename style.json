@@ -1000,8 +1000,9 @@
 				]
 			],
 			"paint": {
-				"fill-color": "#fff",
-				"fill-opacity": 0
+				"fill-pattern": "risks:blue",
+				"fill-color": "#1919e6",
+				"fill-opacity": 1
 			},
 			"layout": {
 				"visibility": "visible"
