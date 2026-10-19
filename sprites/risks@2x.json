@@ -16,21 +16,21 @@
   "dots": {
     "height": 64,
     "width": 64,
-    "pixelRatio": 1.5,
+    "pixelRatio": 2,
     "x": 128,
     "y": 0
   },
     "stripes": {
     "height": 64,
     "width": 64,
-    "pixelRatio": 1.5,
+    "pixelRatio": 2,
     "x": 192,
     "y": 0
   },
     "crosshatch": {
     "height": 64,
     "width": 64,
-    "pixelRatio": 1.5,
+    "pixelRatio": 2,
     "x": 256,
     "y": 0
   },
