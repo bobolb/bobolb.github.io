@@ -14,8 +14,8 @@
     "y": 0
   },
   "dots": {
-    "height": 64,
-    "width": 64,
+    "height": 60,
+    "width": 60,
     "pixelRatio": 2,
     "x": 128,
     "y": 0
@@ -28,8 +28,8 @@
     "y": 0
   },
     "crosshatch": {
-    "height": 64,
-    "width": 64,
+    "height": 56,
+    "width": 56,
     "pixelRatio": 2,
     "x": 256,
     "y": 0
