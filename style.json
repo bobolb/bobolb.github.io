@@ -7908,7 +7908,7 @@
 				"fill-opacity": 0.5
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -8048,6 +8048,7 @@
 				]
 			],
 			"paint": {
+				"fill-pattern": "risks:blue",
 				"fill-color": "#00f",
 				"fill-opacity": 0.5
 			},
