@@ -13,11 +13,32 @@
     "x": 0,
     "y": 0
   },
-    "blue": {
+    "dots": {
     "height": 32,
     "width": 32,
     "pixelRatio": 1,
     "x": 64,
+    "y": 0
+  },
+  "diag-up": {
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 1,
+    "x": 96,
+    "y": 0
+  },
+  "diag-down": {
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 1,
+    "x": 128,
+    "y": 0
+  },
+  "vert": {
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 1,
+    "x": 160,
     "y": 0
   },
   "w": {
@@ -110,26 +131,5 @@
     "pixelRatio": 1,
     "x": 128,
     "y": 32
-  },
-  "hori": {
-    "height": 32,
-    "width": 32,
-    "pixelRatio": 1,
-    "x": 96,
-    "y": 0
-  },
-  "vert": {
-    "height": 32,
-    "width": 32,
-    "pixelRatio": 1,
-    "x": 128,
-    "y": 0
-  },
-  "diag": {
-    "height": 32,
-    "width": 32,
-    "pixelRatio": 1,
-    "x": 160,
-    "y": 0
   }
 }

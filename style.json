@@ -7970,7 +7970,7 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:hori",
+				"fill-pattern": "risks:diag-down",
 				"fill-color": "#f00",
 				"fill-opacity": 0.5
 			},
@@ -7994,7 +7994,7 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:diag",
+				"fill-pattern": "risks:diag-up",
 				"fill-color": "#0ff",
 				"fill-opacity": 0.5
 			},
@@ -8048,7 +8048,7 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:blue",
+				"fill-pattern": "risks:dots",
 				"fill-color": "#00f",
 				"fill-opacity": 0.5
 			},
