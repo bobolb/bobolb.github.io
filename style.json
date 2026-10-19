@@ -8022,7 +8022,7 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:dot",
+				"fill-pattern": "risks:dots",
 				"fill-color": "#f00",
 				"fill-opacity": 1
 			},
@@ -8046,7 +8046,7 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:hatch",
+				"fill-pattern": "risks:crosshatch",
 				"fill-color": "#0ff",
 				"fill-opacity": 1
 			},
