@@ -7888,6 +7888,10 @@
 			"type": "fill",
 			"source": "GADM",
 			"source-layer": "GADM",
+			"paint": {
+				"fill-color": "#fa0",
+				"fill-opacity": 0.5
+			},
 			"filter": [
 				"all",
 				[
@@ -7902,10 +7906,6 @@
 					]
 				]
 			],
-			"paint": {
-				"fill-color": "#fa0",
-				"fill-opacity": 0.5
-			},
 			"layout": {
 				"visibility": "none"
 			}
@@ -7915,6 +7915,10 @@
 			"type": "fill",
 			"source": "GADM",
 			"source-layer": "GADM",
+			"paint": {
+				"fill-color": "#fa0",
+				"fill-opacity": 0.75
+			},
 			"filter": [
 				"all",
 				[
@@ -7955,10 +7959,6 @@
 					]
 				]
 			],
-			"paint": {
-				"fill-color": "#fa0",
-				"fill-opacity": 0.75
-			},
 			"layout": {
 				"visibility": "visible"
 			}
@@ -7980,7 +7980,6 @@
 			],
 			"paint": {
 				"fill-pattern": "risks:stripes",
-				"fill-color": "#f0f",
 				"fill-opacity": 1
 			},
 			"layout": {
@@ -7992,6 +7991,10 @@
 			"type": "fill",
 			"source": "GADM",
 			"source-layer": "GADM",
+			"paint": {
+				"fill-pattern": "risks:dots",
+				"fill-opacity": 1
+			},
 			"filter": [
 				"all",
 				[
@@ -8021,10 +8024,6 @@
 					]
 				]
 			],
-			"paint": {
-				"fill-pattern": "risks:dots",
-				"fill-opacity": 0.5
-			},
 			"layout": {
 				"visibility": "visible"
 			}
@@ -8034,6 +8033,10 @@
 			"type": "fill",
 			"source": "GADM",
 			"source-layer": "GADM",
+				"paint": {
+				"fill-pattern": "risks:crosshatch",
+				"fill-opacity": 1
+			},
 			"filter": [
 				"all",
 				[
@@ -8044,11 +8047,6 @@
 					]
 				]
 			],
-			"paint": {
-				"fill-pattern": "risks:crosshatch",
-				"fill-color": "#0ff",
-				"fill-opacity": 1
-			},
 			"layout": {
 				"visibility": "visible"
 			}
