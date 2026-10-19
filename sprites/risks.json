@@ -24,8 +24,15 @@
     "height": 6,
     "width": 6,
     "pixelRatio": 1,
-    "x": 69,
-    "y": 1
+    "x": 160,
+    "y": 0
+  },
+    "hatch": {
+    "height": 6,
+    "width": 6,
+    "pixelRatio": 1,
+    "x": 160,
+    "y": 8
   },
   "stripes": {
     "height": 32,
