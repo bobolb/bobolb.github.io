@@ -7979,7 +7979,7 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:dots",
+				"fill-pattern": "risks:stripes",
 				"fill-color": "#f0f",
 				"fill-opacity": 1
 			},
@@ -8022,7 +8022,7 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:stripes",
+				"fill-pattern": "risks:dots",
 				"fill-color": "#f00",
 				"fill-opacity": 1
 			},
