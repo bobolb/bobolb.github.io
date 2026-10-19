@@ -20,6 +20,13 @@
     "x": 64,
     "y": 0
   },
+    "dot": {
+    "height": 6,
+    "width": 6,
+    "pixelRatio": 1,
+    "x": 69,
+    "y": 1
+  },
   "stripes": {
     "height": 32,
     "width": 32,
