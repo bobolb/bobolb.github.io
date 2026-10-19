@@ -21,15 +21,15 @@
     "y": 0
   },
     "dot": {
-    "height": 7,
-    "width": 7,
+    "height": 4,
+    "width": 4,
     "pixelRatio": 1,
-    "x": 160,
-    "y": 0
+    "x": 161,
+    "y": 1
   },
     "hatch": {
-    "height": 7,
-    "width": 7,
+    "height": 6,
+    "width": 6,
     "pixelRatio": 1,
     "x": 160,
     "y": 8
