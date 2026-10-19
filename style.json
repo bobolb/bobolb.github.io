@@ -1005,7 +1005,7 @@
 				"fill-opacity": 1
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -1034,7 +1034,7 @@
 				]
 			},
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -1104,7 +1104,7 @@
 				]
 			],
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -1158,7 +1158,7 @@
 				]
 			],
 			"layout": {
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -6583,7 +6583,7 @@
 			"source": "ADM_1_2_combined",
 			"layout": {
 				"line-join": "round",
-				"visibility": "visible"
+				"visibility": "none"
 			},
 			"paint": {
 				"line-color": [
@@ -6639,7 +6639,7 @@
 			"source": "ADM_1_2_combined",
 			"layout": {
 				"line-join": "round",
-				"visibility": "visible"
+				"visibility": "none"
 			},
 			"paint": {
 				"line-color": "hsl(240, 80%, 50%)",
@@ -6760,7 +6760,7 @@
 			],
 			"layout": {
 				"line-join": "round",
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -6844,7 +6844,7 @@
 			],
 			"layout": {
 				"line-join": "round",
-				"visibility": "visible"
+				"visibility": "none"
 			}
 		},
 		{
@@ -7885,970 +7885,134 @@
 			]
 		},
 		{
-			"id": "ADM_0_fill",
+			"id": "riskMcMp-fill",
 			"type": "fill",
-			"source": "ADM_0",
-			"source-layer": "ADM_0geojsonl",
+			"source": "GADM",
+			"source-layer": "GADM",
 			"filter": [
-				"in",
+				"all",
 				[
-					"get",
-					"GID_0"
-				],
-				[
-					"literal",
+					"any",
 					[
-						"AFG",
-						"ALB",
-						"DZA",
-						"ASM",
-						"AGO",
-						"AIA",
-						"ATG",
-						"ARG",
-						"ARM",
-						"ABW",
-						"AUT",
-						"BHS",
-						"BGD",
-						"BRB",
-						"BLZ",
-						"BEN",
-						"BMU",
-						"BTN",
-						"BOL",
-						"BES",
-						"BIH",
-						"BRA",
-						"VGB",
-						"BRN",
-						"BGR",
-						"BFA",
-						"BDI",
-						"CPV",
-						"KHM",
-						"CMR",
-						"CAN",
-						"CYM",
-						"CAF",
-						"TCD",
-						"CHL",
-						"CHN",
-						"COL",
-						"COM",
-						"COK",
-						"CRI",
-						"HRV",
-						"CUB",
-						"CUW",
-						"CYP",
-						"CIV",
-						"COD",
-						"DJI",
-						"DOM",
-						"DMA",
-						"ECU",
-						"EGY",
-						"SLV",
-						"GNQ",
-						"ERI",
-						"ETH",
-						"FJI",
-						"GUF",
-						"PYF",
-						"GAB",
-						"GMB",
-						"DEU",
-						"GHA",
-						"GRC",
-						"GRD",
-						"GLP",
-						"GUM",
-						"GTM",
-						"GNB",
-						"GIN",
-						"GUY",
-						"HTI",
-						"HND",
-						"HUN",
-						"IND",
-						"IDN",
-						"IRN",
-						"ISR",
-						"JAM",
-						"KEN",
-						"KIR",
-						"LAO",
-						"LBR",
-						"MAC",
-						"MDG",
-						"MWI",
-						"MYS",
-						"MDV",
-						"MLI",
-						"MHL",
-						"MTQ",
-						"MRT",
-						"MUS",
-						"MYT",
-						"FSM",
-						"MCO",
-						"MNE",
-						"MSR",
-						"MOZ",
-						"MMR",
-						"MEX",
-						"NAM",
-						"NRU",
-						"NPL",
-						"NLD",
-						"NCL",
-						"NIC",
-						"NGA",
-						"NER",
-						"NIU",
-						"MNP",
-						"MKD",
-						"OMN",
-						"PAK",
-						"PLW",
-						"PSE",
-						"PAN",
-						"PNG",
-						"PRY",
-						"PER",
-						"PHL",
-						"PRI",
-						"COG",
-						"ROU",
-						"RUS",
-						"RWA",
-						"REU",
-						"BLM",
-						"MAF",
-						"KNA",
-						"LCA",
-						"SPM",
-						"VCT",
-						"WSM",
-						"SAU",
-						"SEN",
-						"SRB",
-						"SYC",
-						"SLE",
-						"SGP",
-						"SXM",
-						"SVN",
-						"SLB",
-						"SOM",
-						"ZAF",
-						"SSD",
-						"LKA",
-						"SDN",
-						"SUR",
-						"SWZ",
-						"STP",
-						"TWN",
-						"TZA",
-						"THA",
-						"TLS",
-						"TGO",
-						"TKL",
-						"TON",
-						"TTO",
-						"TUN",
-						"TUR",
-						"TCA",
-						"TUV",
-						"UGA",
-						"UKR",
-						"ARE",
-						"USA",
-						"URY",
-						"VUT",
-						"VEN",
-						"VNM",
-						"VIR",
-						"WLF",
-						"YEM",
-						"ZMB",
-						"ZWE"
+						"get",
+						"riskMc"
+					],
+					[
+						"get",
+						"riskMp"
+					]
+				]
+			],
+			"paint": {
+				"fill-color": "#fa0",
+				"fill-opacity": 0.2
+			},
+			"layout": {
+				"visibility": "visible"
+			}
+		},
+		{
+			"id": "riskT-fill",
+			"type": "fill",
+			"source": "GADM",
+			"source-layer": "GADM",
+			"filter": [
+				"all",
+				[
+					"any",
+					[
+						"get",
+						"riskT"
+					]
+				]
+			],
+			"paint": {
+				"fill-color": "#f0f",
+				"fill-opacity": 0.2
+			},
+			"layout": {
+				"visibility": "visible"
+			}
+		},
+		{
+			"id": "riskW-fill",
+			"type": "fill",
+			"source": "GADM",
+			"source-layer": "GADM",
+			"filter": [
+				"all",
+				[
+					"any",
+					[
+						"get",
+						"riskW"
 					]
 				]
 			],
 			"paint": {
 				"fill-color": "#f00",
-				"fill-opacity": 0.5,
-				"fill-outline-color": "#000"
+				"fill-opacity": 0.2
 			},
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
-			"id": "ADM_0_symbol",
-			"type": "symbol",
-			"source": "ADM_0",
-			"source-layer": "point",
-			"filter": [
-				"in",
-				[
-					"get",
-					"GID_0"
-				],
-				[
-					"literal",
-					[
-						"AFG",
-						"ALB",
-						"DZA",
-						"ASM",
-						"AGO",
-						"AIA",
-						"ATG",
-						"ARG",
-						"ARM",
-						"ABW",
-						"AUT",
-						"BHS",
-						"BGD",
-						"BRB",
-						"BLZ",
-						"BEN",
-						"BMU",
-						"BTN",
-						"BOL",
-						"BES",
-						"BIH",
-						"BRA",
-						"VGB",
-						"BRN",
-						"BGR",
-						"BFA",
-						"BDI",
-						"CPV",
-						"KHM",
-						"CMR",
-						"CAN",
-						"CYM",
-						"CAF",
-						"TCD",
-						"CHL",
-						"CHN",
-						"COL",
-						"COM",
-						"COK",
-						"CRI",
-						"HRV",
-						"CUB",
-						"CUW",
-						"CYP",
-						"CIV",
-						"COD",
-						"DJI",
-						"DOM",
-						"DMA",
-						"ECU",
-						"EGY",
-						"SLV",
-						"GNQ",
-						"ERI",
-						"ETH",
-						"FJI",
-						"GUF",
-						"PYF",
-						"GAB",
-						"GMB",
-						"DEU",
-						"GHA",
-						"GRC",
-						"GRD",
-						"GLP",
-						"GUM",
-						"GTM",
-						"GNB",
-						"GIN",
-						"GUY",
-						"HTI",
-						"HND",
-						"HUN",
-						"IND",
-						"IDN",
-						"IRN",
-						"ISR",
-						"JAM",
-						"KEN",
-						"KIR",
-						"LAO",
-						"LBR",
-						"MAC",
-						"MDG",
-						"MWI",
-						"MYS",
-						"MDV",
-						"MLI",
-						"MHL",
-						"MTQ",
-						"MRT",
-						"MUS",
-						"MYT",
-						"FSM",
-						"MCO",
-						"MNE",
-						"MSR",
-						"MOZ",
-						"MMR",
-						"MEX",
-						"NAM",
-						"NRU",
-						"NPL",
-						"NLD",
-						"NCL",
-						"NIC",
-						"NGA",
-						"NER",
-						"NIU",
-						"MNP",
-						"MKD",
-						"OMN",
-						"PAK",
-						"PLW",
-						"PSE",
-						"PAN",
-						"PNG",
-						"PRY",
-						"PER",
-						"PHL",
-						"PRI",
-						"COG",
-						"ROU",
-						"RUS",
-						"RWA",
-						"REU",
-						"BLM",
-						"MAF",
-						"KNA",
-						"LCA",
-						"SPM",
-						"VCT",
-						"WSM",
-						"SAU",
-						"SEN",
-						"SRB",
-						"SYC",
-						"SLE",
-						"SGP",
-						"SXM",
-						"SVN",
-						"SLB",
-						"SOM",
-						"ZAF",
-						"SSD",
-						"LKA",
-						"SDN",
-						"SUR",
-						"SWZ",
-						"STP",
-						"TWN",
-						"TZA",
-						"THA",
-						"TLS",
-						"TGO",
-						"TKL",
-						"TON",
-						"TTO",
-						"TUN",
-						"TUR",
-						"TCA",
-						"TUV",
-						"UGA",
-						"UKR",
-						"ARE",
-						"USA",
-						"URY",
-						"VUT",
-						"VEN",
-						"VNM",
-						"VIR",
-						"WLF",
-						"YEM",
-						"ZMB",
-						"ZWE"
-					]
-				]
-			],
-			"layout": {
-				"icon-image": "risks:warning",
-				"icon-size": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					3,
-					0.5,
-					5,
-					1
-				],
-				"icon-allow-overlap": true,
-				"icon-ignore-placement": true,
-				"visibility": "none"
-			},
-			"paint": {
-				"icon-opacity": 1
-			}
-		},
-		{
-			"id": "ADM_1_fill",
+			"id": "riskV-fill",
 			"type": "fill",
-			"source": "ADM_1",
-			"source-layer": "ADM_1geojsonl",
+			"source": "GADM",
+			"source-layer": "GADM",
 			"filter": [
-				"any",
+				"all",
 				[
-					"in",
+					"any",
 					[
 						"get",
-						"NAME_1"
-					],
-					[
-						"literal",
-						[
-							"Andalucía",
-							"Extremadura"
-						]
-					]
-				],
-				[
-					"in",
-					[
-						"get",
-						"NAME_1"
-					],
-					[
-						"literal",
-						[
-							"Queensland"
-						]
+						"riskV"
 					]
 				]
 			],
 			"paint": {
-				"fill-color": "#0f0",
-				"fill-opacity": 0.5,
-				"fill-outline-color": "#000"
+				"fill-color": "#0ff",
+				"fill-opacity": 0.2
 			},
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
-			"id": "ADM_1_symbol",
-			"type": "symbol",
-			"source": "ADM_1",
-			"source-layer": "point",
-			"filter": [
-				"any",
-				[
-					"in",
-					[
-						"get",
-						"NAME_1"
-					],
-					[
-						"literal",
-						[
-							"Andalucía",
-							"Extremadura"
-						]
-					]
-				],
-				[
-					"in",
-					[
-						"get",
-						"NAME_1"
-					],
-					[
-						"literal",
-						[
-							"Queensland"
-						]
-					]
-				]
-			],
-			"layout": {
-				"icon-image": "risks:warning",
-				"icon-size": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					3,
-					0.5,
-					5,
-					1
-				],
-				"icon-allow-overlap": true,
-				"icon-ignore-placement": true,
-				"visibility": "none"
-			},
-			"paint": {
-				"icon-opacity": 1
-			}
-		},
-		{
-			"id": "ADM_2_fill",
+			"id": "riskCDYZ-fill",
 			"type": "fill",
-			"source": "ADM_2",
-			"source-layer": "ADM_2geojsonl",
+			"source": "GADM",
+			"source-layer": "GADM",
 			"filter": [
-				"any",
+				"all",
 				[
-					"in",
+					"any",
 					[
 						"get",
-						"NAME_2"
+						"riskC"
 					],
-					[
-						"literal",
-						[
-							"Alpes-Maritimes",
-							"Bouches-du-Rhône",
-							"Charente",
-							"Charente-Maritime",
-							"Dordogne",
-							"Gard",
-							"Gironde",
-							"Haute-Garonne",
-							"Hautes-Pyrénées",
-							"Hérault",
-							"Isère",
-							"Lot",
-							"Pyrénées-Orientales",
-							"Var",
-							"Vaucluse"
-						]
-					]
-				],
-				[
-					"in",
 					[
 						"get",
-						"NAME_2"
+						"riskD"
 					],
 					[
-						"literal",
-						[
-							"Lecce",
-							"Livorno",
-							"Modena",
-							"Verona"
-						]
+						"get",
+						"riskY"
+					],
+					[
+						"get",
+						"riskZ"
 					]
 				]
 			],
 			"paint": {
 				"fill-color": "#00f",
-				"fill-opacity": 0.5,
-				"fill-outline-color": "#000"
+				"fill-opacity": 0.2
 			},
 			"layout": {
-				"visibility": "none"
-			}
-		},
-		{
-			"id": "ADM_2_symbol",
-			"type": "symbol",
-			"source": "ADM_2",
-			"source-layer": "point",
-			"filter": [
-				"any",
-				[
-					"in",
-					[
-						"get",
-						"NAME_2"
-					],
-					[
-						"literal",
-						[
-							"Alpes-Maritimes",
-							"Bouches-du-Rhône",
-							"Charente",
-							"Charente-Maritime",
-							"Dordogne",
-							"Gard",
-							"Gironde",
-							"Haute-Garonne",
-							"Hautes-Pyrénées",
-							"Hérault",
-							"Isère",
-							"Pyrénées-Orientales",
-							"Var",
-							"Vaucluse"
-						]
-					]
-				],
-				[
-					"in",
-					[
-						"get",
-						"NAME_2"
-					],
-					[
-						"literal",
-						[
-							"Livorno",
-							"Modena",
-							"Verona"
-						]
-					]
-				]
-			],
-			"layout": {
-				"icon-image": "risks:warning",
-				"icon-size": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					5.3,
-					0.1,
-					5.6,
-					1
-				],
-				"icon-allow-overlap": true,
-				"icon-ignore-placement": false,
-				"visibility": "none"
-			},
-			"paint": {
-				"icon-opacity": [
-					"interpolate",
-					[
-						"linear"
-					],
-					[
-						"zoom"
-					],
-					5.3,
-					0,
-					5.4,
-					1
-				]
-			}
-		},
-		{
-			"id": "ADM_all_0",
-			"type": "fill",
-			"source": "ADM",
-			"source-layer": "ADM_0",
-			"paint": {
-				"fill-color": "#ff0",
-				"fill-opacity": 0.5,
-				"fill-outline-color": "#000"
-			},
-			"filter": [
-				"in",
-				[
-					"get",
-					"GID_0"
-				],
-				[
-					"literal",
-					[
-						"AFG",
-						"ALB",
-						"DZA",
-						"ASM",
-						"AGO",
-						"AIA",
-						"ATG",
-						"ARG",
-						"ARM",
-						"ABW",
-						"AUT",
-						"BHS",
-						"BGD",
-						"BRB",
-						"BLZ",
-						"BEN",
-						"BMU",
-						"BTN",
-						"BOL",
-						"BES",
-						"BIH",
-						"BRA",
-						"VGB",
-						"BRN",
-						"BGR",
-						"BFA",
-						"BDI",
-						"CPV",
-						"KHM",
-						"CMR",
-						"CAN",
-						"CYM",
-						"CAF",
-						"TCD",
-						"CHL",
-						"CHN",
-						"COL",
-						"COM",
-						"COK",
-						"CRI",
-						"HRV",
-						"CUB",
-						"CUW",
-						"CYP",
-						"CIV",
-						"COD",
-						"DJI",
-						"DOM",
-						"DMA",
-						"ECU",
-						"EGY",
-						"SLV",
-						"GNQ",
-						"ERI",
-						"ETH",
-						"FJI",
-						"GUF",
-						"PYF",
-						"GAB",
-						"GMB",
-						"DEU",
-						"GHA",
-						"GRC",
-						"GRD",
-						"GLP",
-						"GUM",
-						"GTM",
-						"GNB",
-						"GIN",
-						"GUY",
-						"HTI",
-						"HND",
-						"HUN",
-						"IND",
-						"IDN",
-						"IRN",
-						"ISR",
-						"JAM",
-						"KEN",
-						"KIR",
-						"LAO",
-						"LBR",
-						"MAC",
-						"MDG",
-						"MWI",
-						"MYS",
-						"MDV",
-						"MLI",
-						"MHL",
-						"MTQ",
-						"MRT",
-						"MUS",
-						"MYT",
-						"FSM",
-						"MCO",
-						"MNE",
-						"MSR",
-						"MOZ",
-						"MMR",
-						"MEX",
-						"NAM",
-						"NRU",
-						"NPL",
-						"NLD",
-						"NCL",
-						"NIC",
-						"NGA",
-						"NER",
-						"NIU",
-						"MNP",
-						"MKD",
-						"OMN",
-						"PAK",
-						"PLW",
-						"PSE",
-						"PAN",
-						"PNG",
-						"PRY",
-						"PER",
-						"PHL",
-						"PRI",
-						"COG",
-						"ROU",
-						"RUS",
-						"RWA",
-						"REU",
-						"BLM",
-						"MAF",
-						"KNA",
-						"LCA",
-						"SPM",
-						"VCT",
-						"WSM",
-						"SAU",
-						"SEN",
-						"SRB",
-						"SYC",
-						"SLE",
-						"SGP",
-						"SXM",
-						"SVN",
-						"SLB",
-						"SOM",
-						"ZAF",
-						"SSD",
-						"LKA",
-						"SDN",
-						"SUR",
-						"SWZ",
-						"STP",
-						"TWN",
-						"TZA",
-						"THA",
-						"TLS",
-						"TGO",
-						"TKL",
-						"TON",
-						"TTO",
-						"TUN",
-						"TUR",
-						"TCA",
-						"TUV",
-						"UGA",
-						"UKR",
-						"ARE",
-						"USA",
-						"URY",
-						"VUT",
-						"VEN",
-						"VNM",
-						"VIR",
-						"WLF",
-						"YEM",
-						"ZMB",
-						"ZWE"
-					]
-				]
-			],
-			"layout": {
-				"visibility": "none"
-			}
-		},
-		{
-			"id": "ADM_all_1",
-			"type": "fill",
-			"source": "ADM",
-			"source-layer": "ADM_1",
-			"paint": {
-				"fill-color": "#0ff",
-				"fill-opacity": 0.5,
-				"fill-outline-color": "#000"
-			},
-			"filter": [
-				"any",
-				[
-					"in",
-					[
-						"get",
-						"NAME_1"
-					],
-					[
-						"literal",
-						[
-							"Andalucía",
-							"Extremadura"
-						]
-					]
-				],
-				[
-					"in",
-					[
-						"get",
-						"NAME_1"
-					],
-					[
-						"literal",
-						[
-							"Queensland"
-						]
-					]
-				]
-			],
-			"layout": {
-				"visibility": "none"
-			}
-		},
-		{
-			"id": "ADM_all_2",
-			"type": "fill",
-			"source": "ADM",
-			"source-layer": "ADM_2",
-			"paint": {
-				"fill-color": "#f0f",
-				"fill-opacity": 0.5,
-				"fill-outline-color": "#000"
-			},
-			"filter": [
-				"any",
-				[
-					"in",
-					[
-						"get",
-						"NAME_2"
-					],
-					[
-						"literal",
-						[
-							"Alpes-Maritimes",
-							"Bouches-du-Rhône",
-							"Charente",
-							"Charente-Maritime",
-							"Dordogne",
-							"Gard",
-							"Gironde",
-							"Haute-Garonne",
-							"Hautes-Pyrénées",
-							"Hérault",
-							"Isère",
-							"Lot",
-							"Pyrénées-Orientales",
-							"Var",
-							"Vaucluse"
-						]
-					]
-				],
-				[
-					"in",
-					[
-						"get",
-						"NAME_2"
-					],
-					[
-						"literal",
-						[
-							"Lecce",
-							"Livorno",
-							"Modena",
-							"Verona"
-						]
-					]
-				]
-			],
-			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		}
 	],
