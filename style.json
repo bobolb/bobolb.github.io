@@ -1016,7 +1016,7 @@
 				"riskW"
 			],
 			"paint": {
-				"fill-pattern": "risks:stripes",
+				"fill-pattern": "risks:dots",
 				"fill-color": "#ff0000",
 				"fill-opacity": [
 					"interpolate",
