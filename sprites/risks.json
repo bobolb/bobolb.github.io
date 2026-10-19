@@ -20,21 +20,14 @@
     "x": 64,
     "y": 0
   },
-  "diag-up": {
+  "stripes": {
     "height": 32,
     "width": 32,
     "pixelRatio": 1,
     "x": 96,
     "y": 0
   },
-  "diag-down": {
-    "height": 32,
-    "width": 32,
-    "pixelRatio": 1,
-    "x": 128,
-    "y": 0
-  },
-  "vert": {
+  "crosshatch": {
     "height": 32,
     "width": 32,
     "pixelRatio": 1,

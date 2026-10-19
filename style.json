@@ -1016,7 +1016,7 @@
 				"riskW"
 			],
 			"paint": {
-				"fill-pattern": "risks:diag-down",
+				"fill-pattern": "risks:stripes",
 				"fill-color": "#ff0000",
 				"fill-opacity": [
 					"interpolate",
@@ -8022,7 +8022,7 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:diag-down",
+				"fill-pattern": "risks:stripes",
 				"fill-color": "#f00",
 				"fill-opacity": 1
 			},
@@ -8046,7 +8046,7 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:vert",
+				"fill-pattern": "risks:crosshatch",
 				"fill-color": "#0ff",
 				"fill-opacity": 1
 			},
