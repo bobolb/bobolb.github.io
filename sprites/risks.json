@@ -42,8 +42,8 @@
     "y": 0
   },
   "crosshatch": {
-    "height": 32,
-    "width": 32,
+    "height": 28,
+    "width": 28,
     "pixelRatio": 1,
     "x": 128,
     "y": 0
