@@ -6880,8 +6880,8 @@
 			"source-layer": "GADM",
 			"paint": {
 				"fill-color": "#fa0",
-				"fill-opacity": 0.75,
-				"fill-outline-color": "#CA824E"
+				"fill-opacity": 0.5,
+				"fill-outline-color":"#000"
 			},
 			"filter": [
 				"all",
@@ -6933,7 +6933,7 @@
 			"source": "GADM",
 			"source-layer": "GADM",
 			"paint": {
-				"line-color": "#CA824E",
+				"line-color": "#000",
 				"line-width": 1
 			},
 			"filter": [
@@ -6997,8 +6997,8 @@
 			],
 			"paint": {
 				"fill-pattern": "risks:stripes",
-				"fill-opacity": 0.5,
-				"fill-outline-color": "#1919e6"
+				"fill-opacity": 1,
+				"fill-outline-color": "#000"
 			},
 			"layout": {
 				"visibility": "visible"
@@ -7034,8 +7034,8 @@
 			"source-layer": "GADM",
 			"paint": {
 				"fill-pattern": "risks:dots",
-				"fill-opacity": 0.5,
-				"fill-outline-color": "#60c"
+				"fill-opacity": 1,
+				"fill-outline-color": "#000"
 			},
 			"filter": [
 				"all",
@@ -7119,7 +7119,7 @@
 			"source-layer": "GADM",
 			"paint": {
 				"fill-pattern": "risks:crosshatch",
-				"fill-opacity": 0.5,
+				"fill-opacity": 1,
 				"fill-outline-color": "#008000"
 			},
 			"filter": [
