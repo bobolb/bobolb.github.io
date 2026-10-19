@@ -7927,7 +7927,7 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:vert",
+				"fill-pattern": "risks:dots",
 				"fill-color": "#f0f",
 				"fill-opacity": 0.5
 			},
@@ -7994,7 +7994,7 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:diag-up",
+				"fill-pattern": "risks:vert",
 				"fill-color": "#0ff",
 				"fill-opacity": 0.5
 			},
@@ -8048,8 +8048,7 @@
 				]
 			],
 			"paint": {
-				"fill-pattern": "risks:dots",
-				"fill-color": "#00f",
+				"fill-color": "#fa0",
 				"fill-opacity": 0.5
 			},
 			"layout": {
