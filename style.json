@@ -8215,6 +8215,18 @@
 					[
 						"get",
 						"riskC"
+					],
+					[
+						"get",
+						"riskD"
+					],
+					[
+						"get",
+						"riskY"
+					],
+					[
+						"get",
+						"riskZ"
 					]
 				]
 			],
