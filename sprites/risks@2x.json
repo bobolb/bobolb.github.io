@@ -21,15 +21,15 @@
     "y": 0
   },
     "stripes": {
-    "height": 64,
-    "width": 64,
+    "height": 60,
+    "width": 60,
     "pixelRatio": 2,
     "x": 192,
     "y": 0
   },
     "crosshatch": {
-    "height": 56,
-    "width": 56,
+    "height": 60,
+    "width": 60,
     "pixelRatio": 2,
     "x": 256,
     "y": 0
