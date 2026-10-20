@@ -7867,6 +7867,7 @@
 				],
 				"text-max-width": 6.25,
 				"text-letter-spacing": 0.05,
+				"text-line-height": 1.1,
 				"text-size": [
 					"interpolate",
 					[
@@ -7952,6 +7953,7 @@
 				],
 				"text-max-width": 6.25,
 				"text-letter-spacing": 0.05,
+				"text-line-height": 1.1,
 				"text-size": [
 					"interpolate",
 					[
@@ -8052,6 +8054,7 @@
 				],
 				"text-max-width": 6.25,
 				"text-letter-spacing": 0.05,
+				"text-line-height": 1.1,
 				"text-size": [
 					"interpolate",
 					[
