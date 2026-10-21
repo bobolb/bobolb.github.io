@@ -8204,8 +8204,8 @@
 			"type": "fill",
 			"source": "ADM_1_2_combined",
 			"paint": {
-				"fill-color": "#fa0",
-				"fill-opacity": 0.5,
+				"fill-pattern": "risks:circle",
+				"fill-opacity": 1,
 				"fill-outline-color": "#008000"
 			},
 			"filter": [
@@ -8239,7 +8239,7 @@
 			"type": "fill",
 			"source": "ADM_1_2_combined",
 			"paint": {
-				"fill-pattern": "risks:crosshatch",
+				"fill-pattern": "risks:triangle",
 				"fill-opacity": 1,
 				"fill-outline-color": "#008000"
 			},
@@ -8262,7 +8262,7 @@
 			"type": "fill",
 			"source": "ADM_1_2_combined",
 			"paint": {
-				"fill-pattern": "risks:stripes",
+				"fill-pattern": "risks:square",
 				"fill-opacity": 1,
 				"fill-outline-color": "#008000"
 			},
@@ -8285,7 +8285,7 @@
 			"type": "fill",
 			"source": "ADM_1_2_combined",
 			"paint": {
-				"fill-pattern": "risks:dots",
+				"fill-pattern": "risks:cross",
 				"fill-opacity": 1,
 				"fill-outline-color": "#008000"
 			},

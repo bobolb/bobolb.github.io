@@ -138,5 +138,33 @@
     "pixelRatio": 1,
     "x": 128,
     "y": 32
+  },
+  "circle": {
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 1,
+    "x": 64,
+    "y": 96
+  },
+  "triangle": {
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 1,
+    "x": 96,
+    "y": 96
+  },
+  "square": {
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 1,
+    "x": 128,
+    "y": 96
+  },
+  "cross": {
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 1,
+    "x": 160,
+    "y": 96
   }
 }
