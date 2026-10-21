@@ -8270,8 +8270,8 @@
 			"type": "fill",
 			"source": "ADM_1_2_combined",
 			"paint": {
-				"fill-pattern": "risks:circle",
-				"fill-opacity": 1,
+				"fill-color": "#fa0",
+				"fill-opacity": 0.5,
 				"fill-outline-color": "#008000"
 			},
 			"filter": [
@@ -8297,7 +8297,7 @@
 				]
 			],
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
@@ -8305,7 +8305,7 @@
 			"type": "fill",
 			"source": "ADM_1_2_combined",
 			"paint": {
-				"fill-pattern": "risks:triangle",
+				"fill-pattern": "risks:stripes",
 				"fill-opacity": 1,
 				"fill-outline-color": "#008000"
 			},
@@ -8320,7 +8320,7 @@
 				]
 			],
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
@@ -8328,7 +8328,7 @@
 			"type": "fill",
 			"source": "ADM_1_2_combined",
 			"paint": {
-				"fill-pattern": "risks:square",
+				"fill-pattern": "risks:crosshatch",
 				"fill-opacity": 1,
 				"fill-outline-color": "#008000"
 			},
@@ -8343,7 +8343,7 @@
 				]
 			],
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		},
 		{
@@ -8351,7 +8351,7 @@
 			"type": "fill",
 			"source": "ADM_1_2_combined",
 			"paint": {
-				"fill-pattern": "risks:cross",
+				"fill-pattern": "risks:dots",
 				"fill-opacity": 1,
 				"fill-outline-color": "#008000"
 			},
@@ -8366,7 +8366,7 @@
 				]
 			],
 			"layout": {
-				"visibility": "none"
+				"visibility": "visible"
 			}
 		}
 	],
