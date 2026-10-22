@@ -346,8 +346,14 @@ map.on('load', async () => {
 			.replace(/([a-z])([A-Z])/g, '$1 $2')
 			.replace(/and([A-Z])/g, ' and $1');
 		let riskHTML = "";
+		if (feature.properties.riskT) {
+			riskHTML += '<p style="color:#0072b2"><i>Trypanosoma cruzi</i></p>';
+		}
 		if (feature.properties.riskW) {
 			riskHTML += '<p style="color:#c12e00">West Nile Virus</p>';
+		}
+		if (feature.properties.riskV) {
+			riskHTML += '<p style="color:#009e73">Viral haemorrhagic fever</p>';
 		}
 		const mbvRisks = [];
 		if (feature.properties.riskC) {
